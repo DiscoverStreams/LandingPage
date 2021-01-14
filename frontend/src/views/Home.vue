@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Description :projectDescription="projectDescription" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Description from "@/components/Description";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
-  }
+    Description
+  },
+  data: () => ({
+    projectDescription: "Groundwater pumping can lead to reductions in streamflow (‘streamflow depletion’). Streamflow depletion must be accurately quantified for effective conjunctive management of groundwater and surface water resources, and is relevant for water management questions related to the attribution of streamflow change, estimating impacts of groundwater pumping, and mitigation of streamflow depletion issues."
+  })
 };
 </script>
+
+<style scoped>
+.home{
+  margin: auto;
+  justify-content: center;
+}
+</style>
