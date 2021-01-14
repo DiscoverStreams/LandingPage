@@ -1,21 +1,18 @@
 <template>
   <div class="home">
-    <Description :projectDescription="projectDescription" />
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Description from "../components/Description";
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
   components: {
-    Description
-  },
-  data: () => ({
-    projectDescription:
-      "The description goes here. The description goes here. The description goes here. The description goes here. The description goes here. The description goes here. The description goes here."
-  })
+    HelloWorld
+  }
 };
 </script>
