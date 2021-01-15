@@ -1,5 +1,20 @@
 <template>
   <div >
-    <h1>This is an about page</h1>
+    <Description :description="description" />
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Description from "@/components/Description";
+
+export default {
+  name: "About",
+  components: {
+    Description
+  },
+  data: () => ({
+    description: "This is the about page"
+  })
+};
+</script>

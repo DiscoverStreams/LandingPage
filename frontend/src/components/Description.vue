@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{ projectDescription }}</h1>
+  <div class="box">
+    <h4>{{ description }}</h4>
   </div>
 </template>
 
@@ -8,13 +8,18 @@
 export default {
   name: "Description",
   props: {
-    projectDescription: String
+    description: String
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.box{
+  border: #42b983 1px solid;
+  margin: 0px 20px 50px 0px;
+}
+
 h3 {
   margin: 40px 0 0;
 }
