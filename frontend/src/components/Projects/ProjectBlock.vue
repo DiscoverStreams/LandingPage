@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="project">
     <!-- image covers the block with a text overlay for the city-->
-    <img :src="image" alt="City">
+    <!-- <img :src="image" alt="City"> -->
     <!-- text overlay on hover to show a description -->
+    <p>{{city}}</p>
   </div>
 </template>
 
@@ -18,18 +19,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.project{
+  width: 30rem;
+  height: 15rem;
+  border: solid 1px green;
+  margin: 0.25rem;
 }
 </style>

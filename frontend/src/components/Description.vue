@@ -17,7 +17,7 @@ export default {
 <style scoped>
 .box{
   border: #42b983 1px solid;
-  margin: 0px 20px 50px 0px;
+  margin: 0px 20px 50px 20px;
 }
 
 h3 {

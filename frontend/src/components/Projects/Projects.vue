@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <ProjectBlock  />
+  <div class="projects">
+    <div v-for="(project, index) in projects" :key="index">
+      <ProjectBlock :city='project.city' :image='project.image' />
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -13,25 +16,32 @@ export default {
     ProjectBlock
   },
   data: () => ({
-    cities: ['Kansas/Colarado', 'California', 'Michigan']  
-    images: ['', '', '']
+    projects: [
+      {
+        city: 'Kansas/Colarado', 
+        image: ''
+      },
+      {
+        city: 'California', 
+        image: ''
+      },
+      {
+        city: 'Michigan', 
+        image: ''
+      },
+      
+    ]
   })
 };
 </script>
 
 <style scoped>
-h3 {
-  margin: 2.5rem 0 0;
+.projects{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0 auto 1rem auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 0.625rem;
-}
-a {
-  color: #42b983;
-}
+
 </style>
