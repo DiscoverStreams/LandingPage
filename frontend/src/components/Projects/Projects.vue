@@ -19,15 +19,15 @@ export default {
     projects: [
       {
         city: 'Kansas/Colarado', 
-        image: ''
+        image: 'Ark-dry-kansas.jpg'
       },
       {
         city: 'California', 
-        image: ''
+        image: 'california-desert.webp'
       },
       {
         city: 'Michigan', 
-        image: ''
+        image: 'Ausable-River-Michigan.jpeg'
       },
       
     ]
