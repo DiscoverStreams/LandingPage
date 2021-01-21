@@ -21,8 +21,8 @@ export default {
 .navBar {
   display: flex;
   padding: 30px;
-  margin-bottom: 50px;
   justify-content: space-between;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.74);
 }
 
 .nav a {
