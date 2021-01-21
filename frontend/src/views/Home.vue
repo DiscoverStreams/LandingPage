@@ -29,5 +29,6 @@ export default {
 .home{
   margin: auto;
   justify-content: center;
+  margin-top: 1rem;
 }
 </style>
