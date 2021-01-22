@@ -33,6 +33,7 @@ export default {
   height: 100%;
   object-fit: cover;
   overflow: hidden;
+  filter: saturate(300%) sepia(10%) brightness(70%);
 }
 
 .overlay {
@@ -43,11 +44,11 @@ export default {
   right: 0;
   height: 578px;
   width: 100%;
-  transition: all .5s ease-in-out ;
-  border-radius: 0.75rem;
+  transition: all .5s ease-in-out;
 }
 
 .description {
+  width: 75%;
   color: rgb(255, 255, 255);
   font-size: 30px;
   position: absolute;
