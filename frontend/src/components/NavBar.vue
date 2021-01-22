@@ -1,7 +1,10 @@
 <template>
-  <div class="navBar nav">
-    <img src="" alt="LOGO">
-    <div > 
+  <div class="navBar nav">  
+    <div class="logo-container"> 
+      <img class="img" src="@/assets/Logo.png" alt="LOGO">
+      <h3 class="header">DiscoverStream</h3>
+    </div>
+    <div class="nav"> 
       <router-link to="/">Home</router-link> |
       <router-link to="/explore">Explore Data</router-link> |
       <router-link to="/about">About</router-link> |
@@ -17,12 +20,34 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.header{
+  font-size: 2rem;
+  margin: auto 0 auto 0;
+  padding-left: 0.5rem;
+}
+
+.logo-container{
+  display: flex;
+}
+
+.img{
+  width: 3rem;
+}
+
 .navBar {
   display: flex;
-  padding: 30px;
+  padding: 0.5rem 7rem 0.5rem 7rem;
   justify-content: space-between;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.74);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  background-color: aliceblue;
+}
+
+.nav{
+  margin: auto 0 auto 0;
 }
 
 .nav a {

@@ -1,8 +1,9 @@
 <template>
   <div class="box">
     <div class="pad" >
-      <div>
-        <img src="" alt="LOGO">  
+      <div class="logo-container">
+        <img class="logo" src="@/assets/Logo.png" alt="LOGO">  
+        <div class="header">Discover Stream</div>
       </div>
       <div class="column">  
         <h4>Explore</h4>
@@ -40,6 +41,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.header{
+  font-size: 2.5rem;
+  margin: auto 0 auto 0;
+  padding-left: 0.5rem;
+  max-width: 2rem;
+  color:  #d3ffeb;
+}
+
+.logo-container{
+  display: flex;
+}
+
+.logo{
+  width: 7.5rem;
+  padding-left: 5rem;
+}
+
 .box{
   display: flex;
   padding: 1rem;  
