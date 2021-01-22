@@ -1,11 +1,9 @@
 <template>
   <div class="container">
-    <h2>Our Team</h2>
+    <h1>Our Team</h1>
     <div class="team-container">
       <div class="team" v-for="(member, index) in team" :key="index">
-        <!-- <div class="img-container"> -->
         <img class="img" src="@/assets/teamImages/face.jpg" alt="face">
-        <!-- </div> -->
         <div class="description">
           <h4>{{member.name}}</h4>
           <p>{{member.affiliation}}</p>
@@ -114,7 +112,7 @@ p{
   display: flex;
   flex-flow: row wrap;
   max-width: 100rem;
-  width: 90%;
+  width: 100%;
   justify-content: space-around;
   margin: 0 auto 0 auto;
 }

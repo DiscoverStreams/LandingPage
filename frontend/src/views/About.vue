@@ -1,7 +1,11 @@
 <template>
   <div class="about">    
     <Hero :description="description" :image="image" />
-    <Team />
+    <div class="teamsbox">
+      <Funding />
+      <Affiliations />
+      <Team />
+    </div>
   </div>
 </template>
 
@@ -9,13 +13,17 @@
 // @ is an alias to /src
 import Hero from "@/components/About/Hero";
 import Team from "@/components/About/Team";
+import Funding from "@/components/About/Funding";
+import Affiliations from "@/components/Affiliations";
 
 
 export default {
   name: "About",
   components: {
     Hero,
-    Team
+    Team,
+    Affiliations,
+    Funding
   },
   data: () => ({
     description: "The Powell Center serves as a catalyst for innovative thinking in Earth system science research by providing the time, creative space, & computational, data manipulation & data management resources to promote synthesis of existing information leading to emergent Earth System science knowledge.",
@@ -35,5 +43,10 @@ export default {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
+}
+
+.teamsbox{
+  width: 90%;
+  margin: auto;
 }
 </style>
