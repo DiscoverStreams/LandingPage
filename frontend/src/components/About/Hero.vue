@@ -4,7 +4,7 @@
   </div>
   <div class="overlay">
     <div class="description">
-      &quot;{{description}}&quot;
+      {{description}}
     </div>
   </div>
 </template>

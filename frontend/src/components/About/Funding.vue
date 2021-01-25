@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <h1 class="title">{{title}}</h1>
-    <div class="img-container">
-      <img class="logos" v-for="(affiliate, index) in affiliations" :key="index"  :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
+    <div class="funding-container" v-for="(affiliate, index) in affiliations" :key="index">
+      <img class="logos" :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
       <div class="text-box">
         <h2>The Powell Center</h2>
-        <p>A little description about them        </p>
+        <p>&quot;{{affiliate.description}}&quot;</p>
       </div>
     </div>
   </div>
@@ -21,7 +21,8 @@ export default {
       {
         image: 'PowellCenter.jpg',
         alt: 'Powell Center',
-        name: 'Powell Center'
+        name: 'Powell Center',
+        description: "The Powell Center serves as a catalyst for innovative thinking in Earth system science research by providing the time, creative space, & computational, data manipulation & data management resources to promote synthesis of existing information leading to emergent Earth System science knowledge.",
       }
     ]
   }),
@@ -29,7 +30,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h4{
   margin: 0;
@@ -54,9 +54,8 @@ h1{
   float: left;
 }
 
-.img-container{
+.funding-container{
   display: flex;
-  flex-flow: row wrap;
   max-width: 100rem;
   width: 100%;
   margin: 0 auto 0 auto;
@@ -71,6 +70,8 @@ h1{
 .text-box{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: left;
+  padding-bottom: 3rem;
 }
 </style>
