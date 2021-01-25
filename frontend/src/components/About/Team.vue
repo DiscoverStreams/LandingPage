@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Our Team</h1>
+    <h1>Working Group Members</h1>
     <div class="team-container">
       <div class="team" v-for="(member, index) in team" :key="index">
         <img class="img" src="@/assets/teamImages/face.jpg" alt="face">
@@ -35,7 +35,7 @@ export default {
       },
       {
         name: 'Samuel Zipper',
-        affiliation: 'University of Victoria'
+        affiliation: 'Kansas Geological Survey'
       },
       {
         name: 'Hoori Ajami',

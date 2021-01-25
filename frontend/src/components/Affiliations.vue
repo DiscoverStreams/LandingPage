@@ -20,15 +20,16 @@ export default {
         name: 'USGS Powell Center'
       },
       {
-        image: 'KansasUniversity.png',
-        alt: 'UK',
-        name: 'University of Kansas'
-      },
-      {
         image: 'WaterlooU.png',
         alt: 'UW',
         name: 'University of Waterloo'
       },
+      {
+        image: 'KansasUniversity.png',
+        alt: 'UK',
+        name: 'University of Kansas'
+      },
+      
       {
         image: 'UniversityOfVictoria.png',
         alt: 'UI',

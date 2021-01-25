@@ -63,8 +63,8 @@ h1{
 
 .logos{
   padding: 1.25rem;
-  max-width: 30rem;
-  max-height: 30rem;
+  max-width: 25rem;
+  max-height: 25rem;
 }
 
 .text-box{
