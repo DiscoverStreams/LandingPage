@@ -22,7 +22,7 @@ export default {
         image: 'PowellCenter.jpg',
         alt: 'Powell Center',
         name: 'Powell Center',
-        description: "The Powell Center serves as a catalyst for innovative thinking in Earth system science research by providing the time, creative space, & computational, data manipulation & data management resources to promote synthesis of existing information leading to emergent Earth System science knowledge.",
+        description: "The Powell Center serves as a catalyst for innovative thinking in Earth system science research by providing the time, creative space, & computational, data manipulation & data management resources to promote synthesis of existing information leading to emergent Earth System science knowledge. We are a scientist-driven institution where leveraging existing research efforts produces powerful new insights and moves scientific understanding and its inclusion into management forward at an accelerated pace.",
       }
     ]
   }),
