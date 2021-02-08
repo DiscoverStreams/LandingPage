@@ -1,4 +1,25 @@
 const express = require("express")
+const mysql = require("mysql")
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'vizku_webconnect',
+  password: 'F-9hZ#Q8G}c{',
+  database: 'vizku_water',
+  port: '3620'
+})
+
+connection.connect();
+
+connection.query('SELECT *', function (err) {
+  if (err) {
+    console.error(err);
+  }
+  console.log('the solution is: ');
+})
+
+connection.end()
+
 const app = express()
 const PORT = 5000
 
