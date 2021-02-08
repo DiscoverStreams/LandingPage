@@ -6,16 +6,17 @@ const connection = mysql.createConnection({
   user: 'vizku_webconnect',
   password: 'F-9hZ#Q8G}c{',
   database: 'vizku_water',
-  port: '3620'
+  port: '3306'
 })
 
 connection.connect();
 
-connection.query('SELECT *', function (err) {
+connection.query('SELECT *', function (err, result, fields) {
   if (err) {
     console.error(err);
   }
   console.log('the solution is: ');
+  console.log(result);
 })
 
 connection.end()
