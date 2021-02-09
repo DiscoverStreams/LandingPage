@@ -3,11 +3,16 @@ const mysql = require("mysql")
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'vizku_webconnect',
-  password: 'F-9hZ#Q8G}c{',
+  user: 'vizku',
+  password: 'fRbo[giOL9Ht',
+  // user: 'root',
+  // password: 'tFJOtFi2021',
   database: 'vizku_water',
+  insecureAuth : true,
   port: '3306'
 })
+
+//76.70.83.66
 
 connection.connect();
 
