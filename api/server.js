@@ -2,8 +2,8 @@ const express = require("express")
 const mysql = require("mysql")
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'vizku',
+  host: 'itprdcpandb01.cc.ku.edu',
+  user: 'vizku_webconnect',
   password: 'fRbo[giOL9Ht',
   // user: 'root',
   // password: 'tFJOtFi2021',
