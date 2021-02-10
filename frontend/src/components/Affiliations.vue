@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="title">{{title}}</h2 >
+    <h1 class="title">{{title}}</h1>
     <div class="img-container">
       <img class="logos" v-for="(affiliate, index) in affiliations" :key="index"  :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
     </div>
@@ -12,7 +12,7 @@
 export default {
   name: "Affiliations",
   data: () => ({
-    title: 'In Partnership with',
+    title: 'In Partnership with...',
     affiliations: [
       {
         image: 'USGSPowellCenter.png',
@@ -20,19 +20,20 @@ export default {
         name: 'USGS Powell Center'
       },
       {
-        image: 'KansasUniversity.png',
-        alt: 'UK',
-        name: 'University of Kansas'
-      },
-      {
         image: 'WaterlooU.png',
         alt: 'UW',
         name: 'University of Waterloo'
       },
       {
-        image: 'UniversityOfIdaho.png',
+        image: 'KansasUniversity.png',
+        alt: 'UK',
+        name: 'University of Kansas'
+      },
+      
+      {
+        image: 'UniversityOfVictoria.png',
         alt: 'UI',
-        name: 'University of Idaho'
+        name: 'University of Victoria'
       }, 
     ]
   }),

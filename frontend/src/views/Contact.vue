@@ -1,20 +1,30 @@
 <template>
-  <div>
-    <Description :description="description" />
+  <div class="container">
+    <Hero :description="description" :image="image" :email="email" :phone="phone" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Description from "@/components/Description";
+import Hero from "@/components/Contacts/Hero";
 
 export default {
   name: "Contact",
   components: {
-    Description
+    Hero
   },
   data: () => ({
-    description: "This is the contacts page"
+    description: "Contact",
+    email: 'Email: something@something.com',
+    phone: 'Phone: +?-???-???-????',
+    image: 'Ausable_river.jpg'
   })
 };
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+</style>

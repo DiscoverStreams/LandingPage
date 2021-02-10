@@ -5,7 +5,7 @@
     <!-- text overlay on hover to show a description -->
     <div class="overlay">
       <div class="description">
-        Description Goes Here
+        Visually discover more about changes in streamflow and streamflow depletion
       </div>
       <div class="text">
         {{city}}

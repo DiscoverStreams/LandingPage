@@ -4,7 +4,9 @@
   </div>
   <div class="overlay">
     <div class="description">
-      {{description}}
+      <h1>{{description}}</h1>
+      <h4>{{email}}</h4>
+      <h4>{{phone}}</h4>
     </div>
   </div>
 </template>
@@ -14,6 +16,8 @@ export default {
   name: "Hero",
   props: {
     description: String,
+    email: String,
+    phone: String,
     image: String
   }
 };
