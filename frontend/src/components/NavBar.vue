@@ -6,7 +6,17 @@
     </div>
     <div class="nav"> 
       <router-link to="/">Home</router-link> |
-      <router-link to="/explore">Explore Data</router-link> |
+      <!-- <router-link to="/explore">Explore Data</router-link> | -->
+      <div class="dropdown">
+        <button class="dropbtn">Explore Data 
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Explore Kansas</a>
+          <a href="#">Explore Colarado</a>
+          <a href="#">Explore California</a>
+          <a href="#">Explore Michigan</a>
+        </div>
+      </div> |
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> 
     </div>
@@ -21,6 +31,57 @@ export default {
 </script>
 
 <style scoped>
+.dropdown {
+  display: inline;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropbtn{
+  font-weight: bold;
+  font-size: 1rem;
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 110px;
+  margin-left: 3.5rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  /* float: none; */
+  color: black;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropbtn {
+  color: #42b983;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .header{
   font-size: 2rem;
   margin: auto 0 auto 0;
@@ -48,11 +109,13 @@ export default {
 
 .nav{
   margin: auto 0 auto 0;
+  transition: all 500ms ease-in-out;
 }
 
 .nav a {
   font-weight: bold;
   color: #2c3e50;
+  font-size: 1rem;
 }
 
 .nav a.router-link-exact-active {
