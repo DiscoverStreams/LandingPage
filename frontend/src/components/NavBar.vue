@@ -6,19 +6,38 @@
     </div>
     <div class="nav"> 
       <router-link to="/">Home</router-link> |
+      <router-link to="/">Explore Science</router-link> |
       <!-- <router-link to="/explore">Explore Data</router-link> | -->
       <div class="dropdown">
         <button class="dropbtn">Explore Data 
         </button>
-        <div class="dropdown-content">
-          <a href="#">Explore Kansas</a>
-          <a href="#">Explore Colarado</a>
-          <a href="#">Explore California</a>
-          <a href="#">Explore Michigan</a>
+        <div class="dropdown-content explore-sub">
+          <router-link to="/explore">Explore Kansas</router-link>
+          <router-link to="/explore">Explore Colarado</router-link>
+          <router-link to="/explore">Explore California</router-link>
+          <router-link to="/explore">Explore Michigan</router-link>
         </div>
       </div> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/contact">Contact</router-link> 
+      <div class="dropdown">
+        <button class="dropbtn">Information 
+        </button>
+        <div class="dropdown-content information-sub">
+          <router-link to="/about">About</router-link>
+          <router-link to="/about">References</router-link>
+          <router-link to="/about">Documentation</router-link>
+        </div>
+      </div> |
+      <!-- <router-link to="/about">About</router-link> | -->
+      <div class="dropdown">
+        <button class="dropbtn">Content 
+        </button>
+        <div class="dropdown-content content-sub">
+          <router-link to="/contact">Contact</router-link >
+          <router-link to="/contact">Citations</router-link >
+          <router-link to="/contact">Liscense</router-link >
+        </div>
+      </div> 
+      <!-- <router-link to="/contact">Contact</router-link>  -->
     </div>
   </div>
 </template>
@@ -31,6 +50,18 @@ export default {
 </script>
 
 <style scoped>
+.explore-sub{
+  margin-left: 11.75rem;
+}
+
+.information-sub{
+  margin-left: 19.5rem;
+}
+
+.content-sub{
+  margin-left: 26.5rem;
+}
+
 .dropdown {
   display: inline;
   overflow: hidden;
@@ -54,9 +85,10 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 100%;
   background-color: #f9f9f9;
+  left: 0;
   min-width: 110px;
-  margin-left: 3.5rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -109,6 +141,7 @@ export default {
 
 .nav{
   margin: auto 0 auto 0;
+  position: relative;
   transition: all 500ms ease-in-out;
 }
 
@@ -117,8 +150,8 @@ export default {
   color: #2c3e50;
   font-size: 1rem;
 }
-
+/* 
 .nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 </style>
