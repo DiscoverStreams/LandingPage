@@ -2,21 +2,22 @@ const express = require("express")
 const mysql = require("mysql")
 
 const connection = mysql.createConnection({
-  host: 'itprdcpandb01.cc.ku.edu',
-  user: 'vizku_webconnect',
-  password: 'fRbo[giOL9Ht',
-  // user: 'root',
-  // password: 'tFJOtFi2021',
-  database: 'vizku_water',
+  host: 'localhost',
+  user: 'root', 
+  password: '',
+  // user: 'vizku_webconnect',
+  // password: 'fRbo[giOL9Ht',
+  database: 'itprdcpandb01.cc.ku.edu',
   insecureAuth : true,
   port: '3306'
 })
 
-//76.70.83.66
+  // host: 'itprdcpandb01.cc.ku.edu.',
+  //76.70.83.66
 
 connection.connect();
 
-connection.query('SELECT *', function (err, result, fields) {
+connection.query('SELECT * from Streamflow_Wichita', function (err, result, fields) {
   if (err) {
     console.error(err);
   }
