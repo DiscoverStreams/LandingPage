@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">{{title}}</h1>
+    <h2 class="title">{{title}}</h2>
     <div class="img-container">
       <img class="logos" v-for="(affiliate, index) in affiliations" :key="index"  :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
     </div>
@@ -66,7 +66,7 @@ export default {
 }
 .logos{
   padding: 1.25rem;
-  max-width: 12.5rem;
-  max-height: 8rem;
+  max-width: 7.5rem;
+  max-height: 5rem;
 }
 </style>
