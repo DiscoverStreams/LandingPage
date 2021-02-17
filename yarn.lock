@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-vue3-carousel@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.1.11.tgz#8c670d750dd8c230ec7bee2ff9661b56d4f23c1c"
-  integrity sha512-XwFYSYxOXCi7yoJAY8J9YKMCpej4vlgar3DFVCF2F/Vcp0ooPHaaMVqyWyX1PhdO9VJi2KCr5HdesLGg/8Sxww==
+vueperslides@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/vueperslides/-/vueperslides-3.2.0.tgz#6b27f6b2d383960fbce8d510db840dbe21178738"
+  integrity sha512-s3zbhdC5vY67FuwOJ2F33FBdPFfqOLwgqDx9viCq+g4lbR86urU78J0vWisE/E2isc2m3wXw2akHpsH4pS2z4g==

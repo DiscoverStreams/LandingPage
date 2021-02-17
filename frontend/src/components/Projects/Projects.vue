@@ -3,7 +3,7 @@
     <!-- <div v-for="(project, index) in projects" :key="index">
       <ProjectBlock :city='project.city' :image='project.image' />
     </div> -->
-    <div class="container">
+    <!-- <div class="container">
       <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
         <slide v-for="(project, i) in projects" :key="i">
           <ProjectBlock :city='project.city' :image='project.image' />  
@@ -15,71 +15,82 @@
           <pagination />
         </template>
       </carousel>
-    </div>
-    
+    </div> -->
+    <!-- class="no-shadow"
+      :visible-slides="3"
+      :slide-ratio="1 / 4"
+      :dragging-distance="70" 
+      3d fixed-height="300px" arrows-outside bullets-outside-->
+    <vueper-slides 
+      class="no-shadow "
+      fixed-height="300px"
+      :visible-slides="2"
+      :slide-ratio="1 / 4"
+      :dragging-distance="70"
+      :gap="3"
+      :breakpoints="{ 1000: { '3d': true, visibleSlides: 1} }"
+    >
+      <vueper-slide class="title" v-for="(project, i) in projects" :key="i" :image="project.image" :link="project.link" :title="project.city">
+        <!-- <template v-slot:content> -->
+        <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
+      </vueper-slide>
+    </vueper-slides>
   </div>
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
+// import 'vue3-carousel/dist/carousel.css';
+// import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
-import ProjectBlock from './ProjectBlock';
+// import ProjectBlock from './ProjectBlock';
 
 
 export default {
   name: "Projects",
   components: {
-    ProjectBlock,
-    Carousel,
-    Slide,
-    Navigation,
-    Pagination
+    // ProjectBlock,
+    VueperSlides,
+    VueperSlide
+    // Carousel,
+    // Slide,
+    // Navigation,
+    // Pagination
   },
   data: () => ({
     projects: [
       {
         city: 'Kansas/Colarado', 
-        image: 'Ark-dry-kansas.jpg'
+        // image: 'Ark-dry-kansas.jpg'
+        image: require(`@/assets/projectImages/Ark-dry-kansas.jpg`),
+        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
       },
       {
         city: 'California', 
-        image: 'california-desert.webp'
+        // image: 'california-desert.webp',
+        image: require(`@/assets/projectImages/california-desert.webp`),
+        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
+
       },
       {
         city: 'Michigan', 
-        image: 'Ausable-River-Michigan.jpeg'
+        // image: 'Ausable-River-Michigan.jpeg',
+        image: require(`@/assets/projectImages/Ausable-River-Michigan.jpeg`),
+        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
+
       },
       
     ],
-    // carousel settings
-    settings: {
-      itemsToShow: 1,
-      snapAlign: "center"
-    },
-    // breakpoints are mobile first
-    // any settings not specified will fallback to the carousel settings
-    breakpoints: {
-      // 700px and up
-      1200: {
-        itemsToShow: 2,
-        snapAlign: "center"
-      },
-      // 1024 and up
-      1700: {
-        itemsToShow: 3,
-        snapAlign: "center"
-      }
-    }
   })
 };
 </script>
 
 <style scoped>
 .projects{
-  display: unset;
+  /* display: inline !important; */
   /* flex-flow: row wrap; */
-  width: 100%;
+  width: 80%;
   /* justify-content: space-around; */
   margin: 0 auto 1rem auto;
 }
@@ -87,28 +98,26 @@ export default {
 .container {
   width: 80%;
   margin: 0 auto 1rem auto;
+  /* display: inline !important; */
 }
 
-.carousel__item {
-  min-height: 200px;
-  width: 100%;
-  background-color: #642afb;
-  color: white;
-  font-size: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.ex--center-mode {
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
 }
 
-.carousel__slide {
-  /* padding: 10px; */
+.title {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #56ffb8;
 }
 
-.carousel__prev,
-.carousel__next {
-  /* box-sizing: content-box;
-  border: 5px solid white; */
+@media only screen and (max-width: 1200px) {
+  .title{
+    font-size: 1.5rem;
+  }
 }
 
 </style>
