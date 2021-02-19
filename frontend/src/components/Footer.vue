@@ -47,6 +47,8 @@ export default {
   padding-left: 0.5rem;
   max-width: 2rem;
   color:  #d3ffeb;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .logo-container{
@@ -55,26 +57,31 @@ export default {
 
 .logo{
   width: 7.5rem;
-  padding-left: 5rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .box{
   display: flex;
-  padding: 1rem;  
   background-color: rgba(34, 32, 32, 0.808);
   color: white;
   margin: 0rem;
   flex-shrink: 0;
   flex-direction: column;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 1rem;
 }
 
 .pad{
   display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
   max-width: 100rem;  
   margin: auto;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .column{
@@ -82,12 +89,14 @@ export default {
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
+  padding: 0.5rem;
 }
 
 h4{
   color: #d3ffeb;
   margin: 0 0 0.5rem 0;
   font-weight: 600;
+  font-size: 1rem;
 }
 
 a {
@@ -95,11 +104,42 @@ a {
   outline: none;
   text-decoration: none;
   padding: 0.1rem 0.05rem 0;
+  font-size: 1rem;
 }
 
 a:hover{
   color: #00b966be;
 }
 
+@media only screen and (max-width: 1200px) {
+  .header {
+    display: none;
+  }
+  .logo{
+    width: 5.5rem;
+  }
+  h4 {
+    font-size: 0.9rem;
+  }
+  a {
+    font-size: 0.9rem;
+  }
+  
+}
+@media only screen and (max-width: 500px) {
+  .logo{
+    display: none;
+  }
+  h4 {
+    font-size: 0.9rem;
+  }
+  a {
+    font-size: 0.9rem;
+  }
+  .pad {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 </style>

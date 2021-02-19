@@ -13,21 +13,21 @@
       </button>
       <aside v-bind:class="{ open }">
         <div>
-          <button class="close" v-on:click="open = !open">
+          <button class="close" v-on:click="{open = false; information = false; exploreData = false; content = false}">
             x
           </button>
           <ul class="list-unstyled ct-sidenav-list sidebar-content">
-            <li>
+            <li class="sidebar-text">
               <router-link class="sidebar-text" to="/">Home</router-link> 
             </li>
-            <li>
+            <li class="sidebar-text">
               <router-link class="sidebar-text" to="/">Explore Science</router-link>       
             </li>
             <li>
               
               <button class="sidebar-dropdown-btn sidebar-text" v-on:click="exploreData = !exploreData">Explore Data 
               </button>
-              <div class="sidebar-dropdown  " v-show="exploreData">
+              <div class="sidebar-dropdown" v-show="exploreData">
                 <router-link class="sidebar-text" to="/explore">Explore Kansas</router-link>
                 <router-link class="sidebar-text" to="/explore">Explore Colarado</router-link>
                 <router-link class="sidebar-text" to="/explore">Explore California</router-link>
@@ -136,7 +136,7 @@ aside.open {
 }
 
 .sidebar-text{
-  margin: 1rem;
+  margin: 1rem 0rem 0rem 0rem;
 }
 
 .close {
@@ -157,10 +157,16 @@ aside.open {
 
 .close:focus{
   border: none;
+  outline: none;
+}
+
+.close:active{
+  border: none;
+  outline: none;
 }
 
 .close:hover{
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .ct-sidenav-list {
@@ -191,6 +197,9 @@ aside.open {
 .sidebar-dropdown{
   display: flex;
   flex-direction: column;
+  margin: 0rem 1rem 1rem 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .explore-sub{
@@ -320,7 +329,19 @@ aside.open {
     font-size: 1rem;
     text-decoration: none;
   }
+  .navBar {
+    padding: 0.5rem 3.5rem 0.5rem 3.5rem;
+  }
   
+}
+
+@media only screen and (max-width: 700px) {
+  .header{
+    display: none;
+  }
+  .navBar {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
