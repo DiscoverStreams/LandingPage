@@ -1,6 +1,8 @@
 const express = require("express")
 const mysql = require("mysql")
 
+const mailapi = require('./mailapi/mailapi')
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root', 
@@ -33,5 +35,7 @@ const PORT = 5000
 const apiURL = 'https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json'
 
 app.get('/', (req, res) => res.send('Hello World'))
+
+app.use('/mailapi', mailapi)
 
 app.listen(PORT, ()=> console.log(`Listening on port ${PORT}`))
