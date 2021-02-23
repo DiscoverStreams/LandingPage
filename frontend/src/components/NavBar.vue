@@ -1,8 +1,13 @@
 <template>
   <div class="navBar nav">  
     <div class="logo-container"> 
-      <img class="img" src="@/assets/Logo.png" alt="LOGO">
-      <h3 class="header">DiscoverStream</h3>
+      <router-link to="/">
+        <img class="img" src="@/assets/Logo.png" alt="LOGO">
+          
+      </router-link>
+      <router-link to="/">
+        <h3 class="header">DiscoverStream</h3>
+      </router-link>
     </div>
 
     <!-- Nav Mobile -->
@@ -113,6 +118,14 @@ export default {
     content: false,
     exploreData: false,
   }),
+  watch: {
+    '$route' (){
+      this.open = false;
+      this.information = false;
+      this.content = false;
+      this.exploreData = false;
+    }
+  }
 };
 </script>
 
@@ -269,7 +282,7 @@ aside.open {
 
 .header{
   font-size: 2rem;
-  margin: auto 0 auto 0;
+  margin: 0.35rem 0 auto 0;
   padding-left: 0.5rem;
 }
 
@@ -294,7 +307,7 @@ aside.open {
 
 .nav{
   margin: auto 0 auto 0;
-  position: relative;
+  /* position: relative; */
   transition: all 500ms ease-in-out;
 }
 
