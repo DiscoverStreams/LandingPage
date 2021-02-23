@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <h4>{{ description }}</h4>
+    <h4 v-for="(paragraph, i) in description" :key="i">{{ paragraph }}</h4>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: "Description",
   props: {
-    description: String
+    description: [String]
   }
 };
 </script>
@@ -16,8 +16,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .box{
-  border: #42b983 1px solid;
-  margin: 0px 20px 50px 20px;
+  /* border: #42b983 1px solid; */
+  margin: 2rem 2rem 1rem 2rem;
+  padding: 0rem 0rem;
 }
 
 h3 {

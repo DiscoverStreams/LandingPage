@@ -8,7 +8,7 @@
     <!-- Nav Mobile -->
 
     <div class="small-screen">
-      <button class="hamburger" v-on:click="open = !open">
+      <button class="hamburger" v-on:click="open = !open" v-show="!open">
         <img :src="Hamburger" alt="Menu">
       </button>
       <aside v-bind:class="{ open }">
@@ -21,7 +21,7 @@
               <router-link class="sidebar-text" to="/">Home</router-link> 
             </li>
             <li class="sidebar-text">
-              <router-link class="sidebar-text" to="/">Explore Science</router-link>       
+              <router-link class="sidebar-text" to="/exploreScience">Explore Science</router-link>       
             </li>
             <li>
               
@@ -61,7 +61,7 @@
     <!-- Nav for large screens -->
     <div class="nav large-screen"> 
       <router-link to="/">Home</router-link> |
-      <router-link to="/">Explore Science</router-link> |
+      <router-link to="/exploreScience">Explore Science</router-link> |
       <!-- <router-link to="/explore">Explore Data</router-link> | -->
       <div class="dropdown">
         <button class="dropbtn">Explore Data 
@@ -121,9 +121,9 @@ aside {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 100%;
   height: 100%;
-  background: whitesmoke;
+  background: rgba(83, 80, 80, 0.925);
   box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
   transform: translateX(110%);
   transition: transform 200ms;
@@ -137,19 +137,20 @@ aside.open {
 
 .sidebar-text{
   margin: 1rem 0rem 0rem 0rem;
+  color: white !important;
 }
 
 .close {
   position: absolute;
   cursor: pointer;
-  top: 1rem;
-  right: 1.5rem;
+  top: 0.75rem;
+  right: 1.25rem;
   text-shadow: none;
   color: black;
   -webkit-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
   background: transparent;
-  font-size: 1.5rem;
+  font-size: 2rem;
   opacity: 1;
   font-weight: lighter;
   border: none;

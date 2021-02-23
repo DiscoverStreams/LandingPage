@@ -9,7 +9,7 @@ router.post('/write', function (req, res) {
   fs.writeFileSync(file, req.body.content + "\n", { flag: 'a+'}, err => {
     if (err) {
       console.error("error", err);
-      res.send("Status Fuck Knows");
+      res.send("Status 404");
     }else {
       res.send("Status 200");
     }
