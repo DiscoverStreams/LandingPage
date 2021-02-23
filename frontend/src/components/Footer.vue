@@ -26,7 +26,7 @@
     </div>
     <div class="mailing-list-container">
       <div class="mailing-list">
-        <input placeholder="Email" type="email">
+        <input v-model="content" placeholder="Email" type="email">
         <button class="mailButton"  v-on:click="mailSubmit">Join!</button>
     
       </div>
@@ -38,14 +38,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "Footer",
   data: () => ({
     year : new Date().getFullYear(),
+    content: ''
   }),
   methods: {
-    mailSubmit: function (event) {
-      alert(event.target.value)
+    mailSubmit: async function () {
+      console.log(this.content);
+
+      await axios.post('api/mailapi/write', {
+        content: this.content
+      }).then(function (res) {
+        console.log(res);
+      }).catch(function (err) {
+        console.error(err);
+      })
+      this.content = "";
+
     }
   }
 };

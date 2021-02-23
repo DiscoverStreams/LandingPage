@@ -3,13 +3,18 @@ const router = express.Router();
 
 fs = require('fs');
 
-const file = '../../emails.txt';
+const file = '../emails.txt';
 
 router.post('/write', function (req, res) {
-  console.log("req: ", req);
-  fs.writeFileSync(file, req.content, { flag: 'a+'}, err => {
-    console.error(err);
+  fs.writeFileSync(file, req.body.content + "\n", { flag: 'a+'}, err => {
+    if (err) {
+      console.error("error", err);
+      res.send("Status Fuck Knows");
+    }else {
+      res.send("Status 200");
+    }
   });
 });
+
 
 module.exports = router
