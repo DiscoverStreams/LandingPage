@@ -2,6 +2,7 @@
   <div class="projects">
     <div v-for="(project, index) in projects" :key="index">
       <ProjectBlock :city='project.city' :image='project.image' />
+      <Kansas />
     </div>
   </div>
   
@@ -9,11 +10,13 @@
 
 <script>
 import ProjectBlock from './ProjectBlock';
+import Kansas from './Kansas/Kansas';
 
 export default {
   name: "Projects",
   components: {
-    ProjectBlock
+    ProjectBlock,
+    Kansas
   },
   data: () => ({
     projects: [
