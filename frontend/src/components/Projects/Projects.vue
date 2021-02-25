@@ -4,6 +4,7 @@
       <ProjectBlock :city='project.city' :image='project.image' />
       <Kansas />
     </div>
+    
   </div>
   
 </template>
