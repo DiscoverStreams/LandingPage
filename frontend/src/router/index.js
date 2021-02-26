@@ -24,8 +24,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import("../views/Contact.vue")
-  },
-  {
+  },{
     path: "/explore",
     name: "Explore",
     // route level code-splitting
@@ -33,15 +32,6 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import("../views/ExploreData.vue")
-  },
-  {
-    path: "/exploreScience",
-    name: "ExploreScience",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import("../views/ExploreScience.vue")
   },
 ];
 
