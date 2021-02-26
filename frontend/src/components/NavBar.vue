@@ -1,131 +1,22 @@
 <template>
   <div class="navBar nav">  
     <div class="logo-container"> 
-      <router-link to="/">
-        <img class="img" src="@/assets/Logo.png" alt="LOGO">
-          
-      </router-link>
-      <router-link to="/">
-        <h3 class="header">DiscoverStream</h3>
-      </router-link>
+      <img class="img" src="@/assets/Logo.png" alt="LOGO">
+      <h3 class="header">DiscoverStream</h3>
     </div>
-
-    <!-- Nav Mobile -->
-
-    <div class="small-screen">
-      <button class="hamburger" v-on:click="open = !open" v-show="!open">
-        <img :src="Hamburger" alt="Menu">
-      </button>
-      <aside v-bind:class="{ open }">
-        <div>
-          <button class="close" v-on:click="{open = false; information = false; exploreData = false; content = false}">
-            x
-          </button>
-          <ul class="list-unstyled ct-sidenav-list sidebar-content">
-            <li class="sidebar-text">
-              <router-link class="sidebar-text" to="/">Home</router-link> 
-            </li>
-            <li class="sidebar-text">
-              <router-link class="sidebar-text" to="/exploreScience">Explore Science</router-link>       
-            </li>
-            <li>
-              
-              <button class="sidebar-dropdown-btn sidebar-text" v-on:click="exploreData = !exploreData">Explore Data 
-              </button>
-              <div class="sidebar-dropdown" v-show="exploreData">
-                <router-link class="sidebar-text" to="/explore">Explore Kansas</router-link>
-                <router-link class="sidebar-text" to="/explore">Explore Colarado</router-link>
-                <router-link class="sidebar-text" to="/explore">Explore California</router-link>
-                <router-link class="sidebar-text" to="/explore">Explore Michigan</router-link>
-              </div>
-            </li>           
-            <li>
-              <button class="sidebar-dropdown-btn sidebar-text" v-on:click="information = !information">Information 
-              </button>
-              <div class="sidebar-dropdown "  v-show="information">
-                <router-link class="sidebar-text" to="/about">About</router-link>
-                <router-link class="sidebar-text" to="/about">References</router-link>
-                <router-link class="sidebar-text" to="/about">Documentation</router-link>
-              </div>
-            </li>
-            <li>
-              <button class="sidebar-dropdown-btn sidebar-text" v-on:click="content = !content">Content 
-              </button>
-              <div class="sidebar-dropdown "  v-show="content">
-                <router-link class="sidebar-text" to="/contact">Contact</router-link >
-                <router-link class="sidebar-text" to="/contact">Citations</router-link >
-                <router-link class="sidebar-text" to="/contact">Liscense</router-link >
-              </div>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-    
-
-    <!-- Nav for large screens -->
-    <div class="nav large-screen"> 
+    <div class="nav"> 
       <router-link to="/">Home</router-link> |
-      <router-link to="/exploreScience">Explore Science</router-link> |
-      <!-- <router-link to="/explore">Explore Data</router-link> | -->
-      <div class="dropdown">
-        <button class="dropbtn">Explore Data 
-        </button>
-        <div class="dropdown-content explore-sub">
-          <router-link to="/explore">Explore Kansas</router-link>
-          <router-link to="/explore">Explore Colarado</router-link>
-          <router-link to="/explore">Explore California</router-link>
-          <router-link to="/explore">Explore Michigan</router-link>
-        </div>
-      </div> |
-      <div class="dropdown">
-        <button class="dropbtn">Information 
-        </button>
-        <div class="dropdown-content information-sub">
-          <router-link to="/about">About</router-link>
-          <router-link to="/about">References</router-link>
-          <router-link to="/about">Documentation</router-link>
-        </div>
-      </div> |
-      <!-- <router-link to="/about">About</router-link> | -->
-      <div class="dropdown">
-        <button class="dropbtn">Content 
-        </button>
-        <div class="dropdown-content content-sub">
-          <router-link to="/contact">Contact</router-link >
-          <router-link to="/contact">Citations</router-link >
-          <router-link to="/contact">Liscense</router-link >
-        </div>
-      </div> 
-      <!-- <router-link to="/contact">Contact</router-link>  -->
+      <router-link to="/explore">Explore Data</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/contact">Contact</router-link> 
     </div>
   </div>
 </template>
 
 
 <script>
-
 export default {
-  name: "NavBar",
-  
-  // components: {
-  //   Hamburger
-  // }
-  data: () => ({
-    Hamburger: require("../assets/hamburger.svg"),
-    open: false,
-    information: false,
-    content: false,
-    exploreData: false,
-  }),
-  watch: {
-    '$route' (){
-      this.open = false;
-      this.information = false;
-      this.content = false;
-      this.exploreData = false;
-    }
-  }
+  name: "NavBar"
 };
 </script>
 
@@ -286,7 +177,7 @@ aside.open {
 
 .header{
   font-size: 2rem;
-  margin: 0.35rem 0 auto 0;
+  margin: auto 0 auto 0;
   padding-left: 0.5rem;
 }
 
@@ -302,17 +193,15 @@ aside.open {
   display: flex;
   padding: 0.5rem 7rem 0.5rem 7rem;
   justify-content: space-between;
-  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.74);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.74);
   z-index: 999;
   position: sticky;
   top: 0;
-  background-color:white;
+  background-color: aliceblue;
 }
 
 .nav{
   margin: auto 0 auto 0;
-  /* position: relative; */
-  transition: all 500ms ease-in-out;
 }
 
 .nav a {
@@ -337,46 +226,10 @@ aside.open {
 
 .hamburger:focus{
   outline: none;
+
 }
 
-@media only screen and (max-width: 1200px) {
-  .large-screen{
-    display: none ;
-  }
-  .small-screen{
-    display: inline;
-  }
-  .nav a {
-    font-weight: bold;
-    color: #2c3e50;
-    font-size: 1rem;
-    text-decoration: none;
-  }
-  .navBar {
-    padding: 0.5rem 3.5rem 0.5rem 3.5rem;
-  }
-  
-}
-
-@media only screen and (max-width: 700px) {
-  .header{
-    display: none;
-  }
-  .navBar {
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .small-screen{
-    display: none;
-  }
-  
-}
-
-
-/* 
 .nav a.router-link-exact-active {
   color: #42b983;
-} */
+}
 </style>

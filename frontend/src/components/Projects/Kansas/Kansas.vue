@@ -57,6 +57,7 @@ export default {
       (this.$refs.chart).refreshOption();
       console.log(this.option);
     }
+
   },
   async mounted () {
     this.loaded = false

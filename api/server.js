@@ -1,5 +1,4 @@
 const express = require("express")
-const bodyParser = require("body-parser")
 const mysql = require("mysql")
 
 const mailapi = require('./mailapi/mailapi')
@@ -32,7 +31,6 @@ const dataAPI = require('./data/routes')
 // connection.end()
 
 const app = express()
-app.use(bodyParser.json())
 const PORT = 5000
 
 const apiURL = 'https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json'

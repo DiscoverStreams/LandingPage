@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "vueperslides": "^3.2.0"
+    "vue3-echarts": "^1.0.3"
   }
 }

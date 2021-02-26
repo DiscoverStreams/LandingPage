@@ -1,7 +1,8 @@
 <template>
   <div class="projects">
-    <!-- <div v-for="(project, index) in projects" :key="index">
+    <div v-for="(project, index) in projects" :key="index">
       <ProjectBlock :city='project.city' :image='project.image' />
+
     </div> -->
     <!-- <div class="container">
       <carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
@@ -36,12 +37,19 @@
        </vueper-slide>
      </vueper-slides>
     <Kansas />
+
+      <Kansas />
+    </div>
+    
+
   </div>
+  
 </template>
 
 
 
 <script>
+
 // import 'vue3-carousel/dist/carousel.css';
 // import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
 import { VueperSlides, VueperSlide } from 'vueperslides'
@@ -65,9 +73,13 @@ import Kansas from './Kansas/Kansas';
 //       </vueper-slide>
 //     </vueper-slides>
 
+import ProjectBlock from './ProjectBlock';
+import Kansas from './Kansas/Kansas';
+
 export default {
   name: "Projects",
   components: {
+
     // ProjectBlock,
     VueperSlides,
     VueperSlide,
@@ -76,67 +88,38 @@ export default {
     // Slide,
     // Navigation,
     // Pagination
+
+    ProjectBlock,
+    Kansas
+
   },
   data: () => ({
     projects: [
       {
         city: 'Kansas/Colarado', 
-        // image: 'Ark-dry-kansas.jpg'
-        image: require(`@/assets/projectImages/Ark-dry-kansas.jpg`),
-        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
+        image: 'Ark-dry-kansas.jpg'
       },
       {
         city: 'California', 
-        // image: 'california-desert.webp',
-        image: require(`@/assets/projectImages/california-desert.webp`),
-        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
-
+        image: 'california-desert.webp'
       },
       {
         city: 'Michigan', 
-        // image: 'Ausable-River-Michigan.jpeg',
-        image: require(`@/assets/projectImages/Ausable-River-Michigan.jpeg`),
-        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
-
+        image: 'Ausable-River-Michigan.jpeg'
       },
       
-    ],
+    ]
   })
 };
 </script>
 
 <style scoped>
 .projects{
-  /* display: inline !important; */
-  /* flex-flow: row wrap; */
-  width: 80%;
-  /* justify-content: space-around; */
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-around;
   margin: 0 auto 1rem auto;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto 1rem auto;
-  /* display: inline !important; */
-}
-
-.ex--center-mode {
-  width: 600px;
-  max-width: 100%;
-  margin: auto;
-}
-
-.title {
-  font-size: 2rem;
-  text-decoration: none;
-  font-weight: bold;
-  color: #56ffb8;
-}
-
-@media only screen and (max-width: 1200px) {
-  .title{
-    font-size: 1.5rem;
-  }
 }
 
 </style>

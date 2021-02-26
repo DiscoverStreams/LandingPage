@@ -27,7 +27,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .project{
-  display: unset;
   position: relative;
   width: 30rem;
   height: 15rem;
