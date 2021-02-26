@@ -10,6 +10,7 @@
     :chartdata="chartData"
     :options="options"  
   /> -->
+
   <vue-echarts :option="option" style="height: 500px" ref="chart" />
 </template>
 

@@ -13,7 +13,8 @@
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vue3-chart-v2": "^0.8.1",
+    "vue3-echarts": "^1.0.3",
+    "vueperslides": "^3.2.0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
