@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue3-echarts": "^1.0.3"
+  }
+}
