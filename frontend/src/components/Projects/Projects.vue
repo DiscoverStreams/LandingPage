@@ -22,37 +22,56 @@
       :dragging-distance="70" 
       3d fixed-height="300px" arrows-outside bullets-outside-->
     <vueper-slides 
-      class="no-shadow "
-      fixed-height="300px"
-      :visible-slides="2"
-      :slide-ratio="1 / 4"
-      :dragging-distance="70"
-      :gap="3"
-      :breakpoints="{ 1000: { '3d': true, visibleSlides: 1} }"
-    >
-      <vueper-slide class="title" v-for="(project, i) in projects" :key="i" :image="project.image" :link="project.link" :title="project.city">
-        <!-- <template v-slot:content> -->
-        <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
-      </vueper-slide>
-    </vueper-slides>
+       class="no-shadow "
+       fixed-height="300px"
+       :visible-slides="2"
+       :slide-ratio="1 / 4"
+       :dragging-distance="70"
+       :gap="3"
+       :breakpoints="{ 1000: { '3d': true, visibleSlides: 1} }"
+     >
+       <vueper-slide class="title" v-for="(project, i) in projects" :key="i" :image="project.image" :link="project.link" :title="project.city">
+         <!-- <template v-slot:content> -->
+         <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
+       </vueper-slide>
+     </vueper-slides>
+    <Kansas />
   </div>
 </template>
+
+
 
 <script>
 // import 'vue3-carousel/dist/carousel.css';
 // import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import Kansas from './Kansas/Kansas';
 
 // import ProjectBlock from './ProjectBlock';
 
+// <vueper-slides 
+//       class="no-shadow "
+//       fixed-height="300px"
+//       :visible-slides="2"
+//       :slide-ratio="1 / 4"
+//       :dragging-distance="70"
+//       :gap="3"
+//       :breakpoints="{ 1000: { '3d': true, visibleSlides: 1} }"
+//     >
+//       <vueper-slide class="title" v-for="(project, i) in projects" :key="i" :image="project.image" :link="project.link" :title="project.city">
+//         <!-- <template v-slot:content> -->
+//         <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
+//       </vueper-slide>
+//     </vueper-slides>
 
 export default {
   name: "Projects",
   components: {
     // ProjectBlock,
     VueperSlides,
-    VueperSlide
+    VueperSlide,
+    Kansas
     // Carousel,
     // Slide,
     // Navigation,

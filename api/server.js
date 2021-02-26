@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const mysql = require("mysql")
 
 const mailapi = require('./mailapi/mailapi')
+const dataAPI = require('./data/routes')
 
 // const connection = mysql.createConnection({
 //   host: 'localhost',
@@ -36,8 +37,8 @@ const PORT = 5000
 
 const apiURL = 'https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json'
 
-app.get('/api', (req, res) => res.send('Hello World'))
+app.use('/', dataAPI)
 
-app.use('/api/mailapi', mailapi)
+app.use('/mailapi', mailapi)
 
 app.listen(PORT, ()=> console.log(`Listening on port ${PORT}`))

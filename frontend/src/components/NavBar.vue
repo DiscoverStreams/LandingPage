@@ -216,16 +216,19 @@ aside.open {
   transition: all 0.2s ease-in-out;
 }
 
-.explore-sub{
-  margin-left: 11.75rem;
+.content-sub{
+  margin-right: 5rem;
+  margin-top: -1.5rem;
 }
 
 .information-sub{
-  margin-left: 19.5rem;
+  margin-right: 10rem;
+  margin-top: -1.5rem;
 }
 
-.content-sub{
-  margin-left: 26.5rem;
+.explore-sub{
+  margin-right: 16.5rem;
+  margin-top: -1.5rem;
 }
 
 .dropdown {
@@ -245,7 +248,7 @@ aside.open {
   font-weight: bold;
   font-size: 1rem;
   color: #2c3e50;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .dropdown-content {
@@ -253,7 +256,7 @@ aside.open {
   position: absolute;
   top: 100%;
   background-color: #f9f9f9;
-  left: 0;
+  right: 0;
   min-width: 110px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -276,7 +279,8 @@ aside.open {
   color: black;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover  .dropdown-content { 
+  
   display: block;
 }
 
@@ -315,6 +319,11 @@ aside.open {
   font-weight: bold;
   color: #2c3e50;
   font-size: 1rem;
+  text-decoration: none;
+}
+
+.nav a:hover{
+  color: #42b983;
 }
 
 .hamburger {
