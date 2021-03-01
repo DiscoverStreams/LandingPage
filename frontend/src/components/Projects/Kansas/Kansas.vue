@@ -35,6 +35,18 @@ export default {
     // }
     chartdata: null,
     option : {
+      title: {
+        text: 'Title',
+        left: '1%'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      grid: {
+        left: '5%',
+        right: '15%',
+        bottom: '15%'
+      },
       xAxis: {
         type: 'category',
         data: [1900]
@@ -42,9 +54,73 @@ export default {
       yAxis: {
         type: 'value'
       },
+      toolbox: {
+        right: 10,
+        feature: {
+          dataZoom: {
+            yAxisIndex: 'none'
+          },
+          restore: {},
+          saveAsImage: {}
+        }
+      },
+      dataZoom: [{
+        startValue: '1984'
+      }, {
+        type: 'inside'
+      }],
+      visualMap: {
+        top: 50,
+        right: 10,
+        pieces: [{
+          gt: 0,
+          lte: 20,
+          color: '#34dab4'
+        }, {
+          gt: 20,
+          lte: 40,
+          color: '#56f14f'
+        }, {
+          gt: 40,
+          lte: 60,
+          color: '#cdfe05'
+        }, {
+          gt: 60,
+          lte: 80,
+          color: '#fec408'
+        }, {
+          gt: 80,
+          lte: 100,
+          color: '#ff5c00'
+        }, {
+          gt: 100,
+          color: '#f40c0c'
+        }],
+        outOfRange: {
+          color: '#999'
+        }
+      },
       series: [{
+        name: "Title",
         data: [8.33],
-        type: 'line'
+        type: 'line',
+        markLine: {
+          silent: true,
+          lineStyle: {
+            color: '#333'
+          },
+          data: [{
+            yAxis: 20
+          }, {
+            yAxis: 40
+          }, {
+            yAxis: 60
+          }, {
+            yAxis: 80
+          }, {
+            yAxis: 100
+          }]
+        }
       }]
     }
   }),
