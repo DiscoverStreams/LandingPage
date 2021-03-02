@@ -11,7 +11,7 @@
     :options="options"  
   /> -->
 
-  <vue-echarts :option="option" style="height: 500px" ref="chart" />
+  <vue-echarts :option="option" style="height: 400px" ref="chart" />
 </template>
 
 <script>
@@ -35,9 +35,17 @@ export default {
     // }
     chartdata: null,
     option : {
+      darkmode: true,
+      backgroundColor: "#100C2A",    
+      textStyle: {
+        color: "white"
+      },
       title: {
-        text: 'Title',
-        left: '1%'
+        text: 'Irrigation',
+        left: '1%',
+        textStyle: {
+          color: "white"
+        },
       },
       tooltip: {
         trigger: 'axis'
@@ -52,7 +60,7 @@ export default {
         data: [1900]
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
       },
       toolbox: {
         right: 10,
@@ -72,6 +80,9 @@ export default {
       visualMap: {
         top: 50,
         right: 10,
+        textStyle: {
+          color: "white"
+        },
         pieces: [{
           gt: 0,
           lte: 20,
@@ -107,7 +118,8 @@ export default {
         markLine: {
           silent: true,
           lineStyle: {
-            color: '#333'
+            color: '#ff9b69',
+            type: 'solid'
           },
           data: [{
             yAxis: 20

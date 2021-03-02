@@ -8,7 +8,7 @@
 import Projects from "@/components/Projects/Projects";
 
 export default {
-  name: "Contact",
+  name: "ExploreData",
   components: {
     Projects
   },

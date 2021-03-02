@@ -35,7 +35,6 @@
          <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
        </vueper-slide>
      </vueper-slides>
-    <Kansas />
   </div>
 </template>
 
@@ -46,7 +45,7 @@
 // import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-import Kansas from './Kansas/Kansas';
+// import Kansas from './Kansas/Kansas';
 
 // import ProjectBlock from './ProjectBlock';
 
@@ -71,7 +70,7 @@ export default {
     // ProjectBlock,
     VueperSlides,
     VueperSlide,
-    Kansas
+    // Kansas
     // Carousel,
     // Slide,
     // Navigation,
@@ -83,7 +82,7 @@ export default {
         city: 'Kansas/Colarado', 
         // image: 'Ark-dry-kansas.jpg'
         image: require(`@/assets/projectImages/Ark-dry-kansas.jpg`),
-        link: 'https://interactiveviz.ku.edu/DiscoverWater/'
+        link: 'http://localhost:8080/#/exploreKansas',
       },
       {
         city: 'California', 

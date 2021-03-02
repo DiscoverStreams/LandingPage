@@ -72,7 +72,7 @@
         <button class="dropbtn">Explore Data 
         </button>
         <div class="dropdown-content explore-sub">
-          <router-link to="/explore">Explore Kansas</router-link>
+          <router-link to="/exploreKansas">Explore Kansas</router-link>
           <router-link to="/explore">Explore Colarado</router-link>
           <router-link to="/explore">Explore California</router-link>
           <router-link to="/explore">Explore Michigan</router-link>
