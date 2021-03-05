@@ -1,10 +1,12 @@
 const axios = require('axios')
 
-const apiURL = 'https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json'
+const apiURL = ['https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json',
+'https://interactiveviz.ku.edu/DiscoverWater/Syracuse_Streamflow_AnnualSummary.json'
+               ]
 
-const fetchData = async () => {
+const fetchData = async (i) => {
   try {
-    const { data } = await axios.get(apiURL); 
+    const { data } = await axios.get(apiURL[i]); 
     let modifiedData = []
     data.forEach((array, i) => {
       array = [array[0], array[2]]

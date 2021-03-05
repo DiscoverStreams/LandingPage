@@ -3,10 +3,10 @@ const router = express.Router();
 
 const fetchData = require("./index.js");
 
-router.get('/getData', async function (req, res) {
+router.get('/getIrrigationData', async function (req, res) {
   // console.log("req: ", req.body);
   try {
-    const data = await fetchData();
+    const data = await fetchData(0);
     // res.send("Status 200, OK")
     res.send(data);
     return data;
@@ -14,5 +14,18 @@ router.get('/getData', async function (req, res) {
     console.error(error);
   }  
 });
+
+router.get('/getStreamflowData', async function (req, res) {
+  // console.log("req: ", req.body);
+  try {
+    const data = await fetchData(1);
+    // res.send("Status 200, OK")
+    res.send(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }  
+});
+
 
 module.exports = router

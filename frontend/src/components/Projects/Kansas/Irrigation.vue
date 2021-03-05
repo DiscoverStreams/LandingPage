@@ -21,7 +21,7 @@ import axios from 'axios'
 import { VueEcharts } from 'vue3-echarts';
 
 export default {
-  name: "Kansas",
+  name: "Irrigation",
   components: {
     // LineChart
     VueEcharts
@@ -149,7 +149,7 @@ export default {
   async mounted () {
     this.loaded = false
     try {
-      const {data} = await axios.get('http://localhost:5000/getData')
+      const {data} = await axios.get('http://localhost:5000/getIrrigationData')
       this.chartdata = data;
       this.fillData();
       this.loaded = true
