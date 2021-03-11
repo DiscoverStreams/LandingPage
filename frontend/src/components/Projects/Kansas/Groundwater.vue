@@ -21,7 +21,7 @@ import axios from 'axios'
 import { VueEcharts } from 'vue3-echarts';
 
 export default {
-  name: "Streamflow",
+  name: "Groundwater",
   components: {
     // LineChart
     VueEcharts
@@ -41,7 +41,7 @@ export default {
         color: "white"
       },
       title: {
-        text: 'Streamflow',
+        text: 'Groundwater',
         left: '1%',
         textStyle: {
           color: "white"
@@ -84,27 +84,27 @@ export default {
           color: "white"
         },
         pieces: [{
-          gt: 0,
-          lte: 500,
+          gt: -20,
+          lte: 0,
           color: '#34dab4'
         }, {
-          gt: 500,
-          lte: 1000,
+          gt: -40,
+          lte: -20,
           color: '#56f14f'
         }, {
-          gt: 1000,
-          lte: 1500,
+          gt: -60,
+          lte: -40,
           color: '#cdfe05'
         }, {
-          gt: 1500,
-          lte: 2000,
+          gt: -80,
+          lte: -60,
           color: '#fec408'
         }, {
-          gt: 2000,
-          lte: 2500,
+          gt: -100,
+          lte: -80,
           color: '#ff5c00'
         }, {
-          gt: 2500,
+          lte: -100,
           color: '#f40c0c'
         }],
         outOfRange: {
@@ -122,15 +122,15 @@ export default {
             type: 'solid'
           },
           data: [{
-            yAxis: 500
+            yAxis: -20
           }, {
-            yAxis: 1000
+            yAxis: -40
           }, {
-            yAxis: 1500
+            yAxis: -60
           }, {
-            yAxis: 2000
+            yAxis: -80
           }, {
-            yAxis: 2500
+            yAxis: -100
           }]
         }
       }]
@@ -150,7 +150,7 @@ export default {
     try {
       const {data} = await axios.get('http://localhost:5000/getData', {
         params: {
-          index: 2,
+          index: 1,
         }
       })
       this.chartdata = data;
@@ -159,7 +159,7 @@ export default {
     } catch (e) {
       console.error(e)
     }
-  },
+  }
 };
 </script>
 

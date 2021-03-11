@@ -1,7 +1,8 @@
 const axios = require('axios')
 
 const apiURL = ['https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIrrigateation_AnnualSummary.json',
-'https://interactiveviz.ku.edu/DiscoverWater/Syracuse_Streamflow_AnnualSummary.json'
+                'https://interactiveviz.ku.edu/DiscoverWater/Hamilton_GW_WinterAvg.json',
+                'https://interactiveviz.ku.edu/DiscoverWater/7138000_Syracuse_Qmo.json'
                ]
 
 const fetchData = async (i) => {

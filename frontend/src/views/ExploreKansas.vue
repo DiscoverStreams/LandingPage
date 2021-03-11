@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <div class="irrigation" >
+    <div class="irrigation charts" >
       <Irrigation />
     </div>
-    <div class="streamflow" >
-      <!-- <Streamflow /> -->
+    <div class="groundwater charts" >
+      <Groundwater />
+    </div>
+    <div class="streamflow charts" >
+      <Streamflow />
     </div>
     <div class="hydro-moments">
       <h2>
@@ -54,16 +57,18 @@
 
 <script>
 import Irrigation from "@/components/Projects/Kansas/Irrigation";
-// import Streamflow from "@/components/Projects/Kansas/Streamflow";
+import Groundwater from "@/components/Projects/Kansas/Groundwater";
+import Streamflow from "@/components/Projects/Kansas/Streamflow";
 
 export default {
   name: "ExploreKansas",
   components: {
     Irrigation,
-    // Streamflow
+    Groundwater,
+    Streamflow
   },
   data: () => ({
-   
+    
   })
 };
 </script>
@@ -79,7 +84,7 @@ li {
   display: grid;
   padding: 1rem 0rem;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 400px 400px 400px 400px;
+  grid-template-rows: 410px 410px 410px 410px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -89,15 +94,24 @@ li {
   height: 100%;
   grid-row-start: 1;
   grid-row-end: 1;
-  margin: 0rem 0.25rem;
+}
+
+.groundwater {
+  grid-column-start: 2;
+  height: 100%;
+  grid-row-start: 2;
+  grid-row-end: 2;
 }
 
 .streamflow {
   grid-column-start: 2;
   height: 100%;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  margin: 0rem 0.25rem;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.charts {
+  padding: 0rem 0.25rem;
 }
 
 .hydro-moments{
@@ -105,12 +119,38 @@ li {
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 4;
+  padding: 0.25rem 2rem 0.25rem 1rem;
 }
+
+
+@media only screen and (max-width: 1200px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 3rem;
+  }
+  .charts {
+    padding: 0.25rem 0rem;
+  }
+}
+
 
 @media only screen and (max-width: 700px) {
   .container{
     display: flex;
     flex-direction: column;
+    padding: 0rem 0.25rem;
+  }
+  .charts {
+    padding: 0.25rem 0rem;
+  }
+  
+  .hydro-moments{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    padding: 0.25rem 1rem 0.25rem 0rem;
   }
 }
 </style>
