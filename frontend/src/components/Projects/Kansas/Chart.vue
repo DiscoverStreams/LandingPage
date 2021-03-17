@@ -97,6 +97,51 @@ export default {
           }
         },
         threshold: null
+      },
+      series: {
+        point: {
+          events: {
+            mouseOver: function (e) {
+              // console.log(e.target);
+              // let clientX = e.target.clientX;
+              let series = e.target.series;
+              let index = series.xData.indexOf(e.target.index);
+              // console.log("index", index);
+              Highcharts.charts.forEach((chart) => {
+                if (chart && chart.index !== e.chartId) {
+                  let event = chart.pointer.normalize(e)
+                  // console.log(chart.series[0].data[index]);
+                  let data = chart.series[0].data[index];
+                  // let point = chart.series[0].searchPoint(event, true);
+                  // console.log("event", event);
+                  // console.log('point', point);
+                  if (data) {
+                    data.setState('hover');
+                    chart.xAxis[0].drawCrosshair(event, data)
+                  }
+                }
+              })
+            },
+            mouseOut: function (e) {
+              let series = e.target.series;
+              let index = series.xData.indexOf(e.target.index);
+              // console.log("index", index);
+              Highcharts.charts.forEach((chart) => {
+                if (chart && chart.index !== e.chartId) {
+                  // let event = chart.pointer.normalize(e)
+                  // console.log(chart.series[0].data[index]);
+                  let data = chart.series[0].data[index];
+                  // let point = chart.series[0].searchPoint(event, true);
+                  // console.log("event", event);
+                  // console.log('point', point);
+                  if (data) {
+                    data.setState('');
+                  }
+                }
+              })
+            }
+          }
+        }
       }
     },
     xAxis: {
