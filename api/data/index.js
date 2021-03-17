@@ -8,11 +8,11 @@ const apiURL = ['https://interactiveviz.ku.edu/DiscoverWater/Hamilton_WaterUseIr
 const fetchData = async (i) => {
   try {
     const { data } = await axios.get(apiURL[i]); 
-    let modifiedData = []
-    data.forEach((array, i) => {
-      array = [array[0], array[2]]
-      modifiedData[i] = array
-    });
+    // let modifiedData = []
+    // data.forEach((array, i) => {
+    //   array = [array[0], array[2]]
+    //   modifiedData[i] = array
+    // });
     // modifiedData = data.map(array => {
     //   console.log("array", array);
     //   array = [array[0], array[2]]
@@ -21,7 +21,7 @@ const fetchData = async (i) => {
 
     // })
     // console.log("data", data);
-    return modifiedData;
+    return data;
   } catch (error) {
     console.error(error);
   }

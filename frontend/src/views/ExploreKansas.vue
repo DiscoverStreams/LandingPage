@@ -1,13 +1,14 @@
 <template>
   <div class="container">
     <div class="irrigation charts" >
-      <Irrigation />
+      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='0' title='Irrigation' />
+      <!-- <Irrigation /> -->
     </div>
     <div class="groundwater charts" >
-      <Groundwater />
+      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='1' title='Groudwater' />
     </div>
     <div class="streamflow charts" >
-      <Streamflow />
+      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='2' title='Streamflow' />
     </div>
     <div class="hydro-moments">
       <h2>
@@ -56,19 +57,107 @@
 </template>
 
 <script>
-import Irrigation from "@/components/Projects/Kansas/Irrigation";
-import Groundwater from "@/components/Projects/Kansas/Groundwater";
-import Streamflow from "@/components/Projects/Kansas/Streamflow";
+// import Irrigation from "@/components/Projects/Kansas/Irrigation";
+// import Groundwater from "@/components/Projects/Kansas/Groundwater";
+// import Streamflow from "@/components/Projects/Kansas/Streamflow";
+import Chart from "../components/Projects/Kansas/Chart"
+import Highcharts from 'highcharts'
 
 export default {
   name: "ExploreKansas",
   components: {
-    Irrigation,
-    Groundwater,
-    Streamflow
+    // Irrigation,
+    // Groundwater,
+    // Streamflow
+    Chart
+  },
+  methods: {
+    fillData: function(chartdata, chartOption) {
+      chartdata.forEach((array, i) => {
+        chartOption.xAxis.categories[i] = `${array[1]}-${array[0]}`
+        chartOption.series[0].data[i] = array[2]
+      });
+    },
+    
+    onRender: () => {
+      console.log('Chart rendered');
+    },
+
+    onUpdate: () => {
+      console.log('Chart updated');
+    },
+
+    onDestroy: () => {
+      console.log('Chart destroyed');
+    },
+
   },
   data: () => ({
-    
+    chartOptions: {
+      chart: {
+        type: 'line',
+        zoomType:'x'
+      },
+      title: {
+        text: 'Streamflow',
+      },
+      xAxis: {
+        crosshair: {
+          width: 2,
+          color: 'red',
+          dashStyle: 'shortdot'
+        },
+        type: 'datetime',
+        categories: ['Jun', 'Jul', 'Aug', 'Sept'],
+        
+      },
+      yAxis: {
+        title: {
+          text: 'Average ft',
+        },
+      },
+      plotOptions: {
+        area: {
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+            stops: [
+              [0, Highcharts.getOptions().colors[4]],
+              [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.2).get('rgba')]
+            ]
+          },
+          marker: {
+            radius: 2
+          },
+          lineWidth: 3,
+          states: {
+            hover: {
+              lineWidth: 3
+            }
+          },
+          threshold: null
+        }
+      },
+      tooltip: {
+        positioner: function () {
+          return { x: 80, y: 50 };
+        },
+        shadow: false,
+        borderWidth: 2,
+        backgroundColor: 'rgba(156, 228, 255,0.8)',
+        shape: 'square',
+        shared: true
+      },  
+      series: [{
+        // type: 'area',
+        name: 'Average ft',
+        data: [25, 39, 30, 15],
+      }],
+    },
   })
 };
 </script>
