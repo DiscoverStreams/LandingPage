@@ -95,7 +95,7 @@ export default {
   data: () => ({
     chartOptions: {
       chart: {
-        type: 'line',
+        type: 'area',
         zoomType:'x'
       },
       title: {

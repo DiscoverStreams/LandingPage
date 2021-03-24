@@ -24,6 +24,7 @@
       @update="onUpdate"
       @destroy="onDestroy"
     />
+    
   </div>
   
 </template>
@@ -63,10 +64,18 @@ export default {
     chartdata: null,
     chartOption: null,
     loaded: false,
+    category: null,
+    y:null,
     tooltip: {
       positioner: function () {
         return { x: 80, y: 50 };
       },
+      // enabled: true,
+      useHTML: true,
+      // isHidden: false,
+      // label: {
+      //   opacity: 1
+      // },
       shadow: false,
       borderWidth: 2,
       backgroundColor: 'rgba(156, 228, 255,0.8)',
@@ -74,17 +83,19 @@ export default {
       shared: true
     },
     plotOptions: {
+      
       area: {
         fillColor: {
           linearGradient: {
-            x1: 0,
-            y1: 0,
-            x2: 0,
-            y2: 1
+            x1: 2,
+            y1: 1,
+            x2: 2,
+            y2: 0
           },
+
           stops: [
-            [0, Highcharts.getOptions().colors[0]],
-            [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.2).get('rgba')]
+            [0, Highcharts.getOptions().colors[4]],
+            [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.1).get('rgba')]
           ]
         },
         marker: {
@@ -104,20 +115,39 @@ export default {
             mouseOver: function (e) {
               // console.log(e.target);
               // let clientX = e.target.clientX;
+              // e.preventDefault();
               let series = e.target.series;
               let index = series.xData.indexOf(e.target.index);
               // console.log("index", index);
               Highcharts.charts.forEach((chart) => {
                 if (chart && chart.index !== e.chartId) {
-                  let event = chart.pointer.normalize(e)
+                  // let event = chart.pointer.normalize(e)
                   // console.log(chart.series[0].data[index]);
                   let data = chart.series[0].data[index];
+                  // console.log(`${chart.userOptions.title.text} data`, data);
                   // let point = chart.series[0].searchPoint(event, true);
                   // console.log("event", event);
                   // console.log('point', point);
                   if (data) {
                     data.setState('hover');
-                    chart.xAxis[0].drawCrosshair(event, data)
+                    chart.xAxis[0].drawCrosshair(e, data);
+                    
+                    
+                    // chart.update({
+                    //   tooltip: {
+                    //     isHidden: false,
+                    //     label: {
+                    //       opacity: 1
+                    //     }
+                    //   }
+                    // })
+                    // console.log(
+                    //   `${chart.userOptions.title.text}`,
+                    //   chart.tooltip
+                    // );
+                    // console.log(chart);
+                    chart.tooltip.refresh([data]);  
+
                   }
                 }
               })
@@ -136,6 +166,7 @@ export default {
                   // console.log('point', point);
                   if (data) {
                     data.setState('');
+                    chart.xAxis[0].hideCrosshair();
                   }
                 }
               })
@@ -164,13 +195,20 @@ export default {
         }
       }
     },
+    pointer: {
+      reset: function() {
+        return undefined;
+      }
+    }
   }),
   methods: {
     options(){
       this.chartOption = JSON.parse(JSON.stringify(this.chartOptions));
       this.chartOption.tooltip= this.tooltip;
       this.chartOption.plotOptions= this.plotOptions;
+      // this.chartOption.plotOptions.area = this.plotOptions.area;
       this.chartOption.xAxis = this.xAxis;
+      // this.chartOption.pointer = this.pointer;
       this.chartOption.title.text = this.title;
     },
     onRender(){
