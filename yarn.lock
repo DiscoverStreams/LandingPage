@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-vueperslides@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/vueperslides/-/vueperslides-3.2.0.tgz#6b27f6b2d383960fbce8d510db840dbe21178738"
-  integrity sha512-s3zbhdC5vY67FuwOJ2F33FBdPFfqOLwgqDx9viCq+g4lbR86urU78J0vWisE/E2isc2m3wXw2akHpsH4pS2z4g==
+"vueperslides@^3.2.0":
+  "integrity" "sha512-s3zbhdC5vY67FuwOJ2F33FBdPFfqOLwgqDx9viCq+g4lbR86urU78J0vWisE/E2isc2m3wXw2akHpsH4pS2z4g=="
+  "resolved" "https://registry.npmjs.org/vueperslides/-/vueperslides-3.2.0.tgz"
+  "version" "3.2.0"

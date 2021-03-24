@@ -57,18 +57,12 @@
 </template>
 
 <script>
-// import Irrigation from "@/components/Projects/Kansas/Irrigation";
-// import Groundwater from "@/components/Projects/Kansas/Groundwater";
-// import Streamflow from "@/components/Projects/Kansas/Streamflow";
 import Chart from "../components/Projects/Kansas/Chart"
 import Highcharts from 'highcharts'
 
 export default {
   name: "ExploreKansas",
   components: {
-    // Irrigation,
-    // Groundwater,
-    // Streamflow
     Chart
   },
   methods: {
