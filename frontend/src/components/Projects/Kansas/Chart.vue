@@ -131,18 +131,39 @@ export default {
           let min = e.min;
           let max = e.max;
           Highcharts.charts.forEach((chart) => {
-            if (chart && chart.index !== e.chartId) {
-              chart.xAxis[0].setExtremes(min, max);
+            if (chart) {
+              if(chart.index !== e.chartId){
+                chart.xAxis[0].setExtremes(min, max);
+              }
+              chart.legend.update({
+                labelFormatter: function () {
+                  return 'Average: ' + (chart.series[0].dataMax + chart.series[0].dataMin)/2;
+                }
+              })
             }
           });
         }
       }
     },
-    pointer: {
-      reset: function() {
-        return undefined;
-      }
-    }
+    rangeSelector: {
+      selected: 0
+    },
+    legend: {
+      layout: 'vertical',
+      backgroundColor: 'transparent',
+      floating: true,
+      align: 'left',
+      verticalAlign: 'top',
+      // labelFormatter: function () {
+      //   return this.name + ' (click to hide)';
+      // }
+    },
+    // pointer: {
+    //   reset: function() {
+    //     return undefined;
+    //   }
+    // },
+    
   }),
   methods: {
     options(){
@@ -153,17 +174,25 @@ export default {
       this.chartOption.xAxis = this.xAxis;
       // this.chartOption.pointer = this.pointer;
       this.chartOption.title.text = this.title;
+      this.chartOption.legend = this.legend;  
+      this.chartOption.rangeSelector = this.rangeSelector;  
     },
+
     onRender(){
       console.log(`${this.title} rendered`);
-      
     },
+
     onUpdate(){
       console.log(`${this.title} updated`);
     },
+
     onDestroy(){
       console.log(`${this.title} destroyed`);
     },
+
+    updateLegendLabel() {
+      console.log("here");
+    }
   },
   async mounted () {
     this.options();
