@@ -20,7 +20,7 @@ export default {
   }),
   methods: {
     getData: function () {
-      axios.get('phpapi/get.php')
+      axios.get('http://localhost/discovery-stream/phpapi/get.php')
       .then(function (response) {
         console.log(response.data);
       })

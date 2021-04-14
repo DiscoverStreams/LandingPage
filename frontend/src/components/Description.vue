@@ -8,7 +8,10 @@
 export default {
   name: "Description",
   props: {
-    description: [String]
+    description: {
+      type: Array,
+      required: false,
+    }
   }
 };
 </script>
