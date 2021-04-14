@@ -7,6 +7,7 @@
 <script>
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import axios from 'axios'
 
 export default {
   name: "App",
@@ -15,7 +16,23 @@ export default {
     Footer
   },
   data: () => ({
-  })
+
+  }),
+  methods: {
+    getData: function () {
+      axios.get('phpapi/get.php')
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+  },
+  mounted: function () {
+    console.log('mounted');
+    this.getData();
+  }
 };
 </script>
 

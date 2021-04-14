@@ -25,13 +25,12 @@ const connection = mysql.createConnection({
   port:3306
 });
 
-
 const sql = 'SELECT * from Parameters'
-
 connection.connect(function(err) {
   if (err) throw(err);
   console.log("Connected!");
 });
+
 
 
 // connection.query('SELECT * from Parameters', function (err, result, fields) {
@@ -56,7 +55,7 @@ app.get('/db-test', (req, res, next) => {
 });
 
 
-// connection.end()
+connection.end()
 
 
 
