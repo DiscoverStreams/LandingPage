@@ -10,7 +10,12 @@
        :gap="3"
        :breakpoints="{ 1000: { '3d': true, visibleSlides: 1} }"
      >
-       <vueper-slide class="title" v-for="(project, i) in projects" :key="i" :image="project.image" :link="project.link" :title="project.city">
+       <vueper-slide 
+        class="title" v-for="(project, i) in projects" 
+        :key="i" 
+        :image="project.image" 
+        :link="project.link" 
+        :title="project.city">
         </vueper-slide>
      </vueper-slides>
   </div>
@@ -70,6 +75,7 @@ export default {
   max-width: 100%;
   margin: auto;
 }
+
 
 .title {
   font-size: 2rem;

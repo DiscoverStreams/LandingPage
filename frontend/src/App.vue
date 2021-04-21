@@ -7,7 +7,6 @@
 <script>
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import axios from 'axios'
 
 export default {
   name: "App",
@@ -18,21 +17,6 @@ export default {
   data: () => ({
 
   }),
-  methods: {
-    getData: function () {
-      axios.get('http://localhost/discovery-stream/phpapi/get.php')
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
-  },
-  mounted: function () {
-    console.log('mounted');
-    this.getData();
-  }
 };
 </script>
 
@@ -42,7 +26,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
   display: flex;
   flex-direction: column;
   height: 100%;

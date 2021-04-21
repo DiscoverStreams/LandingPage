@@ -203,7 +203,7 @@ aside.open {
   font-family: inherit;
   padding: 0;
   font-weight: bold;
-  color: #2c3e50;
+  color: black;
   font-size: 1rem;
 
 }
@@ -247,7 +247,7 @@ aside.open {
 .dropbtn{
   font-weight: bold;
   font-size: 1rem;
-  color: #2c3e50;
+  color: black;
   text-decoration: none;
 }
 
@@ -317,7 +317,7 @@ aside.open {
 
 .nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: black;
   font-size: 1rem;
   text-decoration: none;
 }
@@ -348,7 +348,7 @@ aside.open {
   }
   .nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: black;
     font-size: 1rem;
     text-decoration: none;
   }

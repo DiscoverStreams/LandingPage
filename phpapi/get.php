@@ -21,8 +21,8 @@ if (!$con) {
 }
 
 
-$sql = "select * from members";
-// $sql = "select * from RealTimeData";
+// $sql = "select * from members";
+$sql = "select * from RealTimeData";
 
 
 // run SQL statement

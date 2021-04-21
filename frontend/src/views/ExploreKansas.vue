@@ -1,14 +1,20 @@
 <template>
   <div class="container">
-    <div class="irrigation charts" >
-      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='0' title='Irrigation' />
+    <select class="selection" v-model="query">
+      <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
+        {{ option.text }}
+      </option>
+    </select>
+    
+    <div class="irrigation charts" :v-if='query != "default" '>
+      <Chart :chartOptions='chartOptions' title='Irrigation' :query='query' :key="rerender" />
       <!-- <Irrigation /> -->
     </div>
     <div class="groundwater charts" >
-      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='1' title='Groudwater' />
+      <!-- <Chart :chartOptions='chartOptions' title='Groudwater' /> -->
     </div>
     <div class="streamflow charts" >
-      <Chart :chartOptions='chartOptions' :fillData='fillData'  :index='2' title='Streamflow' />
+      <!-- <Chart :chartOptions='chartOptions' title='Streamflow' /> -->
     </div>
     <div class="hydro-moments">
       <h2>
@@ -65,35 +71,43 @@ export default {
   components: {
     Chart
   },
+  watch: {
+    query() {
+      this.rerender = this.rerender + 1
+    }
+  },
   methods: {
-    fillData: function(chartdata, chartOption) {
-      chartdata.forEach((array, i) => {
-        chartOption.xAxis.categories[i] = `${array[1]}-${array[0]}`
-        chartOption.series[0].data[i] = array[2]
-      });
-    },
     
-    onRender: () => {
-      console.log('Chart rendered');
-    },
-
-    onUpdate: () => {
-      console.log('Chart updated');
-    },
-
-    onDestroy: () => {
-      console.log('Chart destroyed');
-    },
 
   },
   data: () => ({
+    query: 'default',
+    rerender: 1,
+    options: [
+      {
+        value: 'PH',
+        text: "PH"
+      },
+      {
+        value: 'PRECIP',
+        text: "Precipitation"
+      },
+      {
+        value: 'TEMP',
+        text: "Temperature"
+      },
+      {
+        value: 'ELEV',
+        text: "Elevation"
+      },
+    ],
     chartOptions: {
       chart: {
         type: 'area',
         zoomType:'x'
       },
       title: {
-        text: 'Streamflow',
+        text: '',
       },
       xAxis: {
         crosshair: {
@@ -157,6 +171,37 @@ export default {
 </script>
 
 <style scoped>
+.selection {
+  margin: auto;
+  margin-top: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e5099;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-text-size-adjust: none;
+  border: 1px solid rgba(220, 220, 220, 0.884);
+  padding: 0.25rem;
+}
+
+.selection:focus{
+  outline: none;
+  border: none;
+}
+
+.dropdown{
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.dropdown:hover{
+  outline: none;
+  border: none;
+  background-color: red;
+}
+
 li {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -170,6 +215,7 @@ li {
   grid-template-rows: 410px 410px 410px 410px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  width: 90%;
 }
 
 .irrigation {
@@ -210,7 +256,7 @@ li {
   .container{
     display: flex;
     flex-direction: column;
-    padding: 0rem 3rem;
+    margin: auto;
   }
   .charts {
     padding: 0.25rem 0rem;
@@ -223,6 +269,7 @@ li {
     display: flex;
     flex-direction: column;
     padding: 0rem 0.25rem;
+    margin: auto;
   }
   .charts {
     padding: 0.25rem 0rem;
@@ -234,6 +281,12 @@ li {
     grid-row-start: 3;
     grid-row-end: 4;
     padding: 0.25rem 1rem 0.25rem 0rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 75%;
   }
 }
 </style>

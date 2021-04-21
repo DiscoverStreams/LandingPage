@@ -39,5 +39,13 @@ h2{
   margin: auto;
   justify-content: center;
   margin-top: 1rem;
+  width: 90%;
 }
+
+@media only screen and (min-width: 1440px) {
+  .home {
+    width: 90%;
+  }
+}
+
 </style>

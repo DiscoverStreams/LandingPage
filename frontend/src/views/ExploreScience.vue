@@ -116,6 +116,8 @@ export default {
   justify-content: center;
   align-content: center; */
   padding: 0rem 1rem;
+  width: 80%;
+  margin: auto;
 }
 
 h3{
@@ -155,6 +157,12 @@ tr:nth-child(even) {
 
 h4{
   font-weight: normal;
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 75%;
+  }
 }
 
 </style>
