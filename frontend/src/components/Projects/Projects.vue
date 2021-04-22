@@ -36,10 +36,10 @@
          <!-- <ProjectBlock :city='project.city' :image='project.image' />   -->
        </vueper-slide>
      </vueper-slides>
-    <Kansas />
+      <!-- <Kansas />
 
-      <Kansas />
-    </div>
+      <Kansas /> -->
+    <!-- </div> -->
     
 
   </div>
@@ -54,7 +54,7 @@
 // import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-import Kansas from './Kansas/Kansas';
+// import Kansas from './Kansas/Kansas';
 
 // import ProjectBlock from './ProjectBlock';
 
@@ -74,7 +74,7 @@ import Kansas from './Kansas/Kansas';
 //     </vueper-slides>
 
 import ProjectBlock from './ProjectBlock';
-import Kansas from './Kansas/Kansas';
+// import Kansas from './Kansas/Kansas';
 
 export default {
   name: "Projects",
@@ -83,14 +83,14 @@ export default {
     // ProjectBlock,
     VueperSlides,
     VueperSlide,
-    Kansas
+    // Kansas
     // Carousel,
     // Slide,
     // Navigation,
     // Pagination
 
     ProjectBlock,
-    Kansas
+    // Kansas
 
   },
   data: () => ({
