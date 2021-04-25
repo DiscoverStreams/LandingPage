@@ -31,7 +31,13 @@ export default {
     chartOptions: {
       type: Object,
     },
-    title: {
+    city: {
+      type: String,
+    },
+    startDate: {
+      type: String,
+    },
+    endDate: {
       type: String,
     },
     query: {
@@ -193,6 +199,8 @@ export default {
       // this.chartOption.title.text = this.title;
       this.chartOption.legend = this.legend;
       this.chartOption.rangeSelector = this.rangeSelector;
+      this.chartOption.boostThreshold = 1;
+      this.chartOption.turboThreshold = 0;
     },
 
     onRender() {
@@ -208,9 +216,11 @@ export default {
           });
         }
       });
+      console.log("on render" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
       console.log(`${this.query} rendered`);
       // console.log(this.chartOption.xAxis);
       // console.log(this.chartOption.series);
+
     },
 
     onUpdate() {
@@ -226,21 +236,37 @@ export default {
     },
   },
   async mounted() {
-    this.options();
     this.loaded = false;
+    this.options();
     if (this.query != 'default') {
+      if (startDate) {
+        startDate = startDate.split('-');
+      } else {
+        startDate = '1950'
+      }
+      if (endDate) {
+        endDate = endDate.split('-');
+      }else{
+        endDate = new Date().getFullYear();
+      }
       try {
+        console.log("pre data send" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
         const { data } = await axios.get(
-          'https://interactiveviz.ku.edu/DiscoverHABs/Cheney/CyanoHABs-PHP-DEV/get.php',
+          // `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php?query=${this.query}&city=${this.city}&startDate=${this.startDate}&endDate=${this.endDate}`
+          `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php`,
           {
             params: {
-              q: `DATE, ${this.query}`,
+              query: `${this.query}`,
+              city: `${this.city}`,
+              startDate: `${this.startDate}`,
+              endDate: `${this.endDate}`
             },
           },
         );
         this.chartdata = Object.freeze(data);
         // console.log(this.chartdata);
         this.fillData(this.chartdata, this.chartOption, this.query);
+        console.log("data processed" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
         
         this.loaded = true;
       } catch (e) {

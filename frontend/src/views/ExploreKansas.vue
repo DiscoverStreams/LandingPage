@@ -1,13 +1,25 @@
 <template>
   <div class="container">
+
+    <input type="month" value="1950-10" :min="MIN_DATE" v-model="startDate">
+    <input type="month" value="2020-11" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
+
+    <select class="selection" v-model="chosenCity">
+      <option class="dropdown" v-for="(city, i) in cities" :value="city.value" :key="i">
+        {{ city.text }}
+      </option>
+    </select>
+
     <select class="selection" v-model="query">
       <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
         {{ option.text }}
       </option>
     </select>
+
+    
     
     <div class="irrigation charts" :v-if='query != "default" '>
-      <Chart :chartOptions='chartOptions' title='Irrigation' :query='query' :key="rerender" />
+      <Chart :chartOptions='chartOptions' :query='query' :startDate='startDate' :endDate='endDate' :city='chosenCity' :key="rerender" />
       <!-- <Irrigation /> -->
     </div>
     <div class="groundwater charts" >
@@ -81,26 +93,59 @@ export default {
 
   },
   data: () => ({
+    MIN_DATE: '1950-10',
+
+    startDate: '1950-10',
+    endDate: '2020-11',
     query: 'default',
+    chosenCity: 'syracuse'
     rerender: 1,
     options: [
       {
-        value: 'PH',
-        text: "PH"
+        value: 'STREAM',
+        text: 'Streamflow',
+        unit: 'ft^3/s'
       },
       {
-        value: 'PRECIP',
-        text: "Precipitation"
+        value: 'GW',
+        text: 'Groundwater',
+        unit: 'ft'
       },
       {
-        value: 'TEMP',
-        text: "Temperature"
+        value: 'IW',
+        text: 'Irrigation Water Use',
+        unit: 'ft^3/s'
       },
       {
-        value: 'ELEV',
-        text: "Elevation"
+        value: 'CLI',
+        text: 'Climate PDSI',
+        unit: ' '
       },
     ],
+
+    cities: [
+      {
+        value: 'syracuse',
+        text: "Syracuse"
+      },
+      {
+        value: 'gardenCity',
+        text: "Garden City"
+      },
+      {
+        value: 'dodgeCity',
+        text: "Dodge City"
+      },
+      {
+        value: 'greatBend',
+        text: "Great Bend"
+      },
+      {
+        value: 'wichita',
+        text: "Wichita"
+      },
+    ],
+
     chartOptions: {
       chart: {
         type: 'area',
