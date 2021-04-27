@@ -290,7 +290,10 @@ export default {
               startDate: `${this.startDateCopy}`,
               endDate: `${this.endDateCopy}`
             },
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
           },
         );
         this.chartdata = Object.freeze(data);
