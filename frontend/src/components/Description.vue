@@ -22,6 +22,13 @@ export default {
   /* border: #42b983 1px solid; */
   margin: 2rem 2rem 1rem 2rem;
   padding: 0rem 0rem;
+  margin: auto;
+  width: 80%;
+}
+
+h4 {
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h3 {

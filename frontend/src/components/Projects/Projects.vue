@@ -43,13 +43,13 @@ export default {
       },
       {
         city: 'California', 
-        image: require(`@/assets/projectImages/california-desert.webp`),
+        image: require(`@/assets/projectImages/california-desert.jpg`),
         link: 'https://interactiveviz.ku.edu/DiscoverWater/'
 
       },
       {
         city: 'Michigan', 
-        image: require(`@/assets/projectImages/Ausable-River-Michigan.jpeg`),
+        image: require(`@/assets/projectImages/Ausable-River-Michigan.jpg`),
         link: 'https://interactiveviz.ku.edu/DiscoverWater/'
 
       },
@@ -80,8 +80,9 @@ export default {
 .title {
   font-size: 2rem;
   text-decoration: none;
-  font-weight: bold;
-  color: #56ffb8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: lighter;
+  color: white;
 }
 
 @media only screen and (max-width: 1200px) {

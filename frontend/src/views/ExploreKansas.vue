@@ -25,7 +25,7 @@
 
       <!-- The keys have to be different to rerender individually -->
       <Chart 
-        :v-if='query != "default" '
+        :v-if='query1 != "default" '
         :chartOptions='chartOptions' 
         :label='label'
         :unit='unit'
@@ -47,7 +47,7 @@
       </select>
 
       <Chart 
-        :v-if='query != "default" '
+        :v-if='query2 != "default" '
         :chartOptions='chartOptions' 
         :label='label'
         :unit='unit'

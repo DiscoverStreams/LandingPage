@@ -217,7 +217,7 @@ export default {
 
       // Label and Unit need to be assigned here not inside the object
       this.chartOption.yAxis.title.text = `${this.label} (${this.unit})`;
-      this.chartOption.series[0].name = `Average ${this.unit}`;
+      this.chartOption.series[0].name = `Average ${this.label}`;
 
       this.chartOption.legend = this.legend;
       this.chartOption.rangeSelector = this.rangeSelector;
