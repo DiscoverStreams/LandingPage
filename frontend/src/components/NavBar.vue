@@ -33,7 +33,7 @@
               <button class="sidebar-dropdown-btn sidebar-text" v-on:click="exploreData = !exploreData">Explore Data 
               </button>
               <div class="sidebar-dropdown" v-show="exploreData">
-                <router-link class="sidebar-text" to="/explore">Explore Kansas</router-link>
+                <router-link class="sidebar-text" to="/exploreKansas">Explore Kansas</router-link>
                 <router-link class="sidebar-text" to="/explore">Explore Colarado</router-link>
                 <router-link class="sidebar-text" to="/explore">Explore California</router-link>
                 <router-link class="sidebar-text" to="/explore">Explore Michigan</router-link>
