@@ -11,8 +11,11 @@
       @update="onUpdate"
       @destroy="onDestroy"
     />
-    <div v-if="!loaded && query != 'default'">
+    <div v-else-if="!loaded && !error && query != 'default' ">
       Loading...
+    </div>
+    <div v-else-if="error">
+      There was an error retrieving this data
     </div>
   </div>
 </template>
@@ -42,12 +45,21 @@ export default {
     },
     query: {
       type: String,
+    },
+    label: {
+      type: String,
+    },
+    unit: {
+      type: String
     }
   },
   data: () => ({
+    startDateCopy: '',
+    endDateCopy: '',
     chartdata: null,
     chartOption: null,
     loaded: false,
+    error: false,
     category: null,
     y: null,
     tooltip: {
@@ -126,6 +138,11 @@ export default {
         },
       },
     },
+    yAxis: {
+      title: {
+        text: "Average",
+      }
+    },
     xAxis: {
       crosshair: {
         width: 2,
@@ -174,36 +191,45 @@ export default {
     // },
   }),
   methods: {
-    fillData: function(chartdata, chartOption, query) {
-      // console.log("query", query);
+    // Fills the data from chartdata to chartoption.Xaxis, and yaxis
+    fillData: function(chartdata, chartOption, label) {
+      
       chartdata.forEach((array, i) => {
-        if (i > 0) {
-          chartOption.xAxis.categories[i - 1] = array.DATE.split(" ")[0];
-          chartOption.series[0].data[i - 1] = parseFloat(array[query]); 
-          // console.log(parseFloat(array[query]));
-          // chartOption.series[0].data[i - 1] = parseFloat(array.PH); 
-          // console.log(parseFloat(array.PH));
-        }
+        // The X Values (yyyy-mm)
+        chartOption.xAxis.categories[i] = `${array.Year}-${array.Month}`;
+
+        // The actual data
+        chartOption.series[0].data[i ] = parseFloat(array[label]); 
+        
       }); 
 
       
     },
 
     options() {
+      // Convert this.chartOptions to chartOption since props cant be mutated
       this.chartOption = JSON.parse(JSON.stringify(this.chartOptions));
+
+      // Functions inside tooltip and plotOptions
       this.chartOption.tooltip = this.tooltip;
       this.chartOption.plotOptions = this.plotOptions;
-      // this.chartOption.plotOptions.area = this.plotOptions.area;
       this.chartOption.xAxis = this.xAxis;
-      // this.chartOption.pointer = this.pointer;
-      // this.chartOption.title.text = this.title;
+
+      // Label and Unit need to be assigned here not inside the object
+      this.chartOption.yAxis.title.text = `${this.label} (${this.unit})`;
+      this.chartOption.series[0].name = `Average ${this.unit}`;
+
       this.chartOption.legend = this.legend;
       this.chartOption.rangeSelector = this.rangeSelector;
+      
+      // Trying to boost loading speed
       this.chartOption.boostThreshold = 1;
       this.chartOption.turboThreshold = 0;
     },
 
     onRender() {
+      
+      // Important for inital render, will get overwritten by function after but without this no average will be displayed
       Highcharts.charts.forEach((chart) => {
         if (chart) {
           chart.legend.update({
@@ -211,12 +237,12 @@ export default {
               return (
                 'Average: ' +
                 (chart.series[0].dataMax + chart.series[0].dataMin) / 2
+                + `${this.unit}`
               );
             },
           });
         }
       });
-      console.log("on render" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
       console.log(`${this.query} rendered`);
       // console.log(this.chartOption.xAxis);
       // console.log(this.chartOption.series);
@@ -236,40 +262,45 @@ export default {
     },
   },
   async mounted() {
-    this.loaded = false;
-    this.options();
+    
     if (this.query != 'default') {
-      if (startDate) {
-        startDate = startDate.split('-');
+
+      if (this.startDate) {
+        this.startDateCopy = this.startDate.split('-')[0];
       } else {
-        startDate = '1950'
+        this.startDateCopy = '1950'
       }
-      if (endDate) {
-        endDate = endDate.split('-');
+      if (this.endDate) {
+        this.endDateCopy = this.endDate.split('-')[0];
       }else{
-        endDate = new Date().getFullYear();
+        this.endDateCopy = new Date().getFullYear();
       }
+      this.loaded = false;
+      this.options();
       try {
-        console.log("pre data send" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
+        // console.log("pre data send" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
+        
         const { data } = await axios.get(
-          // `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php?query=${this.query}&city=${this.city}&startDate=${this.startDate}&endDate=${this.endDate}`
-          `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php`,
-          {
-            params: {
-              query: `${this.query}`,
-              city: `${this.city}`,
-              startDate: `${this.startDate}`,
-              endDate: `${this.endDate}`
-            },
-          },
+          `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php?query=${this.query}&city=${this.city}&startDate=${this.startDateCopy}&endDate=${this.endDateCopy}`
+          // `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php`,
+          // {
+          //   params: {
+          //     query: `${this.query}`,
+          //     city: `${this.city}`,
+          //     startDate: `${this.startDateCopy}`,
+          //     endDate: `${this.endDateCopy}`
+          //   },
+          // },
         );
         this.chartdata = Object.freeze(data);
-        // console.log(this.chartdata);
-        this.fillData(this.chartdata, this.chartOption, this.query);
-        console.log("data processed" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
+        this.fillData(this.chartdata, this.chartOption, this.label);
+        // console.log("data processed" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
         
         this.loaded = true;
+        this.error = false;
       } catch (e) {
+        this.loaded = false;
+        this.error = true;
         console.error(e);
       }
     }

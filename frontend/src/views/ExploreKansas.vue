@@ -1,28 +1,61 @@
 <template>
   <div class="container">
+     
+    <div class="irrigation charts" >
+      <div>  
+        <input class="subselections" type="month" :min="MIN_DATE" v-model="startDate"> -
+        <input class="subselections" type="month" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
 
-    <input type="month" value="1950-10" :min="MIN_DATE" v-model="startDate">
-    <input type="month" value="2020-11" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
+        <span>
+          <span > &emsp;City: </span> 
+          <select class="subselections" v-model="chosenCity">
+            <option class="dropdown" v-for="(city, i) in cities" :value="city.value" :key="i">
+              {{ city.text }}
+            </option>
+          </select>
+        </span>
+      </div>
+      
+      <!-- Need to seperate query1 from query2 so both graphs dont rerender on selecting a different option -->
+      <select class="selection" v-model="query1">
+        <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
+          {{ option.text }}
+        </option>
+      </select>
 
-    <select class="selection" v-model="chosenCity">
-      <option class="dropdown" v-for="(city, i) in cities" :value="city.value" :key="i">
-        {{ city.text }}
-      </option>
-    </select>
-
-    <select class="selection" v-model="query">
-      <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
-        {{ option.text }}
-      </option>
-    </select>
-
-    
-    
-    <div class="irrigation charts" :v-if='query != "default" '>
-      <Chart :chartOptions='chartOptions' :query='query' :startDate='startDate' :endDate='endDate' :city='chosenCity' :key="rerender" />
+      <!-- The keys have to be different to rerender individually -->
+      <Chart 
+        :v-if='query != "default" '
+        :chartOptions='chartOptions' 
+        :label='label'
+        :unit='unit'
+        :query='query1'
+        :startDate='startDate' 
+        :endDate='endDate' 
+        :city='chosenCity' 
+        :key="rerender1" />
       <!-- <Irrigation /> -->
     </div>
+
+
     <div class="groundwater charts" >
+      
+      <select class="selection" v-model="query2">
+        <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
+          {{ option.text }}
+        </option>
+      </select>
+
+      <Chart 
+        :v-if='query != "default" '
+        :chartOptions='chartOptions' 
+        :label='label'
+        :unit='unit'
+        :query='query2'
+        :startDate='startDate' 
+        :endDate='endDate' 
+        :city='chosenCity' 
+        :key="rerender2" />
       <!-- <Chart :chartOptions='chartOptions' title='Groudwater' /> -->
     </div>
     <div class="streamflow charts" >
@@ -84,9 +117,35 @@ export default {
     Chart
   },
   watch: {
-    query() {
-      this.rerender = this.rerender + 1
-    }
+    query1() {
+      if (this.query1 == 'STREAM') {
+        this.label = 'Discharge';
+        this.unit = 'ft^3/s'
+      }
+      this.rerender1 = this.rerender1 + 1;
+    },
+    query2() {
+      if (this.query2 == 'STREAM') {
+        this.label = 'Discharge';
+        this.unit = 'ft^3/s'
+      }
+      this.rerender2 = this.rerender2 + 1;
+    },
+    startDate() {
+      this.rerender1 = this.rerender1 + 1;
+      this.rerender2 = this.rerender2 + 1;
+
+    },
+    endDate() {
+      this.rerender1 = this.rerender1 + 1;
+      this.rerender2 = this.rerender2 + 1;
+
+    },
+    chosenCity() {
+      this.rerender1 = this.rerender1 + 1;
+      this.rerender2 = this.rerender2 + 1;
+
+    },
   },
   methods: {
     
@@ -94,17 +153,21 @@ export default {
   },
   data: () => ({
     MIN_DATE: '1950-10',
-
     startDate: '1950-10',
     endDate: '2020-11',
-    query: 'default',
-    chosenCity: 'syracuse'
-    rerender: 1,
+    query1: 'default',
+    query2: 'default',
+    chosenCity: 'syracuse',
+    label: 'Discharge',
+    rerender1: 1,
+    rerender2: 2,
+    unit: '',
     options: [
       {
         value: 'STREAM',
         text: 'Streamflow',
-        unit: 'ft^3/s'
+        unit: 'ft^3/s',
+        label: 'Discharge'
       },
       {
         value: 'GW',
@@ -166,7 +229,7 @@ export default {
       },
       yAxis: {
         title: {
-          text: 'Average ft',
+          text: 'Average',
         },
       },
       plotOptions: {
@@ -216,9 +279,23 @@ export default {
 </script>
 
 <style scoped>
+.subselections {
+  margin: auto;
+  margin-top: 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2c3e5099;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-text-size-adjust: none;
+  border: 1px solid rgba(220, 220, 220, 0.884);
+  padding: 0.25rem;
+}
+
 .selection {
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -257,10 +334,11 @@ li {
   display: grid;
   padding: 1rem 0rem;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 410px 410px 410px 410px;
+  grid-template-rows: 550px 550px 550px 550px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  width: 90%;
+  width: 95%;
+  margin: auto;
 }
 
 .irrigation {
@@ -329,9 +407,9 @@ li {
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 2000px) {
   .container {
-    width: 75%;
+    width: 85%;
   }
 }
 </style>
