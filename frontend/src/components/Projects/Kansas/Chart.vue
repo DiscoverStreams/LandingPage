@@ -281,16 +281,17 @@ export default {
         // console.log("pre data send" , (new Date()).getSeconds(), (new Date()).getMilliseconds());
         
         const { data } = await axios.get(
-          `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php?query=${this.query}&city=${this.city}&startDate=${this.startDateCopy}&endDate=${this.endDateCopy}`
-          // `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php`,
-          // {
-          //   params: {
-          //     query: `${this.query}`,
-          //     city: `${this.city}`,
-          //     startDate: `${this.startDateCopy}`,
-          //     endDate: `${this.endDateCopy}`
-          //   },
-          // },
+          // `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php?query=${this.query}&city=${this.city}&startDate=${this.startDateCopy}&endDate=${this.endDateCopy}`
+          `https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php`,
+          {
+            params: {
+              query: `${this.query}`,
+              city: `${this.city}`,
+              startDate: `${this.startDateCopy}`,
+              endDate: `${this.endDateCopy}`
+            },
+            headers: { 'Content-Type': 'application/json'}
+          },
         );
         this.chartdata = Object.freeze(data);
         this.fillData(this.chartdata, this.chartOption, this.label);
