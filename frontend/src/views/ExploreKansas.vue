@@ -1,7 +1,7 @@
 <template>
   <div class="container">
      
-    <div class="irrigation charts" >
+    <div class="top-right charts" >
       <div>  
         <input class="subselections" type="month" :min="MIN_DATE" v-model="startDate"> -
         <input class="subselections" type="month" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
@@ -18,7 +18,7 @@
       
       <!-- Need to seperate query1 from query2 so both graphs dont rerender on selecting a different option -->
       <select class="selection" v-model="query1">
-        <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
+        <option class="dropdown" v-for="(option, i) in options" :value="i" :key="i">
           {{ option.text }}
         </option>
       </select>
@@ -27,21 +27,20 @@
       <Chart 
         :v-if='query1 != "default" '
         :chartOptions='chartOptions' 
-        :label='label'
-        :unit='unit'
-        :query='query1'
+        :label='options[query1].label'
+        :unit='options[query1].unit'
+        :query='options[query1].value'
         :startDate='startDate' 
         :endDate='endDate' 
         :city='chosenCity' 
         :key="rerender1" />
-      <!-- <Irrigation /> -->
     </div>
 
 
-    <div class="groundwater charts" >
+    <div class="bottom-right charts" >
       
       <select class="selection" v-model="query2">
-        <option class="dropdown" v-for="(option, i) in options" :value="option.value" :key="i">
+        <option class="dropdown" v-for="(option, i) in options" :value="i" :key="i">
           {{ option.text }}
         </option>
       </select>
@@ -49,19 +48,15 @@
       <Chart 
         :v-if='query2 != "default" '
         :chartOptions='chartOptions' 
-        :label='label'
-        :unit='unit'
-        :query='query2'
+        :label='options[query2].label'
+        :unit='options[query2].unit'
+        :query='options[query2].value'
         :startDate='startDate' 
         :endDate='endDate' 
         :city='chosenCity' 
         :key="rerender2" />
-      <!-- <Chart :chartOptions='chartOptions' title='Groudwater' /> -->
     </div>
-    <div class="streamflow charts" >
-      <!-- <Chart :chartOptions='chartOptions' title='Streamflow' /> -->
-    </div>
-    <div class="hydro-moments">
+    <div class="bottom-left">
       <h2>
         KEY HYDROLOGICAL MOMENTS:
       </h2>
@@ -155,8 +150,8 @@ export default {
     MIN_DATE: '1950-10',
     startDate: '1950-10',
     endDate: '2020-11',
-    query1: 'default',
-    query2: 'default',
+    query1: '0',
+    query2: '0',
     chosenCity: 'syracuse',
     label: 'Discharge',
     rerender1: 1,
@@ -172,17 +167,21 @@ export default {
       {
         value: 'GW',
         text: 'Groundwater',
-        unit: 'ft'
+        unit: 'ft',
+        label: 'Discharge'
       },
       {
         value: 'IW',
         text: 'Irrigation Water Use',
-        unit: 'ft^3/s'
+        unit: 'ft^3/s',
+        label: 'Discharge'
       },
       {
         value: 'CLI',
         text: 'Climate PDSI',
-        unit: ' '
+        unit: ' ',
+        label: 'Discharge'
+
       },
     ],
 
@@ -303,13 +302,8 @@ export default {
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
   -moz-text-size-adjust: none;
-  border: 1px solid rgba(220, 220, 220, 0.884);
+  border: 1px solid rgba(168, 168, 168, 0.699);
   padding: 0.25rem;
-}
-
-.selection:focus{
-  outline: none;
-  border: none;
 }
 
 .dropdown{
@@ -334,31 +328,40 @@ li {
   display: grid;
   padding: 1rem 0rem;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 550px 550px 550px 550px;
+  grid-template-rows: 550px 550px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   width: 95%;
   margin: auto;
 }
 
-.irrigation {
+.top-right {
   grid-column-start: 2;
   height: 100%;
   grid-row-start: 1;
   grid-row-end: 1;
 }
 
-.groundwater {
+.bottom-right {
   grid-column-start: 2;
   height: 100%;
   grid-row-start: 2;
   grid-row-end: 2;
+  padding: 0.25rem 2rem 0.25rem 1rem;
 }
 
-.streamflow {
-  grid-column-start: 2;
-  height: 100%;
-  grid-row-start: 3;
+.bottom-left{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 0.25rem 2rem 0.25rem 1rem;
+}
+
+.top-left {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
   grid-row-end: 3;
 }
 
@@ -366,20 +369,12 @@ li {
   padding: 0rem 0.25rem;
 }
 
-.hydro-moments{
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  padding: 0.25rem 2rem 0.25rem 1rem;
-}
-
-
 @media only screen and (max-width: 1200px) {
   .container{
     display: flex;
     flex-direction: column;
     margin: auto;
+    width: 90%;
   }
   .charts {
     padding: 0.25rem 0rem;
@@ -398,12 +393,8 @@ li {
     padding: 0.25rem 0rem;
   }
   
-  .hydro-moments{
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    padding: 0.25rem 1rem 0.25rem 0rem;
+  .bottom-right{
+    display: none;
   }
 }
 

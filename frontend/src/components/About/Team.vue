@@ -16,7 +16,7 @@
           :alt="member.name"
         >
         <div class="description">
-          <h4>{{member.name}}</h4>
+          <h5>{{member.name}}</h5>
           <p>{{member.affiliation}}</p>
         </div>
       </div>
@@ -111,13 +111,16 @@ export default {
 
 <style scoped>
 
-h4{
+h5{
   margin: 0;
   margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 p{
   margin: 0;
+  font-size: 1rem;
 }
 
 .container{
@@ -138,15 +141,23 @@ p{
 
 .team{
   padding: 1.25rem;
-  width: 15rem;
+  width: 100%;
+  max-width: 18rem;
   display: flex;
+  border: 1px solid rgba(233, 233, 233, 0.6);
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .description{
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding: 0.75rem 0 0 0;
+  padding: 0.25rem 0 0.25rem 0;
+  margin-top: 0;
+  margin-bottom: auto;
+  
 }
 
 .img{
@@ -156,6 +167,7 @@ p{
   object-fit: cover;
   overflow: hidden;
   border-radius: 50%;
+  margin-right: 0.75rem;
 }
 /* 
 .img-container{
@@ -163,4 +175,15 @@ p{
   width: 4rem;
   height: 4rem;
 } */
+
+@media only screen and (max-width: 700px) {
+  .team{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+  }
+  .img{
+    margin: auto;
+  }
+}
 </style>

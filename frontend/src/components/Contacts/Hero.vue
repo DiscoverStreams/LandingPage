@@ -49,6 +49,7 @@ export default {
   height: 578px;
   width: 100%;
   transition: all .5s ease-in-out;
+  
 }
 
 .description {
@@ -62,6 +63,8 @@ export default {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 </style>

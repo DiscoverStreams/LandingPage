@@ -31,10 +31,11 @@ export default {
 </script>
 
 <style scoped>
-h4{
+h2{
   margin: 0;
   margin-top: 1rem;
   margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
 h1{
@@ -73,5 +74,29 @@ h1{
   justify-content: center;
   text-align: left;
   padding-bottom: 3rem;
+}
+
+@media only screen and (max-width: 550px) {
+  .logos{
+    width: 80%;
+    max-width: 260px;
+    height: 80%;
+    margin: auto;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+  }
+  .funding-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .text-box{
+    width: 100%;
+    margin: auto;
+  }
 }
 </style>

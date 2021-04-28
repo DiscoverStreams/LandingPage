@@ -60,4 +60,19 @@ export default {
   text-align: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .description {
+    font-size: 1.5rem;
+    /* width: 90%; */
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .description {
+    font-size: 1.25rem;
+    width: 80%;
+  }
+}
+
+
 </style>
