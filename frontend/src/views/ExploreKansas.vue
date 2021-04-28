@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-     
+     BLAHBLAHBLAH
     <div class="irrigation charts" >
       <div>  
         <input class="subselections" type="month" :min="MIN_DATE" v-model="startDate"> -
