@@ -3,7 +3,18 @@
     <h1>Working Group Members</h1>
     <div class="team-container">
       <div class="team" v-for="(member, index) in team" :key="index">
-        <img class="img" src="@/assets/teamImages/face.jpg" alt="face">
+        <img 
+          v-if="member.image"
+          class="img" 
+          :src="require(`@/assets/teamImages/${member.image}`)" 
+          :alt="member.name"
+        >
+        <img 
+          v-else-if="!member.image"
+          class="img" 
+          :src="require(`@/assets/teamImages/face.jpg`)" 
+          :alt="member.name"
+        >
         <div class="description">
           <h4>{{member.name}}</h4>
           <p>{{member.affiliation}}</p>
@@ -23,67 +34,75 @@ export default {
     team: [
       {
         name: 'Andrea Brookfield',
-        affiliation: 'University of Kansas'
+        affiliation: 'University of Kansas',
       },
       {
         name: 'Will Farmer',
-        affiliation: 'USGS - Lakewood CO'
+        affiliation: 'USGS - Lakewood CO',
+        image: 'WilliamFarmer.jpg'
       },
       {
         name: 'Mary Hill',
-        affiliation: 'University of Kansas'
+        affiliation: 'University of Kansas',
       },
       {
         name: 'Samuel Zipper',
-        affiliation: 'Kansas Geological Survey'
+        affiliation: 'Kansas Geological Survey',
+        image: 'SamZipper.jpg'
       },
       {
         name: 'Hoori Ajami',
-        affiliation: 'UC Riverside'
+        affiliation: 'UC Riverside',
+        image: 'HooriAjami.jpg'
       },
       {
         name: 'Jillian Deines',
-        affiliation: 'Stanford'
+        affiliation: 'Stanford',
+        
       },
       {
         name: 'Holly Doremus',
-        affiliation: 'UC Berkeley'
+        affiliation: 'UC Berkeley',
+        
       },
       {
         name: 'Laura Foglia',
-        affiliation: 'UC Davis'
+        affiliation: 'UC Davis',
       },
       {
         name: 'Tom Gleeson',
-        affiliation: 'University of Victoria'
+        affiliation: 'University of Victoria',
+        image: 'TomGleeson.jpg'
       },
       {
         name: 'Ben Kerr',
-        affiliation: 'Foundry Spatial Ltd.'
+        affiliation: 'Foundry Spatial Ltd.',
       },
       {
         name: 'Earl Lewis',
-        affiliation: 'Kansas Department of Agriculture'
+        affiliation: 'Kansas Department of Agriculture',
       },
       {
         name: 'Howard Reeves',
-        affiliation: 'USGS – Lansing MI'
+        affiliation: 'USGS – Lansing MI',
       },
       {
         name: 'Chloe Wardropper',
-        affiliation: 'University of Idaho'
+        affiliation: 'University of Idaho',
       },
       {
         name: 'Gabriele Villarini',
-        affiliation: 'University of Iowa'
+        affiliation: 'University of Iowa',
+        image: 'GabrieleVillarini.jpg'
       },
       {
         name: 'Misty Porter',
-        affiliation: 'University of Kansas'
+        affiliation: 'University of Kansas',
+        image: 'MistyPorter.jpg'
       },
       {
         name: 'Lauren Hay',
-        affiliation: 'Formerly USGS – Lakewood, CO'
+        affiliation: 'Formerly USGS – Lakewood, CO',
       },
     ]
   })

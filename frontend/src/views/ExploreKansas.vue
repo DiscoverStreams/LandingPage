@@ -282,7 +282,7 @@ export default {
 .subselections {
   margin: auto;
   margin-top: 0.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: #2c3e5099;
@@ -296,7 +296,7 @@ export default {
 .selection {
   margin: auto;
   margin-top: 0.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   color: #2c3e5099;

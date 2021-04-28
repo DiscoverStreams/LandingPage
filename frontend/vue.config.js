@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
     proxy: {
       '^/api': {
-        target: 'http://localhost:5000',
+        target: 'https://interactiveviz.ku.edu/DiscoverStreams/PHP-API-DEV/get.php',
         changeOrigin: true
       },
     }
