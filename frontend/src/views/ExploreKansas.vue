@@ -400,12 +400,15 @@ li {
   .top-left{
     display: flex;
     width: 100%;
-    height: 1000px;
+    height: 550px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; 
   }
+  .bottom-right{
+    height: 500px;
+  }
   .top-right{
-    height: 550px;
+    height: 500px;
     width: 100%;
     margin: auto;
   }
@@ -438,6 +441,9 @@ li {
 @media only screen and (min-width: 2000px) {
   .container {
     width: 85%;
+  }
+  .bottom-right{
+    display: none;
   }
 }
 </style>
