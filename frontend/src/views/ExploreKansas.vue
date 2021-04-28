@@ -1,11 +1,18 @@
 <template>
   <div class="container">
-     
-    <div class="top-right charts" >
-      <div>  
-        <input class="subselections" type="month" :min="MIN_DATE" v-model="startDate"> -
-        <input class="subselections" type="month" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
+    
+    <div class="top-left">
+      <Map @cityPicked="onCityPick"/>
+    </div>
 
+    <div class="top-right charts" >
+      <div class="date-city-container">  
+        <div >
+          <input class="subselections" type="month" :min="MIN_DATE" v-model="startDate"> -
+          <input class="subselections" type="month" :min="startDate ? startDate : MIN_DATE" v-model="endDate">
+
+        </div>
+        
         <span>
           <span > &emsp;City: </span> 
           <select class="subselections" v-model="chosenCity">
@@ -35,7 +42,8 @@
         :city='chosenCity' 
         :key="rerender1" />
     </div>
-
+    
+    
 
     <div class="bottom-right charts" >
       
@@ -105,25 +113,27 @@
 <script>
 import Chart from "../components/Projects/Kansas/Chart"
 import Highcharts from 'highcharts'
+import Map from "../components/Projects/Kansas/Map"
 
 export default {
   name: "ExploreKansas",
   components: {
-    Chart
+    Chart,
+    Map
   },
   watch: {
     query1() {
-      if (this.query1 == 'STREAM') {
-        this.label = 'Discharge';
-        this.unit = 'ft^3/s'
-      }
+      // if (this.query1 == 'STREAM') {
+      //   this.label = 'Discharge';
+      //   this.unit = 'ft^3/s'
+      // }
       this.rerender1 = this.rerender1 + 1;
     },
     query2() {
-      if (this.query2 == 'STREAM') {
-        this.label = 'Discharge';
-        this.unit = 'ft^3/s'
-      }
+      // if (this.query2 == 'STREAM') {
+      //   this.label = 'Discharge';
+      //   this.unit = 'ft^3/s'
+      // }
       this.rerender2 = this.rerender2 + 1;
     },
     startDate() {
@@ -143,7 +153,9 @@ export default {
     },
   },
   methods: {
-    
+    onCityPick(city){
+      this.chosenCity = city;
+    }
 
   },
   data: () => ({
@@ -153,7 +165,6 @@ export default {
     query1: '0',
     query2: '0',
     chosenCity: 'syracuse',
-    label: 'Discharge',
     rerender1: 1,
     rerender2: 2,
     unit: '',
@@ -361,12 +372,19 @@ li {
 .top-left {
   grid-column-start: 1;
   grid-column-end: 1;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  /* height: auto;
+  width: 100%; */
 }
 
 .charts {
   padding: 0rem 0.25rem;
+}
+
+.date-city-container{
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -378,6 +396,18 @@ li {
   }
   .charts {
     padding: 0.25rem 0rem;
+  }
+  .top-left{
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; 
+  }
+  .top-right{
+    height: 550px;
+    width: 100%;
+    margin: auto;
   }
 }
 
@@ -395,6 +425,13 @@ li {
   
   .bottom-right{
     display: none;
+  }
+  .top-left{
+    display: none;
+  }
+
+  .date-city-container{
+    flex-direction: column;
   }
 }
 
