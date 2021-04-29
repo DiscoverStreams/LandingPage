@@ -17,19 +17,19 @@ const PORT = 5000
 //   // port: '3306'
 // })
 
-const connection = mysql.createConnection({
-  host     : 'itprdcpandb01.cc.ku.edu',
-  user     : 'interact_webuser',
-  password :  'MB!aS])Baizr',
-  database : 'interact_CyanoHABs',
-  port:3306
-});
+// const connection = mysql.createConnection({
+//   host     : 'itprdcpandb01.cc.ku.edu',
+//   user     : 'interact_webuser',
+//   password :  'MB!aS])Baizr',
+//   database : 'interact_CyanoHABs',
+//   port:3306
+// });
 
-const sql = 'SELECT * from Parameters'
-connection.connect(function(err) {
-  if (err) throw(err);
-  console.log("Connected!");
-});
+// const sql = 'SELECT * from Parameters'
+// connection.connect(function(err) {
+//   if (err) throw(err);
+//   console.log("Connected!");
+// });
 
 
 
@@ -41,21 +41,21 @@ connection.connect(function(err) {
 //   console.log(result);
 // })
 
-app.get('/db-test', (req, res, next) => {
+// app.get('/db-test', (req, res, next) => {
 
-  // let sql = `SELECT * from Parameters`;
+//   // let sql = `SELECT * from Parameters`;
 
-  console.log(sql); // confirm you are sending the sql request you believe you should be sending
+//   console.log(sql); // confirm you are sending the sql request you believe you should be sending
 
-  connection.query(sql, function (err, results, fields) {
-      if (err) console.error(err);
-      console.log(`results: ${results}\nfields: ${fields}`);
-  });
+//   connection.query(sql, function (err, results, fields) {
+//       if (err) console.error(err);
+//       console.log(`results: ${results}\nfields: ${fields}`);
+//   });
 
-});
+// });
 
 
-connection.end()
+// connection.end()
 
 
 

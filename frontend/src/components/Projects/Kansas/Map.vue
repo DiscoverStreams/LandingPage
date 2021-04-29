@@ -47,12 +47,12 @@ export default {
       zoom: 5,
       cities: [
         {
-          location: [43.04, -76.15],
+          location: [37.98, -101.75],
           text: 'Syracuse',
           value: 'syracuse'
         },
         {
-          location: [40.73, -73.63],
+          location: [37.97, -100.87],
           value: 'gardenCity',
           text: "Garden City"
         },
