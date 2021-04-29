@@ -179,19 +179,19 @@ export default {
         value: 'GW',
         text: 'Groundwater',
         unit: 'ft',
-        label: 'Discharge'
+        label: 'AverageDepthToWater'
       },
       {
         value: 'IW',
         text: 'Irrigation Water Use',
         unit: 'ft^3/s',
-        label: 'Discharge'
+        label: 'WaterUseIrrigation'
       },
       {
         value: 'CLI',
         text: 'Climate PDSI',
         unit: ' ',
-        label: 'Discharge'
+        label: 'PDSI'
 
       },
     ],
