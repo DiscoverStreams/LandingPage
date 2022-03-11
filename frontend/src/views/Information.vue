@@ -11,11 +11,11 @@
 
 <script>
 // @ is an alias to /src
-import NavBar from "@/components/NavBar.vue";
-import Hero from "@/components/AboutComponents/Hero.vue";
-import Team from "@/components/AboutComponents/Team.vue";
-import Funding from "@/components/AboutComponents/Funding.vue";
-import Affiliations from "@/components/Affiliations.vue";
+import NavBar from "@/components/NavBar";
+import Hero from "@/components/AboutComponents/Hero";
+import Team from "@/components/AboutComponents/Team";
+import Funding from "@/components/AboutComponents/Funding";
+import Affiliations from "@/components/Affiliations";
 
 
 export default {

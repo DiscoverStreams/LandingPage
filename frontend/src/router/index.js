@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router"
-import Home from "../views/Home.vue"
-import Information from "../views/Information.vue"
-import Contact from "../views/Contact.vue"
-import ExploreScience from "../views/ExploreScience.vue"
-import ProjectData from "../views/ProjectData.vue"
+import Home from "../views/Home"
+import Information from "../views/Information"
+import Contact from "../views/Contact"
+import ExploreScience from "../views/ExploreScience"
+import ProjectData from "../views/ProjectData"
 
 const routes = [
   {
@@ -47,9 +47,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  mode: "history",
-  base: import.meta.env.BASE_URL,
-  routes,
+  history: createWebHashHistory(),
+  routes
 });
+
 
 export default router

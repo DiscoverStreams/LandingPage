@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
-import Map from "@/components/Data/Map.vue"
+import NavBar from "@/components/NavBar";
+import Map from "@/components/Data/Map"
 //import Charts from "@/components/Data/Charts"
 
 export default {

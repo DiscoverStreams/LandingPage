@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
+import NavBar from "@/components/NavBar";
 import MeasureDepletion from "../assets/ExploreScience/MeasureDepletion.png";
 import StreamflowDepletion from "../assets/ExploreScience/StreamflowDepletion.png";
 

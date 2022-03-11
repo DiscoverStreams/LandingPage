@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
-import Background from "@/components/Contacts/Background.vue";
+import NavBar from "@/components/NavBar";
+import Background from "@/components/Contacts/Background";
 
 export default {
   name: "Contact",

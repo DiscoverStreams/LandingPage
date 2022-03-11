@@ -8,8 +8,8 @@
 
 <script>
 // @ is an alias to /src
-import HomeNavbar from "@/components/HomeComponents/HomeNavbar.vue";
-import Projects from "@/components/HomeComponents/Projects.vue";
+import HomeNavbar from "@/components/HomeComponents/HomeNavbar";
+import Projects from "@/components/HomeComponents/Projects";
 
 export default {
   name: "Home",
