@@ -53,9 +53,9 @@ export default {
 
 
 .title{
-  display: flex;
   margin: 1.25rem;
   float: left;
+  color: aliceblue;
 }
 
 .img-container{
@@ -65,10 +65,14 @@ export default {
   width: 100%;
   justify-content: space-around;
   margin: 0 auto 0 auto;
+  background-color: rgb(0, 0, 0);
 }
 .logos{
   padding: 1.25rem;
   max-width: 7.5rem;
   max-height: 5rem;
+  border-style: double;
+  border: 10px;
+  border-color: blue;
 }
 </style>

@@ -1,5 +1,9 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import { createRouter, createWebHashHistory } from "vue-router"
+import Home from "../views/Home.vue"
+import Information from "../views/Information.vue"
+import Contact from "../views/Contact.vue"
+import ExploreScience from "../views/ExploreScience.vue"
+import ProjectData from "../views/ProjectData.vue"
 
 const routes = [
   {
@@ -8,40 +12,28 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/Information",
+    name: "Information",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    component: Information
   },
   {
-    path: "/contact",
+    path: "/Contact",
     name: "Contact",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import("../views/Contact.vue")
-  },
+    component: Contact
+  }, 
   {
-    path: "/explore",
-    name: "Explore",
+    path: "/ProjectData",
+    name: "ProjectData",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import("../views/ExploreData.vue")
-  },
-  {
-    path: "/exploreKansas",
-    name: "ExploreKansas",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import("../views/ExploreKansas.vue")
+    component: ProjectData
   },
 
   {
@@ -50,14 +42,14 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import("../views/ExploreScience.vue")
+    component: ExploreScience
   },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  mode: "history",
+  base: import.meta.env.BASE_URL,
+  routes,
 });
 
-export default router;
+export default router

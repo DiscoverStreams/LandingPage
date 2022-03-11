@@ -1,23 +1,22 @@
 <template>
-  <div class="box">
+  <div class="FooterContainer">
+    <img class="FooterBackground" src="@/assets/test5.jpg">
+    <!--<div class=FooterTop> </div> -->
     <div class="pad">
       <div class="logo-container">
         <img class="logo" src="@/assets/Logo.png" alt="LOGO" />
         <div class="header">Discover Stream</div>
       </div>
-      <div class="column">
+      <div class="footer-column">
         <h4>Explore</h4>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
-          >Explore Kansas/Colarado</a
-        >
+          >Explore Kansas/Colarado</a>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
-          >Explore California</a
-        >
+          >Explore California</a>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
-          >Explore Michigan</a
-        >
+          >Explore Michigan</a>
       </div>
-      <div class="column">
+      <div class="footer-column">
         <h4>Information</h4>
         <router-link to="/about">About</router-link>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
@@ -27,7 +26,7 @@
           >Data Sources</a
         >
       </div>
-      <div class="column">
+      <div class="footer-column">
         <h4>Connect</h4>
         <router-link to="/contact">Contact</router-link>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
@@ -49,37 +48,50 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
-  name: 'Footer',
+  name: "Footer",
   data: () => ({
     year: new Date().getFullYear(),
     content: '',
   }),
-  methods: {
-    mailSubmit: async function() {
-      await axios
-        .post('api/mailapi/write', {
-          content: this.content,
-        })
-        .then(function(res) {
-          console.log(res);
-        })
-        .catch(function(err) {
-          console.error(err);
-        });
-      this.content = '';
-    },
-  },
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.FooterContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin: 0rem;
+  flex-shrink: 0;
+  flex-direction: column;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 1rem;
+}
+
+.FooterTop{
+  display: flex;
+  position: relative;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.FooterBackground{
+  display: flex;
+  position: absolute;
+  width:100%;
+  height:100%;
+  filter: brightness(60%);
+}
+
 .mailing-list-container {
   display: flex;
-  margin: 0.5rem 0;
+  position: relative;
+  margin: 0.1rem 0;
   justify-content: center;
 }
 
@@ -149,20 +161,9 @@ input:focus {
   transition: all 0.2s ease-in-out;
 }
 
-.box {
-  display: flex;
-  background-color: rgba(34, 32, 32, 0.808);
-  color: white;
-  margin: 0rem;
-  flex-shrink: 0;
-  flex-direction: column;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  padding-bottom: 1rem;
-}
-
 .pad {
   display: flex;
+  position: relative;
   flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -172,7 +173,7 @@ input:focus {
   padding: 1rem 1rem 1rem 1rem;
 }
 
-.column {
+.footer-column {
   display: flex;
   flex-direction: column;
   justify-content: left;

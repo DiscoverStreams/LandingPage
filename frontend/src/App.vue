@@ -1,17 +1,16 @@
 <template>
-  <NavBar />
-  <router-view class="body" />
+  <router-view />
   <Footer />
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
+//import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
-    NavBar,
+    //Navbar,
     Footer
   },
   data: () => ({
@@ -30,15 +29,15 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  
 }
-html, body {
+
+body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0px ;
 }
 
-.body{
+.centre-body{
   flex: 1 0 auto; 
 }
 </style>

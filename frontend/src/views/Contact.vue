@@ -1,19 +1,22 @@
 <template>
+<NavBar />
   <div class="container">
-    <Hero :description="description" :image="image" :email="email" :phone="phone" />
+    <Background :description="Description" :image="image" :email="email" :phone="phone" />
   </div>
 </template>
 
 <script>
-import Hero from "@/components/Contacts/Hero";
+import NavBar from "@/components/NavBar.vue";
+import Background from "@/components/Contacts/Background.vue";
 
 export default {
   name: "Contact",
   components: {
-    Hero
+    NavBar,
+    Background
   },
-  data: () => ({
-    description: "Contact",
+    data: () => ({
+    Description: "Contact",
     email: 'Email: something@something.com',
     phone: 'Phone: +?-???-???-????',
     image: 'Ausable_river.jpg'

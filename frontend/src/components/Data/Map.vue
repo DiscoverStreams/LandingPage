@@ -1,0 +1,372 @@
+<template>
+<div class="MapContainer">
+      <div id="map"> </div>
+      <div id='console'>
+        <div class='session'>
+            <h class="LegendTitle"> Percentile Historical Streamflow</h>
+            <div class='legend-scale'>
+                <ul class='legend-labels'>
+                    <!-- <li><span style='background:#822121;'></span></br>No Flow</li> -->
+                    <li>
+                        <span style='background:#c10b0b;'></span><br>&lt; 10%</li>
+                    <li>
+                        <span style='background:#f7b709;'></span><br>10-25%</li>
+                    <li>
+                        <span style='background:#70c11f;'></span><br>25-75%</li>
+                    <li>
+                        <span style='background:#08c6db;'></span><br>75-90%</li>
+                    <li>
+                        <span style='background:#007ad6;'></span><br>&gt; 90%</li>
+                    <li>
+                        <span style='background:#090b86;'></span><br>Extreme<br>Flow</li>
+                </ul>
+            </div>
+            <div class='session' id='sliderbar'>
+                <h class="Date">Date: October
+                    <label id='active-year'>1950</label>
+                </h>
+                <input id='slider' class='row' type='range' min='0' max='66' step='1' value='0'/>
+            </div>
+        </div>
+    </div> 
+    </div>
+    <pre id="link"></pre> 
+</template>
+
+<script>
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+
+export default {
+  name: "Map",
+  mounted() {
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWlzdHlwb3J0ZXJrdSIsImEiOiJjajIyNG9oOGswMDViMndwaDQ3a2ZxY2NwIn0.Y4Paexki1dR1TqcKoQQO5w';
+      const map = new mapboxgl.Map({
+      container: "map",
+      style: 'mapbox://styles/mistyporterku/cj27vo2f300032sog0ibuz33x',
+      center: [-99.377, 38.578],
+      zoom: 6,
+    });
+    map.on("load", () => {
+        // Here we want to load a layer
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        map.addSource('GardenCity', {
+            type: 'geojson',
+            data: "GardenCity.geojson"
+        });
+        
+        map.addSource('DodgeCity', {
+            type: 'geojson',
+            data: "DodgeCity.geojson"
+        });
+        
+        map.addSource('GreatBend', {
+            type: 'geojson',
+            data: "GreatBend.geojson"
+        });
+        
+        map.addSource('Wichita', {
+            type: 'geojson',
+            data: "Wichita.geojson"
+        });
+        
+        map.addSource('SiteData', {
+            type: 'geojson',
+            data: "SyracyseSiteData.geojson"
+        });
+         map.addLayer({
+            id: 'Site',
+            type: 'circle',
+            source: 'SiteData', 
+            paint: {
+                'circle-radius': 6,
+                'circle-stroke-width': 1,
+                'circle-color': {
+                    property: 'Q',
+                    stops: [
+                        // [0.1, '#822121'],
+                        [
+                            16.82, '#c10b0b'
+                        ],
+                        [
+                            58.5, '#f7b709'
+                        ],
+                        [
+                            242.75, '#70c11f'
+                        ],
+                        [
+                            405.68, '#08c6db'
+                        ],
+                        [
+                            519.125, '#007ad6'
+                        ],
+                        [
+                            8057, '#090b86'
+                        ]
+                    ]
+                }
+            },
+            filter: ['>=', 'year', 1950]
+        });
+                // add data/link to time slider
+        document.getElementById('slider').addEventListener('input', function (e) {
+            // get the current year as an integer
+            var year = parseInt(e.target.value, 10) + 1950;
+            // map.setFilter(layer-name, filter)
+            map.setFilter('Site', ['==', 'year', year]);
+            document.getElementById('active-year').innerHTML = year;
+        });
+        
+        //////////pppppp//////
+
+        // // link to charts on site click
+        // map.on('click', 'Syracuse', function () {
+        //     window.open("https://interactiveviz.dept.ku.edu/Syracuse");
+        // });
+
+        // // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        // map.on('mouseenter', 'Syracuse', function () {
+        //     map.getCanvas().style.cursor = 'pointer';
+        // });
+
+        // // Change it back to a cursor when it leaves.
+        // map.on('mouseleave', 'Syracuse', function () {
+        //     map.getCanvas().style.cursor = '';
+        // });
+        
+        map.addLayer({
+            id: 'GardenCity',
+            type: 'circle',
+            source: 'GardenCity',
+            paint: {
+                'circle-radius': 6,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#FFFFFF',
+                'circle-color': '#000000'
+            }
+        });
+        
+        // link to charts on site click
+        map.on('click', 'GardenCity', function () {
+           window.location.replace("https://interactiveviz.dept.ku.edu/DiscoverWater/GardenCity");
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'GardenCity', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a cursor when it leaves.
+        map.on('mouseleave', 'GardenCity', function () {
+            map.getCanvas().style.cursor = '';
+        });
+        
+        map.addLayer({
+            id: 'DodgeCity',
+            type: 'circle',
+            source: 'DodgeCity',
+            paint: {
+                'circle-radius': 6,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#FFFFFF',
+                'circle-color': '#000000'
+            }
+        });
+        
+        // link to charts on site click
+        map.on('click', 'DodgeCity', function () {
+            window.location.replace("https://interactiveviz.dept.ku.edu/DiscoverWater/DodgeCity");
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'DodgeCity', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a cursor when it leaves.
+        map.on('mouseleave', 'DodgeCity', function () {
+            map.getCanvas().style.cursor = '';
+        });
+        
+        map.addLayer({
+            id: 'GreatBend',
+            type: 'circle',
+            source: 'GreatBend',
+            paint: {
+                'circle-radius': 6,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#FFFFFF',
+                'circle-color': '#000000'
+            }
+        });
+        
+        // link to charts on site click
+        map.on('click', 'GreatBend', function () {
+            window.location.replace("https://interactiveviz.dept.ku.edu/DiscoverWater/GreatBend");
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'GreatBend', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a cursor when it leaves.
+        map.on('mouseleave', 'GreatBend', function () {
+            map.getCanvas().style.cursor = '';
+        });
+        
+        map.addLayer({
+            id: 'Wichita',
+            type: 'circle',
+            source: 'Wichita',
+            paint: {
+                'circle-radius': 6,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#FFFFFF',
+                'circle-color': '#000000'
+            }
+        });
+        
+        // link to charts on site click
+        map.on('click', 'Wichita', function () {
+            window.location.replace("https://interactiveviz.dept.ku.edu/DiscoverWater/Wichita");
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'Wichita', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a cursor when it leaves.
+        map.on('mouseleave', 'Wichita', function () {
+            map.getCanvas().style.cursor = '';
+        });
+        
+        // map.on('mousemove', function(e) {
+        //     var features = map.queryRenderedFeatures(e.point, {
+        //         layers: ['AllSites']
+        //     });
+        // });
+        
+        // // link to charts on site click
+        // map.on('click', 'AllSites', function () {
+        //     // var sitename = e.features[0].properties.site_nm;
+        //     var link = e.features[0].properties.link;
+        //     window.open(JSON.stringify(link));
+        // });
+
+        // // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        // map.on('mouseenter', 'AllSites', function () {
+        //     map.getCanvas().style.cursor = 'pointer';
+        // });
+        
+        // // Change it back to a cursor when it leaves.
+        // map.on('mouseleave', 'AllSites', function () {
+        //     map.getCanvas().style.cursor = '';
+        // });
+        
+        // Add Kansas State Boundary
+        map.addLayer({
+            id: 'KansasState',
+            type: 'line',
+            source: {
+                type: 'geojson',
+                data: "KansasStateBoundary.geojson"
+            },
+            paint: {
+                'line-width': 1,
+                'line-color': '#000000'
+            }
+        });
+
+        // Add Kansas Counties
+        map.addLayer({
+            id: 'KansasCounties',
+            type: 'line',
+            source: {
+                type: 'geojson',
+                data: "KansasCounties.geojson"
+            },
+            paint: {
+                'line-width': 1,
+                'line-color': '#000000'
+            }
+        });
+    });
+  },
+}
+</script>
+
+<style scoped>
+
+#map{
+  width: 50%; 
+  height: 390px;
+  left: 10;
+  float: left; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+#console {
+  position: absolute;
+  width: 285px;
+  padding: 10px 10px;
+  background-color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  }
+  
+  
+.LegendTitle {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 5px;
+  }
+  
+.Date {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 5px;
+    }
+  
+.session {
+  margin-bottom: 10px;
+  }
+  
+.session .legend-scale ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  }
+      
+.session .legend-scale ul li {
+  display: block;
+  float: left;
+  width: 45px;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: 10px;
+  list-style: none;
+  }
+  
+.session ul.legend-labels li span {
+  display: block;
+  float: left;
+  height: 15px;
+  width: 45px;
+  }
+        
+.row {
+  height: 12px;
+  width: 100%;
+  }
+      
+
+
+
+</style>
+

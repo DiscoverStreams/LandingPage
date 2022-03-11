@@ -1,4 +1,5 @@
 <template>
+<NavBar />
   <div class="container">
     <h2><br>Explore Science</h2>
     <h4>Explore the science behind streamflow depletion, understanding what it is, why it is a problem, and how we can measure how much is occurring. This information is summarized from “Quantifying Streamflow Depletion from Groundwater Pumping: A Practical Review of Past and Emerging Approaches for Water Management” by Zipper et al., (2021) in review for Journal of the American Water Association.</h4>
@@ -96,12 +97,15 @@
 </template>
 
 <script>
-
+import NavBar from "@/components/NavBar.vue";
 import MeasureDepletion from "../assets/ExploreScience/MeasureDepletion.png";
 import StreamflowDepletion from "../assets/ExploreScience/StreamflowDepletion.png";
 
 export default {
   name: "ExploreScience",
+  components: {
+    NavBar
+  },
   data: () => ({
     MeasureDepletion: MeasureDepletion,
     StreamflowDepletion: StreamflowDepletion
@@ -118,6 +122,14 @@ export default {
   padding: 0rem 1rem;
   width: 80%;
   margin: auto;
+}
+
+.NavBackground {
+  display: flex;
+  position: absolute;
+  width:100%;
+  height:100%;
+  filter: brightness(60%);
 }
 
 h3{
