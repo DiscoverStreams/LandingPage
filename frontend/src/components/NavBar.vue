@@ -43,11 +43,13 @@
 
 <script>
 
+import hamburger from '../assets/hamburger.svg'
+
 export default {
   name: "NavBar",
 
   data: () => ({
-    Hamburger: require("../assets/hamburger.svg"),
+    Hamburger: hamburger,
     open: false,
     information: false,
     content: false,

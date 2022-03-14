@@ -49,6 +49,9 @@
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import Kansas from '@/assets/ProjectImages/Ark-dry-kansas.jpg'
+import California from '@/assets/ProjectImages/california-desert.jpg'
+import Michigan from '@/assets/ProjectImages/Ausable-River-Michigan.jpg'
 export default {
   name: "Projects",
   components: {
@@ -59,17 +62,17 @@ export default {
     projects: [
       {
         city: 'Kansas/Colarado', 
-        image: require('@/assets/ProjectImages/Ark-dry-kansas.jpg'),
+        image: Kansas,
         link: 'https://interactiveviz.ku.edu/DiscoverWater/',
       },
       {
         city: 'California', 
-        image: require('@/assets/ProjectImages/california-desert.jpg'),
+        image: California,
         link: 'https://interactiveviz.ku.edu/DiscoverWater/'
       },
       {
         city: 'Michigan', 
-        image: require('@/assets/ProjectImages/Ausable-River-Michigan.jpg'),
+        image: Michigan,
         link: 'https://interactiveviz.ku.edu/DiscoverWater/'
       },
       

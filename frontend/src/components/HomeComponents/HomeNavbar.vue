@@ -1,8 +1,5 @@
 <template>
 <div class="Nav-Container">
-  <a class="dribbble" href="https://dribbble.com/shots/6350574-Hamburger-switch-animation" target="_blank"><img
-  src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" 
-  alt=""></a>
     <router-link to="/"> <div class="nav-child logo-container">    
     <img class="LogoBackground" src="@/assets/LogoContainer.svg">
     <img class="logo" src="@/assets/Logo.png" alt="Top-left LOGO which is always displayed">
@@ -63,6 +60,10 @@ export default {
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+/*@import url('https://dribbble.com/shots/6350574-Hamburger-switch-animation');
+
+@import url('https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg'); */
 
 .Nav-Container {
   display: grid;
