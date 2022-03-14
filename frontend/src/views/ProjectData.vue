@@ -2,7 +2,6 @@
 <NavBar />
 <div class="container">
     <Map />
-   <!-- <Charts /> -->
   </div>
 </template>
 
@@ -15,8 +14,19 @@ export default {
   name: "ProjectData",
   components: {
     NavBar,
-    Map
+    Map,
+    //Charts
   },
+  methods: {
+    handler() {
+      var args = arguments;
+      for (var arg of args) {
+        if (arg instanceof Function) {
+          arg();
+        }
+      }
+    }
+  }
 };
 </script>
 

@@ -10,8 +10,11 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "data.js": "^0.12.11",
     "global": "^4.4.0",
     "highcharts": "^9.0.1",
+    "highcharts-vue": "^1.4.0",
+    "jquery": "^3.6.0",
     "loading-visualization": "^1.2.14",
     "mapbox-gl": "^2.7.0",
     "vue": "^3.0.0",
