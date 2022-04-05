@@ -1,6 +1,6 @@
 <template>
   <div class="img-container">
-    <img class="img" :src="require(`@/assets/projectImages/${image}`)" alt="City">  
+    <img class="img" src='src/assets/ProjectImages/Ausable_river.jpg' alt="City">  
   </div>
   <div class="overlay">
     <div class="description">

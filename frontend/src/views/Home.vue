@@ -2,20 +2,22 @@
 <div class="Landing-Container">
       <div class="Projects"> <Projects /> </div>
       <div class="HomeNavbar"> <HomeNavbar /> </div>
-        <!--<h1 class= "LandingPageTitle"> DiscoverStreams Visualization Tool </h1>-->
     </div>
+    <div class="ProjectDescription"> <ProjectDescription /> </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HomeNavbar from "@/components/HomeComponents/HomeNavbar.vue";
 import Projects from "@/components/HomeComponents/Projects.vue";
+import ProjectDescription from '../components/HomeComponents/ProjectDescription.vue';
 
 export default {
   name: "Home",
   components: {
     HomeNavbar,
-    Projects
+    Projects,
+    ProjectDescription
   },
   data: () => ({
   })
@@ -33,21 +35,22 @@ export default {
 
 .Projects {
   width: 100%;
+  z-index: 2;
 }
 
 .HomeNavbar {
   position: absolute;
+  width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .LandingPageTitle{
-  position: absolute;
-  padding-left: 20px;
+  display: flex;
+  position: relative;
   font-size: 60px;
   color: antiquewhite;
   top: 500px;
-  z-index: 2;
 }
 
 

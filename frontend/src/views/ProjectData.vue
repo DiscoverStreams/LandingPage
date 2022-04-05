@@ -1,22 +1,32 @@
 <template>
 <NavBar />
 <div class="container">
-    <Map />
-   <!-- <Charts /> -->
+    <Map /> 
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
 import Map from "@/components/Data/Map.vue"
-//import Charts from "@/components/Data/Charts"
+import Charts from "@/components/Data/Charts.vue"
 
 export default {
   name: "ProjectData",
   components: {
     NavBar,
-    Map
+    Map,
+    Charts
   },
+ methods: {
+    handler() {
+      var args = arguments;
+      for (var arg of args) {
+        if (arg instanceof Function) {
+          arg();
+        }
+      }
+    }
+  }
 };
 </script>
 

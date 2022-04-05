@@ -19,7 +19,7 @@ export default {
     Description: "Contact",
     email: 'Email: something@something.com',
     phone: 'Phone: +?-???-???-????',
-    image: 'Ausable_river.jpg'
+    image: 'src/assets/ProjectImages/Ausable_river.jpg'
   })
 };
 </script>

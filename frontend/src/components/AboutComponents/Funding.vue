@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <h1 class="title">{{title}}</h1>
-    <div class="funding-container" v-for="(affiliate, index) in affiliations" :key="index">
-      <img class="logos" :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
+    <div class="funding-container" v-for="affiliate in affiliations" :key="affiliate" >
+      <img class="logos" :src="affiliate.image" >
       <div class="text-box">
         <h2>The Powell Center</h2>
-        <p>&quot;{{affiliate.description}}&quot;</p>
+        <p class="FundingDescription">&quot;{{affiliate.description}}&quot;</p>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
     title: 'Funded By and In Partnership With...',
     affiliations: [
       {
-        image: 'PowellCenter.jpg',
+        image: 'src/assets/affiliateLogos/PowellCenter.jpg',
         alt: 'Powell Center',
         name: 'Powell Center',
         description: "The Powell Center serves as a catalyst for innovative thinking in Earth system science research by providing the time, creative space, & computational, data manipulation & data management resources to promote synthesis of existing information leading to emergent Earth System science knowledge. We are a scientist-driven institution where leveraging existing research efforts produces powerful new insights and moves scientific understanding and its inclusion into management forward at an accelerated pace.",
@@ -47,6 +47,10 @@ h1{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.FundingDescription {
+  color: white;
 }
 
 .title{

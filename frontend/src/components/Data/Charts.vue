@@ -1,6 +1,7 @@
 <template>
 <div id='chartElement'>
-<div id="syncChart">
+    <highcharts class="hc" :options="chartOptions" ref="Charts"></highcharts>
+    <div id="syncChart">
     <div id="pumpChart"> </div>
     <div id="qChart"> </div>
     <div id="gwChart"> </div>
@@ -12,14 +13,16 @@
     
     
 <script>
-import $ from "jquery";
+import $ from 'jquery'
+import Highcharts from 'highcharts'
 
 export default {
+  
     name: "Charts",
-        mounted() {
-            document.getElementById('slider').addEventListener("input",
+    mounted() {
+          document.getElementById('slider').addEventListener("input",
 
-            function(e) {
+        function(e) {
             var value = e.target.value / e.target.max;
             for (var i = 0; i < Highcharts.charts.length; i++) {
             var chart = Highcharts.charts[i];
@@ -54,12 +57,12 @@ export default {
                     index, // Indexes data so that the arrays all have the same positions starting at 0, which
                     i, // fixed the problem with the data being misaligned even though the crosshairs were synced.
                     event;
-                    chart = $(this).highcharts()
-                    event = chart.pointer.normalize(e.originalEvent);
-                    
-                    //Find events within the charts
-                    point = chart.series[0].searchPoint(event, true);
-                    if (point) {
+                chart = $(this).highcharts()
+                event = chart.pointer.normalize(e.originalEvent);
+
+                //Find events within the charts
+                point = chart.series[0].searchPoint(event, true);
+                if (point) {
                     index = point.index
                     for (i = 0; i < Highcharts.charts.length; i = i + 1) {
                         chart = Highcharts.charts[i];
@@ -575,44 +578,44 @@ export default {
             });   // Call data array for PDSI from JSON file
             //END PDSI chart
         });;
-    },
-}
+    }
+};
 
 </script>
     
     
 <style scoped>
 
-.chartElement {
-    float: right;
+#chartElement {
+  float: right;
     right: 0;
-    width: 500px;
+    width: 40%;
     padding: 15px;
     }
     
 #syncChart {
     position: absolute;
-    width: 75%;
+    width: 40%;
     right: 0;
     padding: 15px;
     }
     
 #qchart {
-    width: 70%;
+    width: 40%;
     height: 210px; 
     margin-left: auto; 
     margin-right: auto
     }   
     
 #gwchart {
-    width: 70%;
+    width: 40%;
     height: 210px;
     margin-left: auto;
     margin-right: auto
     }
     
 #pdsichart {
-    width: 70%;
+    width: 40%;
     height: 210px;
     margin-left: auto;
     margin-right: auto

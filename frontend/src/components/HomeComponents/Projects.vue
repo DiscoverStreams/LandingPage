@@ -1,12 +1,13 @@
 <template>
-<div class="projects">
+<div class="Projects">
   <vueper-slides
-  class="projects vueperslides1 no-shadow"
+  class="Projects vueperslides1 no-shadow"
     ref="vueperslides1"
     @slide="$refs.vueperslides2 && $refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })" 
-    :touchable="true"
-    :autoplay="false"
+    :touchable="false"
+    :autoplay="true"
     :bullets="false"
+    :arrows="false"
     :visible-slides="1"
     :slide-ratio="1 / 4"
     :dragging-distance="300"
@@ -16,31 +17,31 @@
     <vueper-slide 
     v-for="(project, i) in projects" 
       :key="i" 
-      :image="project.image"
-      :link="project.link">
+      :image="project.image">
     </vueper-slide>
   </vueper-slides>
   <br/>
   
-  <div class="ProjectsOptions"> 
   <vueper-slides
-  class="projects vueperslides2"
+  class="Projects vueperslides2"
     ref="vueperslides2"
     @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
     :visible-slides="projects.length"
     fixed-height="true"
     :bullets="false"
     :touchable="false"
-    :gap="10"
+    :gap="1"
     :arrows="false">
     <vueper-slide 
       class="sidedes2" v-for="(project, i) in projects" 
       :key="i" 
       :image="project.image"
-      :title="project.city"
       @click="$refs.vueperslides2 && $refs.vueperslides2.goToSlide(i)">
     </vueper-slide>
-  </vueper-slides>  </div>
+  </vueper-slides>
+  <div class="Projects2"> <div class=ProjectNameContainer>
+   <div  v-for="project in projects" :key="project"> <p class="ProjectNames"> {{project.city}} </p> </div>
+    </div> </div>
 </div>
 </template>
 
@@ -83,37 +84,33 @@ export default {
 
 <style scoped>
 
-.projects{
+.Projects{
   width: 100%;
-  height: 715px;
+  height: 100vh;
 }
 
 .vueperslides1{
   width: 100%;
-  height: 575px;
+  height: 100vh;
   margin: auto;
 }
-
-.vueperslides__arrow {color: yellow}
-
-.vueperslides {padding: 1 1em;}
-
-.vueperslides__parallax-wrapper, .vueperslides__track {overflow: visible;}
 
 .vueperslides1 .vueperslide{
   right: 0;
   font-size: 3rem;
   text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: black;
   margin: 0;
 }
 
 
  .vueperslides2{
-   width: 90%;
-   height: 100px;
+   position: relative;
+   bottom: 120px;
+   width: 95%;
+   height: 90px;
    margin: auto;
+   z-index: 3;
 }
 
  .vueperslides2 .vueperslide{
@@ -122,7 +119,6 @@ export default {
   transition: 0.3s ease-in-out;
   cursor: pointer;
   justify-content: center;
-  border-radius: 50%;
 }
 
  .vueperslides2 .vueperslide:hover{
@@ -130,6 +126,36 @@ export default {
   opacity: 1;
   border-color: #000;
  }
+
+ .Projects2 {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  bottom: 100px;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+
+.ProjectNameContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0%;
+  padding: 0%;
+  z-index: 2;
+}
+
+.ProjectNames{
+  font-family: "Handwriting";
+  font-size: 30px;
+  max-width: 20rem;
+  max-height: 10rem;
+  color: white;
+}
 
 /*@media only screen and (max-width: 1200px) {
   .title{

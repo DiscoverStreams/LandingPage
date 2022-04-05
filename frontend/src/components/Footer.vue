@@ -18,7 +18,7 @@
       </div>
       <div class="footer-column">
         <h4>Information</h4>
-        <router-link to="/about">About</router-link>
+        <router-link to="/Information">Information</router-link>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
           >References</a
         >
@@ -28,7 +28,7 @@
       </div>
       <div class="footer-column">
         <h4>Connect</h4>
-        <router-link to="/contact">Contact</router-link>
+        <router-link to="/Contact">Contact</router-link>
         <a href="https://interactiveviz.ku.edu/DiscoverWater/" target="_blank"
           >Citing DiscoverStream</a
         >
@@ -37,13 +37,6 @@
         >
       </div>
     </div>
-    <div class="mailing-list-container">
-      <div class="mailing-list">
-        <input v-model="content" placeholder="Email" type="email" />
-        <button class="mailButton" v-on:click="mailSubmit">Join!</button>
-      </div>
-    </div>
-    <div>&copy; {{ year }} DiscoverStream</div>
   </div>
 </template>
 
@@ -51,10 +44,6 @@
 
 export default {
   name: "Footer",
-  data: () => ({
-    year: new Date().getFullYear(),
-    content: '',
-  }),
 }
 </script>
 
@@ -65,7 +54,7 @@ export default {
   display: flex;
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 180px;
   margin: 0rem;
   flex-shrink: 0;
   flex-direction: column;
@@ -86,59 +75,6 @@ export default {
   width:100%;
   height:100%;
   filter: brightness(60%);
-}
-
-.mailing-list-container {
-  display: flex;
-  position: relative;
-  margin: 0.1rem 0;
-  justify-content: center;
-}
-
-.mailing-list {
-  display: flex;
-  width: 50%;
-  max-width: 50rem;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.mailButton {
-  width: 10%;
-  min-width: 6rem;
-  background: #d3ffeb;
-  border-color: black;
-  color: black;
-  border: dotted 0.5px;
-  font-weight: bold;
-  outline: none;
-  text-transform: uppercase;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-  border-top-right-radius: 10%;
-  border-bottom-right-radius: 10%;
-}
-.mailButton:hover {
-  color: white;
-  border: dashed 0.75px;
-  font-style: oblique;
-  background-color: transparent;
-  border-radius: 0%;
-}
-
-input {
-  width: 90%;
-  padding: 0.5rem 0.5rem;
-  color: white;
-  outline: none;
-  border: 2px dotted rgba(128, 128, 128, 0.322);
-  background: transparent;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-input:focus {
-  border: dashed 2px #d3ffeb;
-  background: rgba(112, 112, 112, 0.342);
 }
 
 .header {

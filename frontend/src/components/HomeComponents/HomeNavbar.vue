@@ -4,28 +4,28 @@
     <img class="LogoBackground" src="@/assets/LogoContainer.svg">
     <img class="logo" src="@/assets/Logo.png" alt="Top-left LOGO which is always displayed">
     <h1 class="header">DiscoverStreams</h1>
+        <h2 class="ProjectDescription"> Visualizing streamflow depletion across the intercontinental USA </h2>
     </div>
     </router-link>
 
     <!-- Nav Mobile -->
 
 <div class="nav-child small-screen">
-           <!--   <router-link to="/exploreScience">Explore Science</router-link>       
-                <router-link to="/explore">DiscoverStream Data</router-link>
-                <router-link to="/about">About</router-link>
-                <router-link to="/contact">Contact</router-link > -->
+      <label class="menu" >
+        <input type="checkbox" checked>
+        <div> <span class="open"> <div class="sidebar"> <Sidebar />  </div> </span>
+              <span class="close"> <div> 
+                </div> </span>
+            </div>
+            </label>
     </div>
     
 
     <!-- Nav for large screens -->
     <div class="nav-child large-screen">
       <label class="menu" >
-        <input type="checkbox" checked>
-        <div> <span>  <div class="NavigationLinks">
-              <div class="links"><router-link to="/exploreScience">Explore Science </router-link> </div>
-              <div class="links"><router-link to="/ProjectData"> Data Tool </router-link> </div>
-              <div class="links"><router-link to="/Information">Information </router-link> </div>
-              <div class="links"><router-link to="/Contact">Contact</router-link > </div> </div> </span>
+        <input type="checkbox" checked @change="check($event)">
+        <div> <span class="open"> <div class="sidebar"> <Sidebar />  </div> </span>
               <span class="close"> <div class="MenuBar"> 
                 <h2 class="MenuName"> Menu </h2> </div> </span>
             </div>
@@ -36,22 +36,18 @@
 
 
 <script>
+import Sidebar from "@/components/HomeComponents/Sidebar.vue";
 
 export default {
   name: "NavBar",
+  components: {
+    Sidebar
+  },
 
-  data: () => ({
-    open: false,
-    information: false,
-    content: false,
-    exploreData: false,
-  }),
-  watch: {
-    '$route' (){
-      this.open = false;
-      this.information = false;
-      this.content = false;
-      this.exploreData = false;
+  data: () => {
+  },
+  methods: {
+    check: function(e) {
     }
   }
 };
@@ -59,27 +55,23 @@ export default {
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
-/*@import url('https://dribbble.com/shots/6350574-Hamburger-switch-animation');
-
-@import url('https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg'); */
-
 .Nav-Container {
   display: grid;
-  grid-template-columns: 2fr 5fr;
   position: relative;
+  grid-template-columns: 2fr 5fr;
+  position: abs;
   width: 100%;
-  height: 100px;
+  height: 25vh;
   justify-content: space-between;
   margin: auto;
   transition: all 500ms ease-in-out;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .logo-container{
+  top: 10px;
   display: flex;
-  position: relative;
+  position: absolute;
   margin: 0;
 }
 
@@ -99,13 +91,23 @@ export default {
 }
 
 .header{
-  top: 20px;
-  right: 10px;
+  top: 25px;
+  left: 80px;
   position: absolute;
   width: 70%;
   color:rgb(255, 255, 255);
-  font-size: 32px;
+  font-size: 34px;
   margin: 5px 5px;
+  font-family: "Grille";
+}
+
+.ProjectDescription {
+  top: 55px;
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  left: 10px;
+  font-family: "typenoksidi";
 }
 
 .small-screen {
@@ -116,16 +118,28 @@ export default {
   padding-right: 100px;
 }
 
-.small-screen a {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 17px;
-  color: rgb(255, 255, 255);
+.large-screen {
+  display: flex;
+  align-items: flex-end;
+  width: 60%;
+  padding-top: 20px;
+  padding-right: 100px;
+}
+
+
+.sidebar {
+  position: absolute;
+  top: -20px;
+  right: -18px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .menu {
   display: flex;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   --front: black;
   --back: black;
   --icon: white;
@@ -136,23 +150,6 @@ export default {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-
-/*.NavPage {
-  right: 1300px;
-  width: 1190px;
-  height: 900px;
-  position: absolute;
-  background: rgba(83, 80, 80, 0.925);
-  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
-  transform: translateX(110%);
-  transition: transform 200ms;
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 1;
-}
-.NavPage {
-  transform: translateX(0);
-} */
 
 .NavigationLinks {
   display: flex;
@@ -186,19 +183,20 @@ export default {
 }
 
 .MenuBar{
+    font: 30px;
   display: flex;
   position: relative;
+  top: 8px;
   right: 125px;
-  width: 120px;
-  height: 60px;
+  width: 140px;
+  height: 55px;
   background-color: black;
   color: white;
   justify-content: center;
 }
 
 .MenuName{
-  font: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Handwriting";
 }
 
 

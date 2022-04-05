@@ -1,6 +1,6 @@
 <template>
   <div class="img-container">
-    <img class="img" :src="require(`@/assets/projectImages/${image}`)" alt="City">  
+    <img class="img" :src="image" alt="City">  
   </div>
   <div class="overlay">
     <div class="description">
@@ -12,10 +12,10 @@
 <script>
 export default {
   name: "Hero",
-  props: {
-    description: String,
-    image: String
-  }
+  data: () => ({
+    description: "DiscoverStream is an ongoing project being developed as part of a USGS Powell Center for Data Analysis and Synthesis Working Group led by researchers at the University of Waterloo, University of Kansas, and USGS. Questions can be directed towards Andrea Brookfield",
+    image: "src/assets/ProjectImages/Ausable_river.jpg"
+  })
 };
 </script>
 

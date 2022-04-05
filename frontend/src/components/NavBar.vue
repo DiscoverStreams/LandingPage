@@ -18,9 +18,6 @@
       <span></span>
       </div>
       </label>
-      <a class="dribbble" href="https://dribbble.com/shots/6350574-Hamburger-switch-animation" target="_blank"><img
-      src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" 
-      alt=""></a>
            <!--   <router-link to="/exploreScience">Explore Science</router-link>       
                 <router-link to="/explore">DiscoverStream Data</router-link>
                 <router-link to="/about">About</router-link>
@@ -34,6 +31,7 @@
       <router-link to="/exploreScience">Explore Science</router-link> 
       <router-link to="/ProjectData"> Discoverstream Data</router-link>
       <router-link to="/Information">Information</router-link>
+      <router-link to="/ProjectTeam">DiscoverStream Team</router-link>
       <router-link to="/Contact">Contact</router-link>
       </div>
       </div>
@@ -133,7 +131,7 @@ export default {
   text-decoration: none;
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   color: rgb(255, 255, 255);
   padding: 10px;
   bottom: 0;

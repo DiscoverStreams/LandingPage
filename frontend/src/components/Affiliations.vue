@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="title">{{title}}</h2>
     <div class="img-container">
-      <img class="logos" v-for="(affiliate, index) in affiliations" :key="index"  :src="require(`@/assets/affiliateLogos/${affiliate.image}`)" :alt="affiliate.alt">
+      <img class="logos"  v-for="affiliate in affiliations" :key="affiliate" :src="affiliate.image" >
     </div>
   </div>
 </template>
@@ -12,26 +12,26 @@
 export default {
   name: "Affiliations",
   data: () => ({
-    title: 'In Partnership with...',
+    title: 'In Partnership with',
     affiliations: [
       {
-        image: 'USGSPowellCenter.png',
+        image: 'src/assets/affiliateLogos/USGSPowellCenter.png',
         alt: 'USGS',
         name: 'USGS Powell Center'
       },
       {
-        image: 'WaterlooU.png',
+        image: 'src/assets/affiliateLogos/WaterlooU.png',
         alt: 'UW',
         name: 'University of Waterloo'
       },
       {
-        image: 'KansasUniversity.png',
+        image: 'src/assets/affiliateLogos/KansasUniversity.png',
         alt: 'UK',
         name: 'University of Kansas'
       },
       
       {
-        image: 'UniversityOfVictoria.png',
+        image: 'src/assets/affiliateLogos/UniversityOfVictoria.png',
         alt: 'UI',
         name: 'University of Victoria'
       }, 
@@ -44,18 +44,24 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container{
+  height: 100px;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  z-index: 999;
 
 }
 
-
 .title{
-  margin: 1.25rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0;
+  padding-left: 1rem;
   float: left;
-  color: aliceblue;
 }
 
 .img-container{
@@ -65,14 +71,10 @@ export default {
   width: 100%;
   justify-content: space-around;
   margin: 0 auto 0 auto;
-  background-color: rgb(0, 0, 0);
 }
 .logos{
   padding: 1.25rem;
   max-width: 7.5rem;
   max-height: 5rem;
-  border-style: double;
-  border: 10px;
-  border-color: blue;
 }
 </style>

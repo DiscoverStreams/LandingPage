@@ -4,6 +4,7 @@ import Information from "../views/Information.vue"
 import Contact from "../views/Contact.vue"
 import ExploreScience from "../views/ExploreScience.vue"
 import ProjectData from "../views/ProjectData.vue"
+import ProjectTeam from "../views/ProjectTeam.vue"
 
 const routes = [
   {
@@ -27,6 +28,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: Contact
   }, 
+
+  {
+    path: "/ProjectTeam",
+    name: "ProjectTeam",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: ProjectTeam
+  },
   {
     path: "/ProjectData",
     name: "ProjectData",
@@ -47,7 +57,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes
 });
 
