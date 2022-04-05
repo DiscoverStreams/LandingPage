@@ -1,9 +1,23 @@
-const express = require('express');
+/*const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const path = require('path');
+const path = require('path'); */
 
-const Sequelize = require('sequelize');
+
+const vpn = require('cisco-vpn')({
+    server: 'cn-vpn.uwaterloo.ca',
+    username: 'afcaires',
+    password: 'Smoked300!'
+})
+ 
+vpn.connect()
+    .then(() => console.log('connected!'))
+ 
+// some time later
+vpn.disconnect()
+    .then(() => console.log('disconnected!'))
+
+/*const Sequelize = require('sequelize');
 const db = new Sequelize('Test', 'alexander', 'URMcCylESMrRjbAJ', {
     host: 'localhost',
     dialect: 'mysql',
@@ -27,4 +41,4 @@ app.get('/', (req, res) => res.send('Connection'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(PORT, console.log(`Server started on port ${PORT}`)); */
