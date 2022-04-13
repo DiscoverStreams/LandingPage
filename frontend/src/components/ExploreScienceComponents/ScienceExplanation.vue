@@ -25,18 +25,18 @@
             <div class="RightSide">
                 <div class="FirstDescription"> 
                     <h class="Subtitle"> What is Streamflow Depletion?</h>
-                    <p> Streamflow depletion is a reduction in streamflow caused by groundwater pumping.
-                    Streamflow depletion occurs when wells capture groundwater which otherwise would flow 
+                    <p> Streamflow depletion is a reduction in streamflow caused by 
+                    groundwater pumping. Streamflow depletion occurs when wells capture groundwater which otherwise would flow 
                     from the aquifer to the stream, and/or when wells lower the water table and increase 
                     the rate of infiltration losses through the streambed. </p>
                     </div>
                     <div class="SecondImage"> <img :src="StreamGauges" alt="StramGauges"> </div>
                <div class="ThirdDescription">
                    <h class="Subtitle"> How can we Measure Streamflow Depletion? </h> 
-                   <p> Streamflow depletion is challenging to quantify because the impacts of pumping are hidden 
-                       by variability in streamflow due to weather or other human activities (i.e., reservoir operations, 
-                       land use change), and time lags between when pumping occurs and streamflow is affected. </p>
-                    <p>Streamflow depletion can be directly estimated at the scale of a stream reach using detailed 
+                   <p> Streamflow depletion is challenging to quantify because the impacts of pumping 
+                       are hidden by variability in streamflow due to weather or other human activities (i.e., reservoir 
+                       operations, land use change), and time lags between when pumping occurs and streamflow is affected <br> <br>
+                       Streamflow depletion can be directly estimated at the scale of a stream reach using detailed 
                         field measurements, but this is very effort-intensive and not feasible for scales beyond a single stream. 
                         For regional-scale estimation, there are three categories of approaches:</p>
                 </div>
@@ -74,13 +74,16 @@ export default {
 .Title {
   font-size: 3vw;
   font-weight: 500;
+  font-family: Grille;
   color: aliceblue;
 }
 
 .IntroDescription {
-    width: 70%;
+    width: 80%;
     padding: 10px 10px;
     margin:auto;
+    font-size: 1.3vw;
+    font-family: "Orwell";
     color: aliceblue;
 }
 
@@ -94,6 +97,7 @@ export default {
     margin-bottom: 10px;
     font-size: 2vw;
     color: aliceblue;
+    font-family: Handwriting;
 }
 
 .FirstImage {
@@ -115,8 +119,10 @@ export default {
     margin: 20px 0px;
     font-size: 1.5vw;
     text-align: justify;
+    font-family: "Orwell";
     color: aliceblue;
 }
+
 
 .SecondImage {
     height: 50vh;
@@ -128,6 +134,7 @@ export default {
     float: right;
     width: 50vw;
     height: 50vh;
+    border-radius: 10%;
 }
 
 .SecondDescription {
@@ -137,6 +144,7 @@ export default {
     margin: 20px 0px;
     font-size: 1.25vw;
     text-align: justify;
+    font-family: "Orwell";
     color: aliceblue;
 }
 
@@ -150,6 +158,7 @@ export default {
     float: left;
     width: 45vw;
     height: 50vh;
+    border-radius: 10%;
 }
 
 .ThirdDescription {
@@ -158,6 +167,7 @@ export default {
     margin: 20px 0px;
     font-size: 1.5vw;
     text-align: justify;
+    font-family: "Orwell";
     color: aliceblue;
 }
 

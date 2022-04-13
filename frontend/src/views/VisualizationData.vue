@@ -33,6 +33,10 @@ export default {
 
 <style scoped>
 
+.VisualizationToolContainer{
+  overflow: hidden;
+}
+
 .VisualizationTool{
   display: flex;
   position: relative;
@@ -42,8 +46,10 @@ export default {
 }
 
 .Map {
-  width: 100vw;
-  height: 100%;
+  position: absolute;
+  bottom: 0px;
+  width: 50%;
+  height: 70vh;
 }
 
 </style>

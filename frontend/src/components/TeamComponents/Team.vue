@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <h1>Working Group Members</h1>
-    <div class="team-container">
-      <div class="team" v-for="member in team" :key="member">
+  <div class="Container">
+    <h class="Title"> Working Group Members </h>
+    <div class="Team-Container">
+      <div class="Team" v-for="member in team" :key="member">
         <img 
           v-if="member.image"
           class="img" 
@@ -16,8 +16,8 @@
           :alt="member.name"
         >
         <div class="description">
-          <h5>{{member.name}}</h5>
-          <p>{{member.affiliation}}</p>
+          <h class="MemberName">{{member.name}} </h>
+          <p class="MemberAffiliation"> >{{member.affiliation}}</p>
         </div>
       </div>
     </div>
@@ -111,28 +111,15 @@ export default {
 
 <style scoped>
 
-h5{
-  margin: 0;
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
-  font-weight: 500;
+.Title {
+  font-size: 3vw;
+  font-family: "roughwork";
+  color: aliceblue;
 }
 
-p{
-  margin: 0;
-  font-size: 1rem;
-}
-
-.container{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.Team-Container{
   display: flex;
-  /* flex-direction: column; */
-  z-index: 1000;
-}
-
-.team-container{
-  display: flex;
+  position: relative;
   flex-flow: row wrap;
   max-width: 100rem;
   width: 100%;
@@ -140,15 +127,27 @@ p{
   margin: 0 auto 0 auto;
 }
 
-.team{
+.Team{
   padding: 1.25rem;
   width: 100%;
   max-width: 18rem;
   display: flex;
-  border: 1px solid rgba(233, 233, 233, 0.6);
-  background-color: white;
+  border: 4px solid DarkGrey;
+  background-color: MintCream;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.MemberName {
+  margin: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.MemberAffiliation {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .description{

@@ -1,5 +1,5 @@
 <template>
-<div class="Container">
+<div class="TeamContainer">
     <NavBar />
     <div class="Team">
     <Team /> 
@@ -21,9 +21,16 @@ export default {
 
 <style scoped>
 
+.TeamContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
 .Team{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 </style>
