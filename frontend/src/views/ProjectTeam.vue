@@ -1,15 +1,20 @@
 <template>
-<div class="Team">
-<ProjectTeam /> </div>
+<div class="Container">
+    <NavBar />
+    <div class="Team">
+    <Team /> 
+</div> </div>
 </template>
 
 <script>
-import ProjectTeam from "@/components/TeamComponents/Team.vue"
+import NavBar from "@/components/Navbar.vue"
+import Team from "@/components/TeamComponents/Team.vue"
 
 export default {
     name: "ProjectTeam",
     components: {
-        ProjectTeam
+        NavBar,
+        Team
     },
 }
 </script>

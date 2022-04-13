@@ -12,7 +12,7 @@
         <img 
           v-else-if="!member.image"
           class="img" 
-          :src="`src/assets/teamImages/face.jpg`" 
+          :src="'src/assets/teamImages/face.jpg'"
           :alt="member.name"
         >
         <div class="description">

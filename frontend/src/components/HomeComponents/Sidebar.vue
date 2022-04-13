@@ -1,27 +1,23 @@
 <template>
 <div class="SidebarBackground">
     <div class="SidebarColumns">
-        <div class="NavigationLinks">
+        <div class="LeftColumn">
             <div class="LinkTop"> </div>
-            <div class="InformationLink"> <router-link to="/exploreScience"> Project Information </router-link> </div>
-            <div class="ScienceLink"> <router-link to="/exploreScience"> Behind The Science </router-link> </div>
-            <div class="VisualizationLink"> <router-link to="/exploreScience"> Visualization Tool</router-link> </div>
-            <div class="TeamLink"> <router-link to="/exploreScience"> The Team </router-link> </div>
-            <div class="ContactLink"> <router-link to="/exploreScience"> Contact </router-link> </div>
+            <div class="VisualizationLink"> <router-link to="/VisualizationData"> Visualization Tool </router-link> 
+            <p class="VisualizationDescription">  Utilize the DiscoverStreams Visualization Tool </p> </div>
+            <div class="ProjectLink"> <router-link to="/Information"> Project Information </router-link> 
+            <p class="ProjectDescription">  Learn about the Goal of DiscoverStreams </p> </div>
             <div class="LinkBottom"> </div>
         </div>
-        <div class="ColumnsDivider"> <img class="Divider" src="@/assets/test2.jpg"> </div>
-        <div class="LinksDescriptions">
-                        <div class="LinkTop"> </div>
-            <div class="InformationExplanation"> <p> Learn about the Project's goals and the tools that allow
-                those goals to be achieved </p>
-            </div>
-             <div class="ScienceExplanation"> <p> Learn about the Science behind streamflow depletion </p></div>
-             <div class="VisualizationExplanation"> <p> Visualization tool shows information related
-                  to streamflow depletion</p> </div>
-             <div class="TeamExplanation"> <p> Learn about the Members behind the project </p> </div>
-             <div class="ContactExplanation"> <p> Contact information for business and research inquiries </p></div>
-                         <div class="LinkBottom"> </div>
+        <div class="RightColumn"> <img class="SideBarRightBackgroundImage" src="@/assets/test2.jpg">
+        <div class="RightColumnLinks"> <div class="LinkTop"> </div>
+            <div class="ScienceLink"> <router-link to="/ExploreScience"> Beyond The Science</router-link>
+            <p class="ScienceDescription"> Learn of the Science of Streamflow Depletion </p> </div>
+             <div class="TeamLink"> <router-link to="/ProjectTeam"> Team </router-link>
+             <p class="TeamDescription"> Learn about the Team Behind the Project </p> </div>
+             <div class="ContactLink"> <router-link to="/Contact"> Contact </router-link> 
+             <p class="ContactDescription"> Contact Details for Inquiries </p> </div>
+             <div class="LinkBottom"> </div> </div>
         </div>
     </div>
 </div>
@@ -45,46 +41,94 @@ export default {
 .SidebarColumns {
     display: grid;
     height: 100vh;
-    grid-template-columns: 12fr 1fr 14fr;
+    grid-template-columns: 6fr 4fr;
 }
-
-.NavigationLinks {
+.LeftColumn {
+    width: 100%;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 3fr 2fr 2fr 2fr 2fr 2fr 5fr;
-    gap: 20px;
-    font-size: 50px;
+    grid-template-rows: 4fr 1fr 1fr 4fr;
+    gap: 60px;
+    font-size: 5vw;
     font-family: roughwork;
     text-decoration: none;
-    background-color: black;
+    background-color: rgb(10, 10, 10);
     border-bottom: 5px solid;
     border-color:aliceblue;
 }
 
-.NavigationLinks a {
-    color: wheat;
+.LeftColumn a {
+    color:aliceblue;
     text-decoration: none;
 }
 
-.NavigationLinks a:hover {
+.LeftColumn a:hover {
     color: green;
 }
 
-.ColumnsDivider{
-    grid-template-rows: 1fr;
-}
-
-.Divider {
-    max-width:100%;
-    height: 100vh;
-}
-
-.LinksDescriptions {
-    display: grid;
-    font-size: 30px;
-    font-family: roughwork;
+.VisualizationDescription {
+    margin: 10px;
+    font-size: 20px;
     color:blanchedalmond;
+    font-family: Orwell;
+}
+
+.ProjectDescription {
+    margin: 10px;
+    font-size: 20px;
+    color: blanchedalmond;
+    font-family: Orwell;
+}
+
+.SideBarRightBackgroundImage {
+    width:1000%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+}
+
+.RightColumnLinks {
+    width: 40%;
+    height: 100vh;
+    display: grid;
+    position: absolute;
+    grid-template-rows: 2fr 1fr 1fr 4fr;
+    gap: 40px;
+    font-size: 3.5vw;
+    font-family: "HandwritingShaded";
     text-decoration: none;
-    background-color: rgb(30, 30, 30);
+    border-bottom: 5px solid;
+    border-color:aliceblue;
+}
+
+.RightColumn a {
+    color:aliceblue;
+    text-decoration: none;
+}
+
+.RightColumn a:hover {
+    color: green;
+}
+
+.ScienceDescription {
+    margin: 10px;
+    font-size: 20px;
+    font-family: Orwell;
+    color: blanchedalmond;
+}
+
+.TeamDescription {
+    margin: 10px;
+    font-size: 20px;
+    font-family: Orwell;
+    color: blanchedalmond;
+}
+
+.ContactDescription {
+    margin: 10px;
+    font-size: 20px;
+    font-family: Orwell;
+    color: blanchedalmond;
 }
 
 </style>

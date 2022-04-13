@@ -1,6 +1,6 @@
 <template>
-<NavBar />
   <div class="about">
+    <div class="Navbar"> <NavBar /> </div>
       <Hero :description="description" :image="image" />
     <div class="teamsbox">
       <Funding />
@@ -12,9 +12,9 @@
 <script>
 // @ is an alias to /src
 import NavBar from "@/components/NavBar.vue";
-import Hero from "@/components/AboutComponents/Hero.vue";
-import Funding from "@/components/AboutComponents/Funding.vue";
-import Affiliations from "@/components/Affiliations.vue";
+import Hero from "@/components/InformationComponents/Hero.vue";
+import Funding from "@/components/InformationComponents/Funding.vue";
+import Affiliations from "@/components/InformationComponents/Affiliations.vue";
 
 
 export default {
@@ -33,6 +33,11 @@ export default {
 </script>
 
 <style scoped>
+
+.Navbar {
+  z-index: 9999;
+}
+
 .about {
   background-color: black;
   display: flex;

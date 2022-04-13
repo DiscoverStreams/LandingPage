@@ -3,7 +3,7 @@ import Home from "../views/Home.vue"
 import Information from "../views/Information.vue"
 import Contact from "../views/Contact.vue"
 import ExploreScience from "../views/ExploreScience.vue"
-import ProjectData from "../views/ProjectData.vue"
+import VisualizationData from "../views/VisualizationData.vue"
 import ProjectTeam from "../views/ProjectTeam.vue"
 
 const routes = [
@@ -38,16 +38,16 @@ const routes = [
     component: ProjectTeam
   },
   {
-    path: "/ProjectData",
-    name: "ProjectData",
+    path: "/VisualizationData",
+    name: "VisualizationData",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: ProjectData
+    component: VisualizationData
   },
 
   {
-    path: "/exploreScience",
+    path: "/ExploreScience",
     name: "ExploreScience",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

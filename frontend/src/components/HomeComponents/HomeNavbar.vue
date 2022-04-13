@@ -10,21 +10,10 @@
 
     <!-- Nav Mobile -->
 
-<div class="nav-child small-screen">
-      <label class="menu" >
-        <input type="checkbox" checked>
-        <div> <span class="open"> <div class="sidebar"> <Sidebar />  </div> </span>
-              <span class="close"> <div> 
-                </div> </span>
-            </div>
-            </label>
-    </div>
-    
-
     <!-- Nav for large screens -->
     <div class="nav-child large-screen">
       <label class="menu" >
-        <input type="checkbox" checked @change="check($event)">
+        <input type="checkbox" checked >
         <div> <span class="open"> <div class="sidebar"> <Sidebar />  </div> </span>
               <span class="close"> <div class="MenuBar"> 
                 <h2 class="MenuName"> Menu </h2> </div> </span>
@@ -73,6 +62,7 @@ export default {
   display: flex;
   position: absolute;
   margin: 0;
+  z-index: 50;
 }
 
 .logoBackground{
@@ -91,11 +81,11 @@ export default {
 }
 
 .header{
+  position: absolute;
   top: 25px;
   left: 80px;
-  position: absolute;
   width: 70%;
-  color:rgb(255, 255, 255);
+  color:MintCream;
   font-size: 34px;
   margin: 5px 5px;
   font-family: "Grille";
@@ -183,7 +173,7 @@ export default {
 }
 
 .MenuBar{
-    font: 30px;
+  font: 30px;
   display: flex;
   position: relative;
   top: 8px;
@@ -297,17 +287,17 @@ export default {
 	 height: 28px;
 }
 
-@media (max-width: 1000px) {
-  .large-screen {
+@media (max-width: 865px) {
+  .LogoBackground {
     display: none;
   }
-  .small-screen {
-    display: inline;
+  .ProjectDescription {
+    display: none;
   }
 }
 
-@media (min-width: 1000px) {
-  .small-screen {
+  @media (max-width: 710px) {
+  .header {
     display: none;
   }
 }

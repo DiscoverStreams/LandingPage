@@ -45,19 +45,12 @@ export default {
   z-index: 3;
 }
 
-.LandingPageTitle{
-  display: flex;
-  position: relative;
-  font-size: 60px;
-  color: antiquewhite;
-  top: 500px;
+.ProjectDescription{
+  width:100%;
+  height: 125vh;
 }
 
-
 @media only screen and (min-width: 1440px) {
-  .home {
-    width: 90%;
-  }
 }
 
 </style>

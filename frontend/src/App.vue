@@ -8,7 +8,6 @@
 //import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar.vue";
-import Affiliations from "@/components/Affiliations.vue";
 import Mailing from "@/components/Mailing.vue";
 
 export default {
@@ -16,7 +15,6 @@ export default {
   components: {
     NavBar,
     Footer,
-    Affiliations,
     Mailing
   },
   data: () => ({
@@ -45,6 +43,31 @@ export default {
 @font-face {
   font-family: "roughwork";
   src: url(./assets/Fonts/roughwork/ROD.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Orwell";
+  src: url(./assets/Fonts/orwell/Orwell.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "HandwritingShaded";
+  src: url(./assets/Fonts/handwriting_draft_shaded/handwriting-draft-SHADED.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "Storybook";
+  src: url(./assets/Fonts/Storybook/Storybook.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "JBetude";
+  src: url(./assets/Fonts/JBetude/JBEtude-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "OptimusPrinceps";
+  src: url(./assets/Fonts/OptimusPrinceps/OptimusPrincepsSemiBold.ttf) format("truetype");
 }
 
 

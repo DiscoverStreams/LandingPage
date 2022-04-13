@@ -150,17 +150,9 @@ export default {
 }
 
 .ProjectNames{
+  font-size: 2.5vw;
   font-family: "Handwriting";
-  font-size: 30px;
-  max-width: 20rem;
-  max-height: 10rem;
   color: white;
 }
-
-/*@media only screen and (max-width: 1200px) {
-  .title{
-    font-size: 1.5rem;
-  }
-} */
 
 </style>

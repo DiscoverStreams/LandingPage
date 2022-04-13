@@ -1,14 +1,15 @@
 <template>
-<NavBar />
-<div class="container">
-    <Map /> 
-  </div>
+<div class="VisualizationToolContainer">
+  <NavBar />
+  <div class="VisualizationTool">
+    <div class="Map"> <Map /> </div>
+  </div> </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import Map from "@/components/Data/Map.vue"
-import Charts from "@/components/Data/Charts.vue"
+import Map from "@/components/VisualizationDataComponents/Map.vue"
+import Charts from "@/components/VisualizationDataComponents/Charts.vue"
 
 export default {
   name: "ProjectData",
@@ -32,9 +33,17 @@ export default {
 
 <style scoped>
 
-.BackGroundImage{
+.VisualizationTool{
   display: flex;
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: Black;
+}
+
+.Map {
+  width: 100vw;
+  height: 100%;
 }
 
 </style>
