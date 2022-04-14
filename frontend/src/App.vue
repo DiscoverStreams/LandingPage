@@ -70,6 +70,21 @@ export default {
   src: url(./assets/Fonts/OptimusPrinceps/OptimusPrincepsSemiBold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "TyposlabIrregular";
+  src: url(./assets/Fonts/TyposlabIrregular/TypoSlabIrregularDemo.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "King";
+  src: url(./assets/Fonts/King/KIN668.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "Leorio";
+  src: url(./assets/Fonts/Leorio/Leorio.ttf) format("truetype");
+}
+
 
 #app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

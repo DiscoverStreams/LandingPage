@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
-    <h1 class="title">{{title}}</h1>
-    <div class="funding-container" v-for="affiliate in affiliations" :key="affiliate" >
-      <img class="logos" :src="affiliate.image" >
-      <div class="text-box">
-        <h2>The Powell Center</h2>
+  <div class="Container">
+    <h1 class="Title">{{title}}</h1>
+    <div class="Funding-Container" v-for="affiliate in affiliations" :key="affiliate" >
+      <img class="Logos" :src="affiliate.image" >
+      <div class="Text-box">
+        <h2 class="Subtitle"> The Powell Center</h2>
         <p class="FundingDescription">&quot;{{affiliate.description}}&quot;</p>
       </div>
     </div>
@@ -31,53 +31,52 @@ export default {
 </script>
 
 <style scoped>
-h2{
-  margin: 0;
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
-}
 
-h1{
-  margin: 0;
-  margin-top: 1rem;
-}
-
-.container{
+.Container{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: Silver;
 }
 
-.FundingDescription {
-  color: white;
-}
-
-.title{
+.Title{
   display: flex;
-  margin: 1.25rem;
   float: left;
+  margin: 1.25rem;
+  font-family: "King";
 }
 
-.funding-container{
+.Funding-Container{
   display: flex;
   max-width: 100rem;
   width: 100%;
   margin: 0 auto 0 auto;
 }
 
-.logos{
+.Logos{
   padding: 1.25rem;
-  max-width: 25rem;
-  max-height: 25rem;
+  max-width: 20vw;
+  max-height: 55vh;
 }
 
-.text-box{
+.Text-box{
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
   padding-bottom: 3rem;
+}
+
+.Subtitle {
+  font-size: 2vw;
+  font-family: "King";
+}
+
+.FundingDescription {
+  font-size: 2vw;
+  font-weight: 900;
+  color: SlateGrey;
+  font-family: "Leorio";
 }
 
 @media only screen and (max-width: 550px) {

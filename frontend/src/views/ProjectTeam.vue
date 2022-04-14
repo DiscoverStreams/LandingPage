@@ -22,15 +22,25 @@ export default {
 <style scoped>
 
 .TeamContainer {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    overflow: hidden;
     background-color: black;
+    overflow-x: hidden;
 }
 
 .Team{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+}
+
+.TeamContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.TeamContainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 </style>

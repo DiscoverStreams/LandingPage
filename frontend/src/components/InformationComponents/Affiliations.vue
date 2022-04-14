@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <h2 class="title">{{title}}</h2>
+  <div class="Container">
+    <h2 class="Title">{{title}}</h2>
     <div class="img-container">
       <img class="logos"  v-for="affiliate in affiliations" :key="affiliate" :src="affiliate.image" >
     </div>
@@ -12,7 +12,7 @@
 export default {
   name: "Affiliations",
   data: () => ({
-    title: 'In Partnership with',
+    title: 'Also In Partnership with',
     affiliations: [
       {
         image: 'src/assets/affiliateLogos/USGSPowellCenter.png',
@@ -43,38 +43,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container{
-  height: 100px;
-  background-color: black;
+
+.Container{
   display: flex;
   flex-direction: column;
+  height: 175px;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   z-index: 999;
+  background-color: black;
 
 }
 
-.title{
-  color: white;
+.Title{
   display: flex;
-  justify-content: center;
-  font-size: 30px;
   margin: 0;
-  padding-left: 1rem;
-  float: left;
+  justify-content: center;
+  font-size: 2vw;
+  color: Silver;
 }
 
 .img-container{
   display: flex;
   flex-flow: row wrap;
-  max-width: 100rem;
   width: 100%;
-  justify-content: space-around;
   margin: 0 auto 0 auto;
+  justify-content: space-around;
+  background-color: LightSteelBlue;
+  border: 5px solid DarkSlateGrey;
+  border-radius: 40%;
 }
+
 .logos{
   padding: 1.25rem;
-  max-width: 7.5rem;
-  max-height: 5rem;
+  max-width: 10vw;
+  max-height: 10vh;
 }
 </style>

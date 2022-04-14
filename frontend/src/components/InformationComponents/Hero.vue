@@ -1,9 +1,7 @@
 <template>
   <div class="img-container">
     <img class="img" :src="image" alt="City">  
-  </div>
-  <div class="overlay">
-    <div class="description">
+    <div class="Description">
       {{description}}
     </div>
   </div>
@@ -13,7 +11,7 @@
 export default {
   name: "Hero",
   data: () => ({
-    description: "DiscoverStream is an ongoing project being developed as part of a USGS Powell Center for Data Analysis and Synthesis Working Group led by researchers at the University of Waterloo, University of Kansas, and USGS. Questions can be directed towards Andrea Brookfield",
+    description: "DiscoverStreams is an ongoing project being developed as part of a USGS Powell Center for Data Analysis and Synthesis Working Group led by researchers at the University of Waterloo, University of Kansas, and USGS. Questions can be directed towards Andrea Brookfield",
     image: "src/assets/ProjectImages/Ausable_river.jpg"
   })
 };
@@ -25,7 +23,9 @@ export default {
 
 .img-container{
   width: 100%;
-  height: 500px;
+  height: 50%;
+  text-align: center;
+  justify-content: center;
 }
 
 .img{
@@ -33,31 +33,22 @@ export default {
   height: 100%;
   object-fit: cover;
   overflow: hidden;
-  filter: saturate(300%) sepia(10%) brightness(70%);
+  filter: saturate(300%) sepia(50%) brightness(40%);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 578px;
-  width: 100%;
-  transition: all .5s ease-in-out;
-}
-
-.description {
-  width: 75%;
-  color: rgb(255, 255, 255);
-  font-size: 30px;
+.Description {
+  text-align: center;
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 75%;
+  font-size: 3.5vw;
+  color: Snow;
+  font-family: "Orwell";
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  text-align: center;
 }
 
 @media only screen and (max-width: 700px) {

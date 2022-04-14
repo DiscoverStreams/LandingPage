@@ -1,5 +1,6 @@
 <template>
 <div class="Container">
+  <div class="Title"> The three approaches for determing streamflow depletion </div>
     <div class="FirstMethod">
     <h4><strong><i>Analytical approaches:</i></strong> 
     Analytical approaches use simplifying assumptions (commonly including linear streams and homogeneous aquifers)
@@ -9,7 +10,6 @@
      They were the first approach to streamflow depletion estimation and are still used widely. 
      The Glover model and Hunt model are two widely used analytical solutions, 
      and emerging approaches also include semi-analytical models and analytical depletion functions.</h4>
-    </div>
     <table>
       <tr>
         <th>Advantages</th>
@@ -32,7 +32,7 @@
           •	Limited spatial extent (point based predictions)<br><br>
         </td>
       </tr>
-    </table>
+    </table>     </div>
     <div class="SecondMethod">
     <h4>
       <strong><i>Numerical models:</i></strong> 
@@ -44,7 +44,7 @@
         and unsaturated zone processes. However, this increased complexity means that they can have 
         substantial data needs for parametrization and calibration, and require significant time and resources to develop. 
         Numerical models used for streamflow depletion estimation include MODFLOW, FEFLOW, ParFlow, HydroGeoSphere, and others. 
-    </h4> </div>
+    </h4>
     <table>
       <tr>
         <th>Advantages</th>
@@ -70,7 +70,7 @@
           •	Estimates of uncertainty can be unrealistic<br><br>
         </td>
       </tr>
-    </table>
+    </table> </div>
     <div class="ThirdMethod">
     <h4>
       <strong><i>Statistical approaches (including machine learning) : </i></strong> 
@@ -81,7 +81,7 @@
         which attempt to document change (i.e., trend analysis), and statistical models, 
         which attempt to relate change in stream flow to potential predictor variables (i.e., regression analysis). 
         Other statistical approaches used for streamflow depletion estimation include time series analysis and machine learning. 
-    </h4> </div>
+    </h4>
     <table>
       <tr>
         <th>Advantages</th>
@@ -104,7 +104,7 @@
 
         </td>
       </tr>
-    </table>
+    </table> </div>
 </div>
     
 </template>
@@ -119,37 +119,59 @@ export default {
 
 <style scoped>
 
+.Container {
+    position: relative;
+    width: 80vw;
+    height: 100%;
+}
+
+.Title {
+  font-size: 3vw;
+  color: MintCream;
+  font-family: "Handwriting";
+}
+
 h4 {
       color: #dddddd;
 }
 
-.Container {
-    position: relative;
+.FirstMethod {
+  width: 90vw;
+  margin: auto;
+}
+
+.SecondMethod {
+  width: 90vw;
+  margin: auto;
+}
+
+.ThirdMethod {
+  width: 90vw;
+  margin: auto;
 }
 
 table{
+  font-size: 1.4vw;
+  font-weight: 900;
+  font-family: "Leorio";
   margin: 3rem 0rem;
+  background-color: AliceBlue;
 }
 
 td{
-  text-align: left;
+  text-align: justify;
   vertical-align: top;
   padding: 1rem;
-  border: 1px solid #dddddd;
 }
 
 th {
   border: 1px solid #dddddd8c;
   border-bottom: 0px;
-  color: #dddddd;
+  color: black;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-h4{
-  font-weight: normal;
+  background-color: LightSlateGrey;
 }
 
 </style>

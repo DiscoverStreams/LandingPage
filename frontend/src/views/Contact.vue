@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
+  <div class="Container">
       <div class="Navbar"> <NavBar /> </div>
-    <div class="Background"> <Background :description="Description" :image="image" :email="email" :phone="phone" /> </div>
+    <div class="Background"> <Background :Title="Title" :Description="Description" 
+    :BackgroundImage="BackgroundImage" :Email="Email" :Phone="Phone" /> </div>
   </div>
 </template>
 
@@ -16,10 +17,11 @@ export default {
     Background
   },
     data: () => ({
-    Description: "Contact",
-    email: 'Email: something@something.com',
-    phone: 'Phone: +?-???-???-????',
-    image: 'src/assets/ProjectImages/Ausable_river.jpg'
+    Title: "Contact us",
+    Description: "If you would like to contact the team about research inquiries you can use the following two methods and we will get back with you",
+    Email: "something@something.com",
+    Phone: "+?-???-???-????",
+    BackgroundImage: "@/assets/ProjectImages/Ausable_river.jpg"
   })
 };
 </script>
@@ -30,9 +32,16 @@ export default {
   z-index: 9999;
 }
 
-.container {
+.Container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.Background {
+  font-size: 5vw;
 }
 
 </style>

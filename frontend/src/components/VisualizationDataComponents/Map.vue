@@ -1,7 +1,7 @@
 <template>
 <div class="MapContainer">
       <div id="map"> </div>
-      <div id="Console">
+      <div class="Console">
         <div class='session'>
             <h class="LegendTitle"> Percentile Historical Streamflow</h>
             <div class='legend-scale'>
@@ -117,16 +117,16 @@ export default {
 #map{
   position: relative;
   width: 40vw; 
-  height: 70vh;
-  left: 10;
+  height: 50vh;
   float: left; 
   margin-left: auto; 
   margin-right: auto;
 }
 
-#Console {
+.Console {
   position: absolute;
-  width: 285px;
+  top: -110px;
+  width: 40vw;
   padding: 10px 10px;
   background-color: white;
   font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;

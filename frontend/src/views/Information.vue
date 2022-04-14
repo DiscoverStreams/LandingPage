@@ -1,8 +1,8 @@
 <template>
-  <div class="about">
+  <div class="InformationContainer">
     <div class="Navbar"> <NavBar /> </div>
       <Hero :description="description" :image="image" />
-    <div class="teamsbox">
+      <div class="Teamsbox">
       <Funding />
       <Affiliations />
     </div>
@@ -38,21 +38,15 @@ export default {
   z-index: 9999;
 }
 
-.about {
+.InformationContainer {
   background-color: black;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
-.container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.teamsbox {
-  width: 90%;
+.Teamsbox {
+  width: 95%;
   margin: auto;
 }
 

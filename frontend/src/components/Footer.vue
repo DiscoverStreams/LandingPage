@@ -39,7 +39,7 @@ export default {
   grid-template-columns: 40fr 15fr 20px 15fr 20px 15fr 20px 15fr 5fr;
   position: relative;
   width: 100%;
-  height: 25vh;
+  height: 22vh;
 }
 
 .FooterBackground{
@@ -52,7 +52,7 @@ export default {
 
 .logo-container {
   display: flex;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: 20px;
   z-index: 1;
 }

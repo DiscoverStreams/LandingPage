@@ -35,7 +35,7 @@ export default {
   display: flex;
   position: absolute;
   width:100%;
-  height:450vh;
+  height:480vh;
   filter: brightness(60%);
 }
 

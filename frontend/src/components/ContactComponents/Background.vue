@@ -1,13 +1,16 @@
 <template>
-  <div class="img-container">
-    <img class="img" src='src/assets/ProjectImages/Ausable_river.jpg' alt="City">  
-  </div>
-  <div class="overlay">
-    <div class="description">
-      <h1>{{description}}</h1>
-      <h4>{{email}}</h4>
-      <h4>{{phone}}</h4>
-    </div>
+  <div class="ContactContainer">
+    <img class="img" src="@/assets/ProjectImages/Ausable_river.jpg" alt="City">  
+    <div class="TitleContainer"> <h>{{Title}} </h> </div>
+    <div class="DescriptionContainer"><h>{{Description}} </h> </div>
+    <div class= "EmailContainer">
+      <img src="@/assets/ContactImages/EmailIcon/EmailIcon.jpg">
+      <h> <br> Email  <br> <br> </h>
+      <h>{{Email}}</h> </div>
+    <div class="PhoneContainer">
+      <img src="@/assets/ContactImages/PhoneIcon/Phone.jpg">
+      <h> <br> Phone Number <br> <br> </h>
+      <h>{{Phone}}</h> </div>
   </div>
 </template>
 
@@ -15,10 +18,12 @@
 export default {
   name: "Hero",
   props: {
-    description: String,
-    email: String,
-    phone: String,
-    image: String
+    Title: String,
+    Description: String,
+    Email: String,
+    Phone: String,
+    BackgroundImage: String,
+    EmailImage: String,
   }
 };
 </script>
@@ -27,43 +32,109 @@ export default {
 <style scoped>
 
 
-.img-container{
+.ContactContainer{
+  display: flex;
+  position: relative;
   width: 100%;
-  height: 600px;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .img{
+  display: flex;
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   overflow: hidden;
-  filter: saturate(300%) sepia(10%) brightness(70%);
+  filter: saturate(300%) grayscale(50%) brightness(50%);
 }
 
-.overlay {
+.TitleContainer {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 578px;
+  top: 75px;
   width: 100%;
-  transition: all .5s ease-in-out;
-  
+  margin: auto;
+  font-size: 5vw;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "TyposlabIrregular";
 }
 
-.description {
-  width: 75%;
-  color: rgb(255, 255, 255);
-  font-size: 30px;
+.DescriptionContainer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 225px;
+  width: 75%;
+  font-size: 2.5vw;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(255, 255, 255);
+  font-family: "King";
+}
+
+.EmailContainer {
+  position: absolute;
+  top: 350px;
+  left: 50px;
+  width: 45vw;
+  height: 45vh;
+  font-size: 2vw;
+  text-align: center;
+  color: Black;
+  font-family: "King";
+  background-color: AliceBlue;
+  filter: brightness(90%);;
+}
+
+.EmailContainer img {
+  width: 8vw;
+  height: 14vh;
+}
+
+.PhoneContainer {
+  position: absolute;
+  top: 350px;
+  right: 50px;
+  width: 45vw;
+  height: 45vh;
+  font-size: 2vw;
+  text-align: center;
+  color: Black;
+  font-family: "King";
+  background-color: AliceBlue;
+  filter: brightness(90%);
+}
+
+.PhoneContainer img {
+  width: 8vw;
+  height: 14vh;
+}
+
+
+@media (max-height: 500px) {
+
+.EmailContainer {
+  top: 275px;
+  font-size: 3vw;
+  color: aliceblue;
+  background-color: transparent;
+}
+
+.EmailContainer img {
+  display: none;
+}
+
+.PhoneContainer {
+  top: 275px;
+  font-size: 3vw;
+  color: aliceblue;
+  background-color: transparent;
+}
+
+.PhoneContainer img {
+  display: none;
+}
 
 }
 

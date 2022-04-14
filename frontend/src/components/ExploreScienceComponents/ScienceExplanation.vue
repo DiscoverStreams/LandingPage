@@ -1,5 +1,6 @@
 <template>
 <div class="ScienceContainer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
    <div class="Intro"> <h class="Title"> Explore Science </h>
     <p class="IntroDescription">Explore the science behind streamflow depletion, 
         understanding what it is, why it is a problem, and how we can measure how much is occurring. 
@@ -79,12 +80,13 @@ export default {
 }
 
 .IntroDescription {
-    width: 80%;
+    width: 75%;
     padding: 10px 10px;
     margin:auto;
     font-size: 1.3vw;
     font-family: "Orwell";
     color: aliceblue;
+    text-align: justify;
 }
 
 
@@ -93,79 +95,92 @@ export default {
     grid-template-columns: 4fr 4fr;
 }
 
+.LeftSide {
+    widows: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+}
+
+.RightSide {
+    widows: 100%;
+    height: 100%;
+    position: relative;
+    float: right;
+}
+
 .Subtitle {
-    margin-bottom: 10px;
-    font-size: 2vw;
+    font-size: 2.5vw;
     color: aliceblue;
     font-family: Handwriting;
 }
 
 .FirstImage {
+    width: 45vw;
     height: 50vh;
-    padding-left: 10px;
-    margin: 20px 0px;
+    margin: 20px 10px;
     background-color: SeaShell;
+    border: 5px solid LightSteelBlue;
 }
 
 .FirstImage img {
     float: left;
-    width: 45vw;
+    width: 100%;
     height: 50vh;
 }
 
 .FirstDescription {
+    widows: 10vw;
     height: 50vh;
-    padding: 0px 10px;
-    margin: 20px 0px;
-    font-size: 1.5vw;
-    text-align: justify;
+    margin: 20px 20px;
+    font-size: 2vw;
     font-family: "Orwell";
     color: aliceblue;
+    text-align: justify;
 }
 
 
 .SecondImage {
+    width: 50vw;
     height: 50vh;
-    padding-right: 10px;
-    margin: 20px 0px
+    margin: 10px 10px;
+    border: 5px solid LightSteelBlue;
 }
 
 .SecondImage img {
     float: right;
-    width: 50vw;
-    height: 50vh;
-    border-radius: 10%;
+    width: 100%;
+    height: 100%;
 }
 
 .SecondDescription {
-    width: 45vw;
+    width: 40vw;
     height: 50vh;
-    padding: 0px 10px;
-    margin: 20px 0px;
-    font-size: 1.25vw;
+    margin: 20px 20px 20px 20px;
+    font-size: 1.2vw;
     text-align: justify;
     font-family: "Orwell";
     color: aliceblue;
 }
 
 .ThirdImage {
+    width: 45vw;
     height: 50vh;
-    padding-left: 10px;
-    margin: 20px 0px;
+    margin: 20px 10px;
+    border: 5px solid LightSteelBlue;
 }
 
 .ThirdImage img {
     float: left;
-    width: 45vw;
+    width: 100%;
     height: 50vh;
-    border-radius: 10%;
 }
 
 .ThirdDescription {
+    width: 50vw;
     height: 50vh;
-    padding: 0px 10px;
-    margin: 20px 0px;
-    font-size: 1.5vw;
+    margin: 20px 20px;
+    font-size: 1.4vw;
     text-align: justify;
     font-family: "Orwell";
     color: aliceblue;

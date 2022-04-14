@@ -38,10 +38,10 @@
 }
 
 .BackgroundImage{
-    width:100%;
-    height:125vh;
     display: flex;
     position: absolute;
+    width:100%;
+    height:125vh;
 }
 
 .Title {
@@ -124,6 +124,20 @@
     color:azure;
     font-family: "Orwell";
     border-bottom: LightSlateGrey solid 2px;
+}
+
+@media (max-height: 510px) {
+
+.Divider {
+    position: absolute;
+    bottom: 0px;
+}
+
+.VisualizationLink {
+    position: absolute;
+    bottom: 10px;
+}
+
 }
 
 
