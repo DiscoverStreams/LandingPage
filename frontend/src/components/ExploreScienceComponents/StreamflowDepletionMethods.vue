@@ -2,14 +2,14 @@
 <div class="Container">
   <div class="Title"> The three approaches for determing streamflow depletion </div>
     <div class="FirstMethod">
-    <h4><strong><i>Analytical approaches:</i></strong> 
+    <h class="Methods"> <h class="MethodsTitle"> <i>Analytical approaches: </i> </h> 
     Analytical approaches use simplifying assumptions (commonly including linear streams and homogeneous aquifers)
      to derive an exact mathematical equation for streamflow depletion. 
      They have low data requirements and are relatively easy to use, 
      but these simplifying assumptions mean that they are very crude approximations of the real world. 
      They were the first approach to streamflow depletion estimation and are still used widely. 
      The Glover model and Hunt model are two widely used analytical solutions, 
-     and emerging approaches also include semi-analytical models and analytical depletion functions.</h4>
+     and emerging approaches also include semi-analytical models and analytical depletion functions.</h>
     <table>
       <tr>
         <th>Advantages</th>
@@ -34,8 +34,8 @@
       </tr>
     </table>     </div>
     <div class="SecondMethod">
-    <h4>
-      <strong><i>Numerical models:</i></strong> 
+    <h class="Methods">
+      <h class="MethodsTitle"> <i>Numerical models: </i> </h>  
       Numerical models estimate changes in water storage and flux associated with
        groundwater pumping across a variety of scales, and have been used to assess 
        streamflow depletion at scales ranging from small watersheds to global models. 
@@ -44,7 +44,7 @@
         and unsaturated zone processes. However, this increased complexity means that they can have 
         substantial data needs for parametrization and calibration, and require significant time and resources to develop. 
         Numerical models used for streamflow depletion estimation include MODFLOW, FEFLOW, ParFlow, HydroGeoSphere, and others. 
-    </h4>
+    </h>
     <table>
       <tr>
         <th>Advantages</th>
@@ -72,8 +72,8 @@
       </tr>
     </table> </div>
     <div class="ThirdMethod">
-    <h4>
-      <strong><i>Statistical approaches (including machine learning) : </i></strong> 
+    <h class="Methods">
+      <h class="MethodsTitle"> <i>Statistical approaches (including machine learning): </i> </h>  
       Statistical approaches attempt to infer streamflow depletion by analyzing the relationships 
       between different hydrologic variables such as streamflow, precipitation, and groundwater pumping.
        Statistical approaches are highly flexible to different input data and target metrics, 
@@ -81,7 +81,7 @@
         which attempt to document change (i.e., trend analysis), and statistical models, 
         which attempt to relate change in stream flow to potential predictor variables (i.e., regression analysis). 
         Other statistical approaches used for streamflow depletion estimation include time series analysis and machine learning. 
-    </h4>
+    </h>
     <table>
       <tr>
         <th>Advantages</th>
@@ -126,13 +126,20 @@ export default {
 }
 
 .Title {
+  margin-bottom: 1vw;
   font-size: 3vw;
   color: MintCream;
   font-family: "Handwriting";
 }
 
-h4 {
-      color: #dddddd;
+.Methods {
+  color: MintCream;
+  font-family: "PhilosopherBold";
+}
+
+.MethodsTitle {
+  font-size: 2vw;
+  font-family: "PhilosopherBold"
 }
 
 .FirstMethod {
@@ -154,7 +161,7 @@ table{
   font-size: 1.4vw;
   font-weight: 900;
   font-family: "Leorio";
-  margin: 3rem 0rem;
+  margin: 2vw 0vw;
   background-color: AliceBlue;
 }
 

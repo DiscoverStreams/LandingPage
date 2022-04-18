@@ -85,6 +85,17 @@ export default {
   src: url(./assets/Fonts/Leorio/Leorio.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "PhilosopherBold";
+  src: url(./assets/Fonts/Philosopher/Philosopher-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PhilospoherBoldItalic";
+  src: url(./assets/Fonts/Philosopher/Philosopher-BoldItalic) format("truetype");
+}
+
+
 
 #app {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

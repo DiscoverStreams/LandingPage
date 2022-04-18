@@ -126,6 +126,19 @@
     border-bottom: LightSlateGrey solid 2px;
 }
 
+.VisualizationLink a {
+    color:MistyRose;
+}
+
+.VisualizationLink a:hover {
+    color: NavajoWhite;
+}
+
+.VisualizationLink a:active {
+    color: MediumTurquoise;
+}
+
+
 @media (max-height: 510px) {
 
 .Divider {

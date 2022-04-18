@@ -47,7 +47,7 @@ export default {
 .Container{
   display: flex;
   flex-direction: column;
-  height: 175px;
+  height: 225px;
   justify-content: center;
   z-index: 999;
   background-color: black;
@@ -56,7 +56,7 @@ export default {
 
 .Title{
   display: flex;
-  margin: 0;
+  margin-bottom: 10px;
   justify-content: center;
   font-size: 2vw;
   color: Silver;
@@ -68,9 +68,8 @@ export default {
   width: 100%;
   margin: 0 auto 0 auto;
   justify-content: space-around;
-  background-color: LightSteelBlue;
-  border: 5px solid DarkSlateGrey;
-  border-radius: 40%;
+  background-color: SlateGrey;
+  border: 0.4vw solid LightSteelBlue;
 }
 
 .logos{
