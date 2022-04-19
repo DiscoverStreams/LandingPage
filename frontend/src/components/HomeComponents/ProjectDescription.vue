@@ -1,6 +1,6 @@
 <template>
 <div class="ProjectDescriptionContainer"> 
-    <img class="BackgroundImage" src="@/assets/test.jpg">
+    <img class="BackgroundImage" src="@/assets/BackgroundImages/ProjectDescriptionBackground.jpg">
     <h class="Title"> Research, Collaborate, Visualize, Solve <br> </h>
 
 <div class="ProjectDescriptionGrids">
@@ -127,7 +127,7 @@
 }
 
 .VisualizationLink a {
-    color:MistyRose;
+    color:Indigo;
 }
 
 .VisualizationLink a:hover {

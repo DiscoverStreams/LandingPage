@@ -1,8 +1,8 @@
 <template>
 <div class="Nav-Container">
     <router-link to="/"> <div class="nav-child logo-container">    
-    <img class="LogoBackground" src="@/assets/LogoContainer.svg">
-    <img class="logo" src="@/assets/Logo.png" alt="Top-left LOGO which is always displayed">
+    <img class="LogoBackground" src="@/assets/DiscoverStreamsLogo/LogoContainer.svg">
+    <img class="logo" src="@/assets/DiscoverStreamsLogo/Logo.png" alt="Top-left LOGO which is always displayed">
     <h1 class="header">DiscoverStreams</h1>
         <h2 class="ProjectDescription"> Visualizing streamflow depletion across the intercontinental USA </h2>
     </div>

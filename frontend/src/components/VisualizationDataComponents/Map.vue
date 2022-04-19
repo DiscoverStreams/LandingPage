@@ -79,8 +79,8 @@ export default {
           'type': 'circle',
           'source': 'California',
           'paint': {
-            'circle-radius': 5,
-            'circle-color': 'white'
+            'circle-radius': 6,
+            'circle-color': 'DarkMagenta'
             },
             });
 
@@ -89,18 +89,18 @@ export default {
           'type': 'circle',
           'source': 'Michigan',
           'paint': {
-            'circle-radius': 5,
-            'circle-color': 'white'
+            'circle-radius': 6,
+            'circle-color': 'DarkMagenta'
             },
             });
 
         map.addLayer({
           'id': 'Kansas-Gauge-Stations',
-          'type': 'symbol',
+          'type': 'circle',
           'source': 'Kansas',
-          'layout': {
-            'icon-image': 'Icon',
-            'icon-size': 0.03
+          'paint': {
+            'circle-radius': 6,
+            'circle-color': 'DarkMagenta'
             },
             });
           }

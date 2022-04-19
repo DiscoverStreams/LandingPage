@@ -8,11 +8,14 @@
 </template>
 
 <script>
+
+import AusableRiver from "@/assets/ProjectImages/Ausable_river.jpg"
+
 export default {
   name: "Hero",
   data: () => ({
     description: "DiscoverStreams is an ongoing project being developed as part of a USGS Powell Center for Data Analysis and Synthesis Working Group led by researchers at the University of Waterloo, University of Kansas, and USGS. Questions can be directed towards Andrea Brookfield",
-    image: "src/assets/ProjectImages/Ausable_river.jpg"
+    image: AusableRiver
   })
 };
 </script>

@@ -12,7 +12,7 @@
         <img 
           v-else-if="!member.image"
           class="img" 
-          :src="'src/assets/teamImages/face.jpg'"
+          src="@/assets/TeamImages/Face.jpg"
           :alt="member.name"
         >
         <div class="description">
@@ -25,6 +25,13 @@
 </template>
 
 <script>
+
+import WF from "@/assets/TeamImages/WilliamFarmer.jpg"
+import SZ from "@/assets/TeamImages/SamZipper.jpg"
+import HA from "@/assets/TeamImages/HooriAjami.jpg"
+import TG from "@/assets/TeamImages/TomGleeson.jpg"
+import GV from "@/assets/TeamImages/GabrieleVillarini.jpg"
+import MP from "@/assets/TeamImages/MistyPorter.jpg"
 
 export default {
   name: "Team",
@@ -39,7 +46,7 @@ export default {
       {
         name: 'Will Farmer',
         affiliation: 'USGS - Lakewood CO',
-        image: 'src/assets/TeamImages/WilliamFarmer.jpg'
+        image: WF
       },
       {
         name: 'Mary Hill',
@@ -48,12 +55,12 @@ export default {
       {
         name: 'Samuel Zipper',
         affiliation: 'Kansas Geological Survey',
-        image: 'src/assets/TeamImages/SamZipper.jpg'
+        image: SZ
       },
       {
         name: 'Hoori Ajami',
         affiliation: 'UC Riverside',
-        image: 'src/assets/TeamImages/HooriAjami.jpg'
+        image: HA
       },
       {
         name: 'Jillian Deines',
@@ -72,7 +79,7 @@ export default {
       {
         name: 'Tom Gleeson',
         affiliation: 'University of Victoria',
-        image: 'src/assets/TeamImages/TomGleeson.jpg'
+        image: TG
       },
       {
         name: 'Ben Kerr',
@@ -93,12 +100,12 @@ export default {
       {
         name: 'Gabriele Villarini',
         affiliation: 'University of Iowa',
-        image: 'src/assets/TeamImages/GabrieleVillarini.jpg'
+        image: GV
       },
       {
         name: 'Misty Porter',
         affiliation: 'University of Kansas',
-        image: 'src/assets/TeamImages/MistyPorter.jpg'
+        image: MP
       },
       {
         name: 'Lauren Hay',

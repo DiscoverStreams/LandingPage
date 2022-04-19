@@ -1,10 +1,10 @@
 <template>
 <div class="Nav-Container">
-  <img class="NavBackground" src="@/assets/test7.jpg">
+  <img class="NavBackground" src="@/assets/BackgroundImages/NavbarBackground.jpg">
   
   <router-link to="/">
   <div class="nav-child logo-container">    
-    <img class="Logo" src="@/assets/Logo.png" alt="Top-left LOGO which is always displayed">
+    <img class="Logo" src="@/assets/DiscoverStreamsLogo/Logo.png" alt="Top-left LOGO which is always displayed">
     <h3 class="Header">DiscoverStreams</h3>
     </div>
     </router-link>
@@ -28,13 +28,10 @@
 
 <script>
 
-import hamburger from '../assets/hamburger.svg'
-
 export default {
   name: "NavBar",
 
   data: () => ({
-    Hamburger: hamburger,
     open: false,
     information: false,
     content: false,

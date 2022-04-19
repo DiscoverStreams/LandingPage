@@ -1,8 +1,8 @@
 <template>
   <div class="FooterContainer">
-    <img class="FooterBackground" src="@/assets/test5.jpg">
+    <img class="FooterBackground" src="@/assets/BackgroundImages/FooterBackground.jpg">
       <div class="logo-container">
-        <img class="logo" src="@/assets/Logo.png">
+        <img class="logo" src="@/assets/DiscoverStreamsLogo/Logo.png">
         <div class="FooterHeader"> DiscoverStreams</div>
       </div>
       

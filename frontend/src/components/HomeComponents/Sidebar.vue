@@ -9,7 +9,8 @@
             <p class="ProjectDescription">  Learn about the Goal of DiscoverStreams </p> </div>
             <div class="LinkBottom"> </div>
         </div>
-        <div class="RightColumn"> <img class="SideBarRightBackgroundImage" src="@/assets/test2.jpg">
+        <div class="RightColumn"> <img class="SideBarRightBackgroundImage"
+         src="@/assets/BackgroundImages/SidebarRightBackground.jpg">
         <div class="RightColumnLinks"> <div class="LinkTop"> </div>
             <div class="ScienceLink"> <router-link to="/ExploreScience"> Beyond The Science</router-link>
             <p class="ScienceDescription"> Learn of the Science of Streamflow Depletion </p> </div>

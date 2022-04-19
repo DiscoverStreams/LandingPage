@@ -9,29 +9,34 @@
 
 <script>
 
+import USGSPowellCenter from "@/assets/AffiliateLogos/USGSPowellCenter.png"
+import Waterloo from "@/assets/AffiliateLogos/WaterlooU.png"
+import KansasUniversity from "@/assets/AffiliateLogos/KansasUniversity.png"
+import VictoriaUniversity from "@/assets/AffiliateLogos/UniversityOfVictoria.png"
+
 export default {
   name: "Affiliations",
   data: () => ({
     title: 'Also In Partnership with',
     affiliations: [
       {
-        image: 'src/assets/affiliateLogos/USGSPowellCenter.png',
+        image: USGSPowellCenter,
         alt: 'USGS',
         name: 'USGS Powell Center'
       },
       {
-        image: 'src/assets/affiliateLogos/WaterlooU.png',
+        image: Waterloo,
         alt: 'UW',
         name: 'University of Waterloo'
       },
       {
-        image: 'src/assets/affiliateLogos/KansasUniversity.png',
+        image: KansasUniversity,
         alt: 'UK',
         name: 'University of Kansas'
       },
       
       {
-        image: 'src/assets/affiliateLogos/UniversityOfVictoria.png',
+        image: VictoriaUniversity,
         alt: 'UI',
         name: 'University of Victoria'
       }, 

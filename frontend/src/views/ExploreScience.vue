@@ -1,6 +1,6 @@
 <template>
   <div class="Container">
-    <img class="NavBackground" src="@/assets/testdarkbackground.jpg">
+    <img class="NavBackground" src="@/assets/BackgroundImages/ExploreScienceBackground.jpg">
     <NavBar />
     <ScienceExplanation />
     <DepletionMethods />
